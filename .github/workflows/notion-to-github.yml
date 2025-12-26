@@ -8,14 +8,16 @@ jobs:
   sync-notion:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
+      - name: 检出仓库代码
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 1  # 确保完整检出代码
 
       - name: Set up Python
         uses: actions/setup-python@v5
         with:
           python-version: '3.11'
-          # 关键：确保 pip 可用并升级
-          cache: 'pip'
+          # 移除 cache 配置，避免寻找 requirements.txt
 
       - name: 强制安装依赖（解决模块缺失）
         run: |
