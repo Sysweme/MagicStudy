@@ -1,22 +1,36 @@
 name: 🔄 Sync Notion Page to GitHub
 
 on:
-  schedule:
-    - cron: '0 2 * * *'  # 每天 UTC 2 点运行
-  workflow_dispatch:      # 允许手动触发
+  workflow_dispatch:
 
 jobs:
   sync:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.11'
+
+      - name: Install notion2md from GitHub
+        run: |
+          pip install git+https://github.com/echo77/notion2md.git@main
 
       - name: Fetch Notion Page as Markdown
         run: |
-          pip install notion2md
-          notion2md export --token ${{ secrets.NOTION_TOKEN }} \
-                           --page_id ${{ secrets.NOTION_PAGE_ID }} \
-                           --output_filename "notion-export"
+          echo "Token: ${{ secrets.NOTION_TOKEN }}"
+          echo "Page ID: ${{ secrets.NOTION_PAGE_ID }}"
+
+          # 使用 --no-images 避免图片下载问题
+          notion2md export \
+            --token ${{ secrets.NOTION_TOKEN }} \
+            --page_id ${{ secrets.NOTION_PAGE_ID }} \
+            --output_filename "notion-export" \
+            --no-images \
+            --debug
 
       - name: Commit and Push
         run: |
