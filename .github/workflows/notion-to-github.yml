@@ -11,34 +11,31 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
-      # 1. 配置 Python 环境（解决 pip 无法使用的问题）
+      # 1. 配置 Python 环境
       - name: Set up Python
         uses: actions/setup-python@v5
         with:
-          python-version: '3.11'  # 指定稳定版本
+          python-version: '3.11'
 
-      # 2. 安装 notion2md 并导出 Notion 页面（修正命令参数）
+      # 2. 安装 notion2md 并导出 Notion 页面（修正新版参数）
       - name: Fetch Notion Page as Markdown
         run: |
           pip install notion2md
-          # 创建输出目录，避免文件散落
+          # 创建输出目录
           mkdir -p ./notion-exports
-          # 正确的导出命令：-t 指定 token，-n 指定 page_id，-o 指定输出目录
-          notion2md -t ${{ secrets.NOTION_TOKEN }} \
-                    -n ${{ secrets.NOTION_PAGE_ID }} \
-                    -o ./notion-exports \
-                    --download True  # 自动下载图片等资源
-        # 捕获错误但不终止流程（增强健壮性）
+          # 新版 notion2md 正确命令：--token 指定令牌，--id 指定页面ID，--output 指定目录
+          notion2md --token ${{ secrets.NOTION_TOKEN }} \
+                    --id ${{ secrets.NOTION_PAGE_ID }} \
+                    --output ./notion-exports \
+                    --download True  # 自动下载图片资源
         continue-on-error: false
 
-      # 3. 提交并推送变更（优化提交逻辑）
+      # 3. 提交并推送变更
       - name: Commit and Push
         run: |
           git config --global user.name "GitHub Actions"
           git config --global user.email "actions@github.com"
-          # 仅添加导出目录的文件，避免误操作其他文件
           git add ./notion-exports/*
-          # 检查是否有变更，无变更则跳过提交
           if ! git diff --staged --quiet; then
             git commit -m "🔄 自动同步 Notion 页面 $(date +'%Y-%m-%d %H:%M:%S')"
             git push
