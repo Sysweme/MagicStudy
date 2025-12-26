@@ -5,7 +5,7 @@ on:
   workflow_dispatch:
 
 jobs:
-  sync:
+  sync-notion:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
@@ -15,18 +15,72 @@ jobs:
         with:
           python-version: '3.11'
 
-      - name: 批量拉取 Notion 页面（修正环境变量传令牌）
-        run: |
-          pip install --force-reinstall notion2md==2.8.0
-          mkdir -p ./notion-exports
-          # 关键：通过环境变量 NOTION_TOKEN 传入令牌，而非命令行参数
-          export NOTION_TOKEN=${{ secrets.NOTION_TOKEN }}
-          notion2md -n ${{ secrets.NOTION_DATABASE_ID }} \
-                    -o ./notion-exports \
-                    --download True
-        continue-on-error: false
+      - name: 安装依赖
+        run: pip install notion-sdk-py python-dotenv markdownify
 
-      - name: 提交推送
+      - name: 运行批量导出脚本
+        env:
+          NOTION_TOKEN: ${{ secrets.NOTION_TOKEN }}
+          NOTION_PAGE_ID: ${{ secrets.NOTION_DATABASE_ID }}
+        run: |
+          # 创建导出目录
+          mkdir -p ./notion-exports
+          # 写入自定义脚本
+          cat > notion-export.py << 'EOF'
+          import os
+          import re
+          from notion_client import Client
+          from markdownify import markdownify as md
+          from pathlib import Path
+
+          # 初始化 Notion 客户端
+          notion = Client(auth=os.environ.get("NOTION_TOKEN"))
+          root_page_id = os.environ.get("NOTION_PAGE_ID")
+          output_dir = Path("./notion-exports")
+
+          # 递归获取所有子页面
+          def get_all_pages(page_id, parent_path):
+              try:
+                  # 获取当前页面内容
+                  page = notion.pages.retrieve(page_id=page_id)
+                  page_title = page["properties"].get("title", {}).get("title", [{}])[0].get("plain_text", "Untitled")
+                  # 清理标题中的非法字符
+                  page_title = re.sub(r'[<>:"/\\|?*]', "_", page_title)
+                  current_path = parent_path / page_title
+
+                  # 获取页面块内容
+                  blocks = notion.blocks.children.list(block_id=page_id)["results"]
+                  content = []
+                  for block in blocks:
+                      if block["type"] == "paragraph" and block["paragraph"]["rich_text"]:
+                          content.append(md(str(block["paragraph"]["rich_text"])))
+                      elif block["type"] == "heading_1" and block["heading_1"]["rich_text"]:
+                          content.append(f"# {md(str(block['heading_1']['rich_text']))}")
+                      elif block["type"] == "heading_2" and block["heading_2"]["rich_text"]:
+                          content.append(f"## {md(str(block['heading_2']['rich_text']))}")
+                      elif block["type"] == "heading_3" and block["heading_3"]["rich_text"]:
+                          content.append(f"### {md(str(block['heading_3']['rich_text']))}")
+                      # 可扩展支持更多块类型（如列表、图片）
+
+                  # 写入 Markdown 文件
+                  with open(current_path.with_suffix(".md"), "w", encoding="utf-8") as f:
+                      f.write("\n\n".join(content))
+
+                  # 递归处理子页面
+                  for block in blocks:
+                      if block["type"] == "child_page":
+                          get_all_pages(block["id"], current_path.parent)
+              except Exception as e:
+                  print(f"处理页面 {page_id} 失败: {e}")
+
+          # 启动递归导出
+          get_all_pages(root_page_id, output_dir)
+          print("批量导出完成！")
+          EOF
+          # 执行脚本
+          python notion-export.py
+
+      - name: 提交并推送
         run: |
           git config --global user.name "GitHub Actions"
           git config --global user.email "actions@github.com"
