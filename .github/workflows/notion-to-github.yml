@@ -19,16 +19,15 @@ jobs:
 
       # 2. 安装 2.8.0 并导出（完全匹配官方参数）
       - name: Fetch Notion Page as Markdown
-  env:
-    NOTION_TOKEN: ${{ secrets.NOTION_TOKEN }}   # 👈 关键：通过环境变量传入
-  run: |
-    pip install --force-reinstall notion2md==2.8.0
-    mkdir -p ./notion-exports
-    # 注意：这里不再写 --token！
-    notion2md \
-      -n ${{ secrets.NOTION_PAGE_ID }} \
-      -o ./notion-exports \
-      --download
+        env:
+          NOTION_TOKEN: ${{ secrets.NOTION_TOKEN }}
+        run: |
+          pip install --force-reinstall notion2md==2.8.0
+          mkdir -p ./notion-exports
+          notion2md \
+            -n ${{ secrets.NOTION_PAGE_ID }} \
+            -o ./notion-exports \
+            --download
         continue-on-error: false
 
       # 3. 提交并推送变更
@@ -36,8 +35,7 @@ jobs:
         run: |
           git config --global user.name "GitHub Actions"
           git config --global user.email "actions@github.com"
-          git add ./notion-exports/*
-          # 仅当有文件变更时才提交
+          git add ./notion-exports/
           if ! git diff --staged --quiet; then
             git commit -m "🔄 自动同步 Notion 页面 $(date +'%Y-%m-%d %H:%M:%S')"
             git push
