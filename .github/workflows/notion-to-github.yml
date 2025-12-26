@@ -11,27 +11,26 @@ jobs:
       - name: 检出仓库代码
         uses: actions/checkout@v4
         with:
-          fetch-depth: 1  # 确保完整检出代码
+          fetch-depth: 1
 
       - name: Set up Python
         uses: actions/setup-python@v5
         with:
           python-version: '3.11'
-          # 移除 cache 配置，避免寻找 requirements.txt
 
-      - name: 强制安装依赖（解决模块缺失）
-        run: |
-          python -m pip install --upgrade pip
-          pip install --force-reinstall notion-sdk-py python-dotenv markdownify
-          # 验证安装是否成功
-          pip list | grep notion-sdk-py
-
-      - name: 运行批量导出脚本
+      - name: 安装依赖并运行导出脚本（合并为单个 run 步骤）
         env:
           NOTION_TOKEN: ${{ secrets.NOTION_TOKEN }}
           NOTION_PAGE_ID: ${{ secrets.NOTION_DATABASE_ID }}
         run: |
+          # 升级 pip + 安装依赖（与脚本同一会话）
+          python -m pip install --upgrade pip
+          pip install --force-reinstall notion-sdk-py python-dotenv markdownify
+          # 验证依赖安装
+          pip show notion-sdk-py
+          # 创建导出目录
           mkdir -p ./notion-exports
+          # 写入并执行脚本
           cat > notion-export.py << 'EOF'
           import os
           import re
@@ -79,6 +78,7 @@ jobs:
           get_all_pages(root_page_id, output_dir)
           print("批量导出完成！")
           EOF
+          # 执行脚本
           python notion-export.py
 
       - name: 提交并推送
