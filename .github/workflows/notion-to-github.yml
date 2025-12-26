@@ -1,44 +1,14 @@
-name: 🔄 Sync Notion Page to GitHub
-
+name: sync-notion-to-github
 on:
   schedule:
-    - cron: '0 2 * * *'  # 每天 UTC 2 点运行
-  workflow_dispatch:      # 允许手动触发
-
+    - cron: '0 0 * * *'  # 每日UTC 0点自动同步
+  workflow_dispatch: # 支持手动触发同步
 jobs:
   sync:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
-
-      # 1. 配置 Python 环境
-      - name: Set up Python
-        uses: actions/setup-python@v5
+      - name: notion-sync
+        uses: YouXam/Notion-GitHub-Sync@v2
         with:
-          python-version: '3.11'
-
-      # 2. 安装 2.8.0 并导出（完全匹配官方参数）
-      - name: Fetch Notion Page as Markdown
-        env:
-          NOTION_TOKEN: ${{ secrets.NOTION_TOKEN }}
-        run: |
-          pip install --force-reinstall notion2md==2.8.0
-          mkdir -p ./notion-exports
-          notion2md \
-            ${{ secrets.NOTION_DATABASE_ID }} \
-            --output-dir ./notion-exports \
-            --download
-        continue-on-error: false
-
-      # 3. 提交并推送变更
-      - name: Commit and Push
-        run: |
-          git config --global user.name "GitHub Actions"
-          git config --global user.email "actions@github.com"
-          git add ./notion-exports/
-          if ! git diff --staged --quiet; then
-            git commit -m "🔄 自动同步 Notion 页面 $(date +'%Y-%m-%d %H:%M:%S')"
-            git push
-          else
-            echo "Notion 页面无变更，跳过提交"
-          fi
+          notion_token: ${{ secrets.NOTION_TOKEN }}
+          subdir: true 
