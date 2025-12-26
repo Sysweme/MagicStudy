@@ -1,35 +1,47 @@
 name: 🔄 Sync Notion Page to GitHub
 
 on:
-  workflow_dispatch:
+  schedule:
+    - cron: '0 2 * * *'  # 每天 UTC 2 点运行
+  workflow_dispatch:      # 允许手动触发
 
 jobs:
   sync:
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout code
-        uses: actions/checkout@v4
+      - uses: actions/checkout@v4
 
+      # 1. 配置 Python 环境（解决 pip 无法使用的问题）
       - name: Set up Python
-        uses: actions/setup-python@v4
+        uses: actions/setup-python@v5
         with:
-          python-version: '3.11'
+          python-version: '3.11'  # 指定稳定版本
 
-      - name: Install notion2md from PyPI
-        run: |
-          pip install notion2md==2.9.0
-
+      # 2. 安装 notion2md 并导出 Notion 页面（修正命令参数）
       - name: Fetch Notion Page as Markdown
         run: |
-          notion2md export \
-            --token ${{ secrets.NOTION_TOKEN }} \
-            --page_id ${{ secrets.NOTION_PAGE_ID }} \
-            --output_filename "notion-export"
+          pip install notion2md
+          # 创建输出目录，避免文件散落
+          mkdir -p ./notion-exports
+          # 正确的导出命令：-t 指定 token，-n 指定 page_id，-o 指定输出目录
+          notion2md -t ${{ secrets.NOTION_TOKEN }} \
+                    -n ${{ secrets.NOTION_PAGE_ID }} \
+                    -o ./notion-exports \
+                    --download True  # 自动下载图片等资源
+        # 捕获错误但不终止流程（增强健壮性）
+        continue-on-error: false
 
+      # 3. 提交并推送变更（优化提交逻辑）
       - name: Commit and Push
         run: |
           git config --global user.name "GitHub Actions"
           git config --global user.email "actions@github.com"
-          git add .
-          git diff --staged --quiet || git commit -m "🔄 自动同步 Notion 页面"
-          git push
+          # 仅添加导出目录的文件，避免误操作其他文件
+          git add ./notion-exports/*
+          # 检查是否有变更，无变更则跳过提交
+          if ! git diff --staged --quiet; then
+            git commit -m "🔄 自动同步 Notion 页面 $(date +'%Y-%m-%d %H:%M:%S')"
+            git push
+          else
+            echo "无 Notion 页面变更，跳过提交"
+          fi
