@@ -1,0 +1,540 @@
+
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>艾泽拉斯召唤系学派全面研究报告</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <style>
+        body {
+            font-family: 'Inter', 'Microsoft YaHei', sans-serif;
+            background-color: #FFFFFF;
+        }
+        .card {
+            background-color: white;
+            border: 1px solid #E5E7EB;
+            border-radius: 1.25rem;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+            transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+            overflow: hidden;
+            position: relative;
+        }
+        .highlight-gradient-blue {
+            background: linear-gradient(135deg, rgba(59, 130, 246, 0), rgba(59, 130, 246, 0.05));
+        }
+        .highlight-gradient-purple {
+            background: linear-gradient(135deg, rgba(139, 92, 246, 0), rgba(139, 92, 246, 0.05));
+        }
+        .highlight-gradient-red {
+            background: linear-gradient(135deg, rgba(239, 68, 68, 0), rgba(239, 68, 68, 0.05));
+        }
+        .highlight-gradient-green {
+            background: linear-gradient(135deg, rgba(34, 197, 94, 0), rgba(34, 197, 94, 0.05));
+        }
+        .highlight-gradient-orange {
+            background: linear-gradient(135deg, rgba(249, 115, 22, 0), rgba(249, 115, 22, 0.05));
+        }
+        .highlight-gradient-teal {
+            background: linear-gradient(135deg, rgba(20, 184, 166, 0), rgba(20, 184, 166, 0.05));
+        }
+        .text-gradient-blue {
+            background: linear-gradient(90deg, #3B82F6, #60A5FA);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .text-gradient-purple {
+            background: linear-gradient(90deg, #8B5CF6, #A78BFA);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .text-gradient-red {
+            background: linear-gradient(90deg, #EF4444, #F87171);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .text-gradient-green {
+            background: linear-gradient(90deg, #22C55E, #4ADE80);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .text-gradient-orange {
+            background: linear-gradient(90deg, #F97316, #FB923C);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .text-gradient-teal {
+            background: linear-gradient(90deg, #14B8A6, #2DD4BF);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+    </style>
+</head>
+<body class="bg-white">
+    <div class="max-w-7xl mx-auto p-4 md:p-8">
+        <div class="grid grid-cols-1 md:grid-cols-4 gap-4 md:gap-6">
+            <!-- 标题卡片 -->
+            <div class="card md:col-span-4 p-8 flex flex-col justify-center">
+                <div class="absolute top-0 left-0 w-full h-full highlight-gradient-blue"></div>
+                <div class="relative">
+                    <div class="text-sm font-semibold text-blue-500 mb-2">CONJURATION SCHOOL RESEARCH</div>
+                    <div class="text-4xl md:text-6xl font-bold text-gray-800 mb-4">艾泽拉斯召唤系学派</div>
+                    <div class="text-3xl md:text-5xl font-bold text-gradient-blue">全面研究报告</div>
+                    <div class="mt-6 text-gray-500 max-w-3xl">
+                        深入探索跨越位面界限、沟通异界力量的神秘技艺，解析从基础召唤术到高阶召唤魔法的完整法术体系。
+                    </div>
+                </div>
+            </div>
+
+            <!-- 引言卡片 -->
+            <div class="card md:col-span-2 p-6 flex flex-col">
+                <div class="absolute top-0 left-0 w-full h-full highlight-gradient-purple"></div>
+                <div class="relative flex-grow flex flex-col">
+                    <div class="flex items-center mb-4">
+                        <i class="fas fa-scroll text-purple-500 text-xl mr-3"></i>
+                        <div class="text-xl font-bold text-gray-800">引言</div>
+                    </div>
+                    <div class="text-gray-600 space-y-3 flex-grow">
+                        <p>召唤系代表着<span class="font-semibold text-purple-600">跨越位面界限、沟通异界力量</span>的神秘技艺，最显著的特征在于能够将存在于其他位面的生物、能量或物品召唤到施法者所在的现实世界。</p>
+                        <p>在当代，召唤系已发展成为包含<span class="font-semibold text-purple-600">元素召唤、恶魔召唤、生物召唤、亡灵召唤</span>等多个分支的庞大魔法体系。</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 核心概念卡片 -->
+            <div class="card p-6 flex flex-col">
+                <div class="absolute top-0 left-0 w-full h-full highlight-gradient-teal"></div>
+                <div class="relative flex-grow flex flex-col">
+                    <div class="text-teal-500 text-4xl font-bold mb-2">核心概念</div>
+                    <div class="text-lg font-semibold text-gray-800 mb-4">跨位面物质转移</div>
+                    <div class="flex-grow text-gray-600">
+                        通过魔法手段将存在于其他位面的生物、能量或物品召唤到施法者所在的现实世界，实现真正意义上的跨位面物质转移。
+                    </div>
+                </div>
+            </div>
+
+            <!-- 分支统计卡片 -->
+            <div class="card p-6 flex flex-col">
+                <div class="absolute top-0 left-0 w-full h-full highlight-gradient-orange"></div>
+                <div class="relative flex-grow flex flex-col">
+                    <div class="text-orange-500 text-4xl font-bold mb-2">四大分支</div>
+                    <div class="space-y-2 flex-grow">
+                        <div class="flex items-center">
+                            <div class="w-3 h-3 bg-orange-400 rounded-full mr-3"></div>
+                            <span class="text-gray-700">元素召唤</span>
+                        </div>
+                        <div class="flex items-center">
+                            <div class="w-3 h-3 bg-red-400 rounded-full mr-3"></div>
+                            <span class="text-gray-700">恶魔召唤</span>
+                        </div>
+                        <div class="flex items-center">
+                            <div class="w-3 h-3 bg-green-400 rounded-full mr-3"></div>
+                            <span class="text-gray-700">生物召唤</span>
+                        </div>
+                        <div class="flex items-center">
+                            <div class="w-3 h-3 bg-purple-400 rounded-full mr-3"></div>
+                            <span class="text-gray-700">亡灵召唤</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 理论基础卡片 -->
+            <div class="card md:col-span-2 p-6">
+                <div class="absolute top-0 left-0 w-full h-full highlight-gradient-blue"></div>
+                <div class="relative">
+                    <div class="flex items-center mb-4">
+                        <i class="fas fa-atom text-blue-500 text-xl mr-3"></i>
+                        <div class="text-xl font-bold text-gray-800">理论基础与核心原理</div>
+                    </div>
+                    <div class="space-y-4">
+                        <div class="bg-blue-50 p-4 rounded-lg">
+                            <div class="font-semibold text-blue-800 mb-2">位面重叠理论</div>
+                            <div class="text-sm text-blue-700">同一空间位置上，重合着各个位面，召唤系法师的工作就是在这些重叠的位面之间建立临时通道。</div>
+                        </div>
+                        <div class="bg-blue-50 p-4 rounded-lg">
+                            <div class="font-semibold text-blue-800 mb-2">召唤契约机制</div>
+                            <div class="text-sm text-blue-700">确保召唤者对被召唤生物的控制权，规定双方的权利和义务，涉及血液献祭、灵魂绑定和魔力抵押。</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 能量消耗图表卡片 -->
+            <div class="card md:col-span-2 p-6">
+                <div class="absolute top-0 left-0 w-full h-full highlight-gradient-red"></div>
+                <div class="relative h-full">
+                    <div class="flex items-center mb-4">
+                        <i class="fas fa-bolt text-red-500 text-xl mr-3"></i>
+                        <div class="text-xl font-bold text-gray-800">召唤法术能量消耗</div>
+                    </div>
+                    <div class="h-64">
+                        <canvas id="energyChart"></canvas>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 法术等级卡片 -->
+            <div class="card md:col-span-2 p-6">
+                <div class="absolute top-0 left-0 w-full h-full highlight-gradient-purple"></div>
+                <div class="relative">
+                    <div class="flex items-center mb-4">
+                        <i class="fas fa-layer-group text-purple-500 text-xl mr-3"></i>
+                        <div class="text-xl font-bold text-gray-800">法术等级分类与体系架构</div>
+                    </div>
+                    <div class="grid grid-cols-3 gap-4">
+                        <div class="bg-purple-50 p-4 rounded-lg text-center">
+                            <div class="text-3xl font-bold text-purple-600 mb-1">0-3</div>
+                            <div class="text-sm font-semibold text-purple-800">学徒级召唤</div>
+                            <div class="text-xs text-purple-700 mt-1">召唤小鬼、虚空行者等基础生物</div>
+                        </div>
+                        <div class="bg-purple-50 p-4 rounded-lg text-center">
+                            <div class="text-3xl font-bold text-purple-600 mb-1">4-6</div>
+                            <div class="text-sm font-semibold text-purple-800">中级召唤</div>
+                            <div class="text-xs text-purple-700 mt-1">召唤地狱猎犬、魅魔等强大生物</div>
+                        </div>
+                        <div class="bg-purple-50 p-4 rounded-lg text-center">
+                            <div class="text-3xl font-bold text-purple-600 mb-1">7-9</div>
+                            <div class="text-sm font-semibold text-purple-800">高阶召唤</div>
+                            <div class="text-xs text-purple-700 mt-1">召唤地狱火、末日守卫等强大存在</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 元素召唤卡片 -->
+            <div class="card p-6">
+                <div class="absolute top-0 left-0 w-full h-full highlight-gradient-green"></div>
+                <div class="relative flex flex-col h-full">
+                    <div class="flex items-center mb-4">
+                        <i class="fas fa-water text-green-500 text-xl mr-3"></i>
+                        <div class="text-lg font-bold text-gray-800">元素召唤</div>
+                    </div>
+                    <div class="space-y-3 flex-grow">
+                        <div class="flex items-center">
+                            <i class="fas fa-fire text-red-500 w-5"></i>
+                            <span class="ml-2 text-gray-700">火元素</span>
+                        </div>
+                        <div class="flex items-center">
+                            <i class="fas fa-water text-blue-500 w-5"></i>
+                            <span class="ml-2 text-gray-700">水元素</span>
+                        </div>
+                        <div class="flex items-center">
+                            <i class="fas fa-mountain text-yellow-700 w-5"></i>
+                            <span class="ml-2 text-gray-700">土元素</span>
+                        </div>
+                        <div class="flex items-center">
+                            <i class="fas fa-wind text-gray-400 w-5"></i>
+                            <span class="ml-2 text-gray-700">风元素</span>
+                        </div>
+                    </div>
+                    <div class="mt-4 pt-4 border-t border-green-100">
+                        <div class="text-xs text-green-700">
+                            <i class="fas fa-info-circle mr-1"></i>
+                            元素召唤是最"纯净"的分支，与自然秩序协调
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 恶魔召唤卡片 -->
+            <div class="card p-6">
+                <div class="absolute top-0 left-0 w-full h-full highlight-gradient-red"></div>
+                <div class="relative flex flex-col h-full">
+                    <div class="flex items-center mb-4">
+                        <i class="fas fa-demon text-red-500 text-xl mr-3"></i>
+                        <div class="text-lg font-bold text-gray-800">恶魔召唤</div>
+                    </div>
+                    <div class="space-y-3 flex-grow">
+                        <div class="flex items-center">
+                            <i class="fas fa-imp text-orange-500 w-5"></i>
+                            <span class="ml-2 text-gray-700">小鬼</span>
+                        </div>
+                        <div class="flex items-center">
+                            <i class="fas fa-shield-alt text-purple-500 w-5"></i>
+                            <span class="ml-2 text-gray-700">虚空行者</span>
+                        </div>
+                        <div class="flex items-center">
+                            <i class="fas fa-dog text-red-500 w-5"></i>
+                            <span class="ml-2 text-gray-700">地狱猎犬</span>
+                        </div>
+                        <div class="flex items-center">
+                            <i class="fas fa-heart text-pink-500 w-5"></i>
+                            <span class="ml-2 text-gray-700">魅魔</span>
+                        </div>
+                    </div>
+                    <div class="mt-4 pt-4 border-t border-red-100">
+                        <div class="text-xs text-red-700">
+                            <i class="fas fa-exclamation-triangle mr-1"></i>
+                            最具争议性和危险性的分支，需要复杂契约
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- PVP战术卡片 -->
+            <div class="card md:col-span-2 p-6">
+                <div class="absolute top-0 left-0 w-full h-full highlight-gradient-orange"></div>
+                <div class="relative">
+                    <div class="flex items-center mb-4">
+                        <i class="fas fa-sword text-orange-500 text-xl mr-3"></i>
+                        <div class="text-xl font-bold text-gray-800">PVP环境中的召唤战术</div>
+                    </div>
+                    <div class="space-y-3">
+                        <div class="flex items-start">
+                            <div class="bg-orange-100 rounded-full p-2 mt-1 mr-3">
+                                <i class="fas fa-shield-alt text-orange-600 text-sm"></i>
+                            </div>
+                            <div>
+                                <div class="font-semibold text-gray-800">肉盾+输出组合</div>
+                                <div class="text-sm text-gray-600">虚空行者作为坦克吸收伤害，其他恶魔提供远程火力支援</div>
+                            </div>
+                        </div>
+                        <div class="flex items-start">
+                            <div class="bg-orange-100 rounded-full p-2 mt-1 mr-3">
+                                <i class="fas fa-ice text-orange-600 text-sm"></i>
+                            </div>
+                            <div>
+                                <div class="font-semibold text-gray-800">爆发与控制结合</div>
+                                <div class="text-sm text-gray-600">利用水元素创造"2v1"优势，通过水牢术控制敌人</div>
+                            </div>
+                        </div>
+                        <div class="flex items-start">
+                            <div class="bg-orange-100 rounded-full p-2 mt-1 mr-3">
+                                <i class="fas fa-ban text-orange-600 text-sm"></i>
+                            </div>
+                            <div>
+                                <div class="font-semibold text-gray-800">干扰与打断</div>
+                                <div class="text-sm text-gray-600">地狱猎犬的法术封锁沉默敌方施法者，扭转战局</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- PVE战术卡片 -->
+            <div class="card md:col-span-2 p-6">
+                <div class="absolute top-0 left-0 w-full h-full highlight-gradient-teal"></div>
+                <div class="relative">
+                    <div class="flex items-center mb-4">
+                        <i class="fas fa-users text-teal-500 text-xl mr-3"></i>
+                        <div class="text-xl font-bold text-gray-800">PVE环境中的团队定位</div>
+                    </div>
+                    <div class="grid grid-cols-2 gap-4">
+                        <div class="bg-teal-50 p-4 rounded-lg">
+                            <div class="flex items-center mb-2">
+                                <i class="fas fa-bolt text-teal-600 mr-2"></i>
+                                <div class="font-semibold text-teal-800">输出核心</div>
+                            </div>
+                            <div class="text-sm text-teal-700">提供稳定的额外输出，特别是在面对BOSS时</div>
+                        </div>
+                        <div class="bg-teal-50 p-4 rounded-lg">
+                            <div class="flex items-center mb-2">
+                                <i class="fas fa-hands-helping text-teal-600 mr-2"></i>
+                                <div class="font-semibold text-teal-800">辅助支援</div>
+                            </div>
+                            <div class="text-sm text-teal-700">召唤仪式快速集结团队，图腾提供各种buff</div>
+                        </div>
+                        <div class="bg-teal-50 p-4 rounded-lg">
+                            <div class="flex items-center mb-2">
+                                <i class="fas fa-shield-alt text-teal-600 mr-2"></i>
+                                <div class="font-semibold text-teal-800">临时坦克</div>
+                            </div>
+                            <div class="text-sm text-teal-700">树人召唤在紧急情况下充当临时坦克</div>
+                        </div>
+                        <div class="bg-teal-50 p-4 rounded-lg">
+                            <div class="flex items-center mb-2">
+                                <i class="fas fa-sync-alt text-teal-600 mr-2"></i>
+                                <div class="font-semibold text-teal-800">战术配合</div>
+                            </div>
+                            <div class="text-sm text-teal-700">根据战斗需求灵活切换召唤策略</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 历史发展卡片 -->
+            <div class="card md:col-span-4 p-6">
+                <div class="absolute top-0 left-0 w-full h-full highlight-gradient-blue"></div>
+                <div class="relative">
+                    <div class="flex items-center mb-6">
+                        <i class="fas fa-timeline text-blue-500 text-xl mr-3"></i>
+                        <div class="text-xl font-bold text-gray-800">召唤系发展历程</div>
+                    </div>
+                    <div class="relative">
+                        <div class="absolute left-4 top-0 bottom-0 w-0.5 bg-blue-200"></div>
+                        <div class="space-y-8">
+                            <div class="relative flex items-start">
+                                <div class="absolute left-[-8px] top-1 w-4 h-4 bg-blue-500 rounded-full border-2 border-white"></div>
+                                <div class="ml-10">
+                                    <div class="text-lg font-semibold text-gray-800">上古时期</div>
+                                    <div class="text-gray-600">泰坦创世时期奠定基础，守护巨龙的创造是召唤系的里程碑事件</div>
+                                </div>
+                            </div>
+                            <div class="relative flex items-start">
+                                <div class="absolute left-[-8px] top-1 w-4 h-4 bg-blue-500 rounded-full border-2 border-white"></div>
+                                <div class="ml-10">
+                                    <div class="text-lg font-semibold text-gray-800">高等精灵时代</div>
+                                    <div class="text-gray-600">系统性研究召唤魔法，深入探索元素召唤和星界力量</div>
+                                </div>
+                            </div>
+                            <div class="relative flex items-start">
+                                <div class="absolute left-[-8px] top-1 w-4 h-4 bg-blue-500 rounded-full border-2 border-white"></div>
+                                <div class="ml-10">
+                                    <div class="text-lg font-semibold text-gray-800">人类法师崛起</div>
+                                    <div class="text-gray-600">将召唤魔法与暗影能量结合，创造出恶魔召唤这一独特分支</div>
+                                </div>
+                            </div>
+                            <div class="relative flex items-start">
+                                <div class="absolute left-[-8px] top-1 w-4 h-4 bg-blue-500 rounded-full border-2 border-white"></div>
+                                <div class="ml-10">
+                                    <div class="text-lg font-semibold text-gray-800">现代革新</div>
+                                    <div class="text-gray-600">智能召唤系统、跨位面通信技术等现代技术推动召唤系发展</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 关键人物卡片 -->
+            <div class="card md:col-span-2 p-6">
+                <div class="absolute top-0 left-0 w-full h-full highlight-gradient-purple"></div>
+                <div class="relative">
+                    <div class="flex items-center mb-4">
+                        <i class="fas fa-user-graduate text-purple-500 text-xl mr-3"></i>
+                        <div class="text-xl font-bold text-gray-800">关键人物与贡献</div>
+                    </div>
+                    <div class="space-y-4">
+                        <div class="flex items-center p-3 bg-purple-50 rounded-lg">
+                            <div class="w-12 h-12 bg-purple-100 rounded-full flex items-center justify-center text-purple-600 font-bold text-lg mr-4">麦</div>
+                            <div>
+                                <div class="font-semibold text-gray-800">麦迪文</div>
+                                <div class="text-sm text-gray-600">提出"元素聚集理论"，为召唤系提供重要理论基础</div>
+                            </div>
+                        </div>
+                        <div class="flex items-center p-3 bg-purple-50 rounded-lg">
+                            <div class="w-12 h-12 bg-purple-100 rounded-full flex items-center justify-center text-purple-600 font-bold text-lg mr-4">安</div>
+                            <div>
+                                <div class="font-semibold text-gray-800">安东尼达斯</div>
+                                <div class="text-sm text-gray-600">建立严格的召唤魔法学习制度，规范化召唤系教学</div>
+                            </div>
+                        </div>
+                        <div class="flex items-center p-3 bg-purple-50 rounded-lg">
+                            <div class="w-12 h-12 bg-purple-100 rounded-full flex items-center justify-center text-purple-600 font-bold text-lg mr-4">吉</div>
+                            <div>
+                                <div class="font-semibold text-gray-800">吉安娜</div>
+                                <div class="text-sm text-gray-600">在水元素召唤方面做出创新性贡献，提升召唤稳定性</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 未来展望卡片 -->
+            <div class="card md:col-span-2 p-6">
+                <div class="absolute top-0 left-0 w-full h-full highlight-gradient-green"></div>
+                <div class="relative">
+                    <div class="flex items-center mb-4">
+                        <i class="fas fa-rocket text-green-500 text-xl mr-3"></i>
+                        <div class="text-xl font-bold text-gray-800">未来展望</div>
+                    </div>
+                    <div class="space-y-3">
+                        <div class="flex items-start">
+                            <div class="bg-green-100 rounded-full p-2 mt-1 mr-3">
+                                <i class="fas fa-microchip text-green-600 text-sm"></i>
+                            </div>
+                            <div>
+                                <div class="font-semibold text-gray-800">智能召唤系统</div>
+                                <div class="text-sm text-gray-600">通过魔法矩阵和AI算法自动识别战场形势，选择最佳召唤策略</div>
+                            </div>
+                        </div>
+                        <div class="flex items-start">
+                            <div class="bg-green-100 rounded-full p-2 mt-1 mr-3">
+                                <i class="fas fa-handshake text-green-600 text-sm"></i>
+                            </div>
+                            <div>
+                                <div class="font-semibold text-gray-800">学派融合趋势</div>
+                                <div class="text-sm text-gray-600">与塑能、转化、幻象等学派融合，创造革命性新法术</div>
+                            </div>
+                        </div>
+                        <div class="flex items-start">
+                            <div class="bg-green-100 rounded-full p-2 mt-1 mr-3">
+                                <i class="fas fa-clock text-green-600 text-sm"></i>
+                            </div>
+                            <div>
+                                <div class="font-semibold text-gray-800">新兴召唤领域</div>
+                                <div class="text-sm text-gray-600">时间召唤、梦境召唤、虚空召唤等前沿领域的探索</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 结语卡片 -->
+            <div class="card md:col-span-4 p-8 flex flex-col justify-center text-center">
+                <div class="absolute top-0 left-0 w-full h-full highlight-gradient-blue"></div>
+                <div class="relative">
+                    <div class="text-3xl font-bold text-gray-800 mb-4">结语</div>
+                    <div class="text-gray-600 max-w-3xl mx-auto leading-relaxed">
+                        召唤系的核心价值在于它代表了<span class="font-semibold text-blue-600">"连接与融合"</span>的魔法理念。通过召唤，法师不仅能够获得强大的力量，更重要的是建立了与整个多元宇宙的联系。展望未来，召唤系魔法将继续在艾泽拉斯的魔法世界中扮演重要角色，无论是守护世界的正义召唤，还是探索未知的科学召唤，亦或是连接心灵的情感召唤，召唤系都将继续书写属于自己的传奇。
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+<script>
+    // 能量消耗图表
+    const energyCtx = document.getElementById('energyChart').getContext('2d');
+    new Chart(energyCtx, {
+        type: 'bar',
+        data: {
+            labels: ['基础召唤', '元素召唤', '恶魔召唤', '生物召唤', '亡灵召唤', '高阶召唤'],
+            datasets: [{
+                label: '法力消耗百分比',
+                data: [5, 16, 50, 10, 35, 60],
+                backgroundColor: [
+                    'rgba(59, 130, 246, 0.6)',
+                    'rgba(34, 197, 94, 0.6)',
+                    'rgba(239, 68, 68, 0.6)',
+                    'rgba(249, 115, 22, 0.6)',
+                    'rgba(139, 92, 246, 0.6)',
+                    'rgba(236, 72, 153, 0.6)'
+                ],
+                borderColor: [
+                    'rgba(59, 130, 246, 1)',
+                    'rgba(34, 197, 94, 1)',
+                    'rgba(239, 68, 68, 1)',
+                    'rgba(249, 115, 22, 1)',
+                    'rgba(139, 92, 246, 1)',
+                    'rgba(236, 72, 153, 1)'
+                ],
+                borderWidth: 1
+            }]
+        },
+        options: {
+            responsive: true,
+            maintainAspectRatio: false,
+            scales: {
+                y: {
+                    beginAtZero: true,
+                    max: 70,
+                    ticks: {
+                        callback: function(value) {
+                            return value + '%';
+                        }
+                    }
+                }
+            },
+            plugins: {
+                legend: {
+                    display: false
+                }
+            }
+        }
+    });
+</script>
+</html>
