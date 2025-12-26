@@ -1,0 +1,458 @@
+
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>艾泽拉斯魔法学派体系</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <style>
+        body {
+            font-family: 'Inter', 'Noto Sans SC', sans-serif;
+            background-color: #FFFFFF;
+        }
+        .card {
+            background-color: white;
+            border: 1px solid #E5E7EB;
+            border-radius: 1.25rem;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+            transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+            overflow: hidden;
+            position: relative;
+        }
+        .card:hover {
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+            transform: translateY(-2px);
+        }
+        .highlight-gradient-blue {
+            background: linear-gradient(135deg, rgba(59, 130, 246, 0), rgba(59, 130, 246, 0.05));
+        }
+        .highlight-gradient-purple {
+            background: linear-gradient(135deg, rgba(139, 92, 246, 0), rgba(139, 92, 246, 0.05));
+        }
+        .highlight-gradient-green {
+            background: linear-gradient(135deg, rgba(34, 197, 94, 0), rgba(34, 197, 94, 0.05));
+        }
+        .highlight-gradient-red {
+            background: linear-gradient(135deg, rgba(239, 68, 68, 0), rgba(239, 68, 68, 0.05));
+        }
+        .highlight-gradient-yellow {
+            background: linear-gradient(135deg, rgba(245, 158, 11, 0), rgba(245, 158, 11, 0.05));
+        }
+        .highlight-gradient-cyan {
+            background: linear-gradient(135deg, rgba(6, 182, 212, 0), rgba(6, 182, 212, 0.05));
+        }
+        .highlight-gradient-pink {
+            background: linear-gradient(135deg, rgba(236, 72, 153, 0), rgba(236, 72, 153, 0.05));
+        }
+        .highlight-gradient-indigo {
+            background: linear-gradient(135deg, rgba(99, 102, 241, 0), rgba(99, 102, 241, 0.05));
+        }
+        .highlight-gradient-orange {
+            background: linear-gradient(135deg, rgba(249, 115, 22, 0), rgba(249, 115, 22, 0.05));
+        }
+        .school-icon {
+            width: 48px;
+            height: 48px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 24px;
+            margin-bottom: 1rem;
+        }
+        .gradient-text {
+            background-clip: text;
+            -webkit-background-clip: text;
+            color: transparent;
+        }
+    </style>
+</head>
+<body class="bg-white">
+    <div class="max-w-7xl mx-auto p-4 md:p-8">
+        <!-- 标题卡片 -->
+        <div class="card md:col-span-4 p-8 mb-6 bg-gradient-to-br from-indigo-50 to-purple-50">
+            <div class="absolute top-0 left-0 w-full h-full highlight-gradient-purple"></div>
+            <div class="relative">
+                <div class="flex items-center gap-4 mb-4">
+                    <i class="fa-solid fa-wand-magic-sparkles text-4xl text-purple-600"></i>
+                    <div>
+                        <h1 class="text-3xl md:text-4xl font-bold text-gray-800">艾泽拉斯魔法学派体系</h1>
+                        <p class="text-lg text-gray-600">Arcane School System & Theoretical Foundation</p>
+                    </div>
+                </div>
+                <p class="text-gray-700">基于肯瑞托议会官方分类的奥术魔法八大学派详解与理论基础</p>
+            </div>
+        </div>
+
+        <!-- 概览卡片 -->
+        <div class="grid grid-cols-1 md:grid-cols-4 gap-4 md:gap-6 mb-6">
+            <div class="card md:col-span-2 p-6">
+                <div class="absolute top-0 left-0 w-full h-full highlight-gradient-blue"></div>
+                <div class="relative">
+                    <h2 class="text-xl font-bold text-gray-800 mb-4">肯瑞托八大学派体系</h2>
+                    <p class="text-gray-600 mb-4">由大法师安斯雷姆·鲁因维沃尔编撰的《奥术魔法的派系》确立，成为现代法师学习的重要文献基础。</p>
+                    <div class="flex items-center gap-2 text-blue-600">
+                        <i class="fa-solid fa-book-open"></i>
+                        <span class="text-sm">系统化的学术体系</span>
+                    </div>
+                </div>
+            </div>
+            <div class="card p-6 flex flex-col justify-center items-center">
+                <div class="absolute top-0 left-0 w-full h-full highlight-gradient-green"></div>
+                <div class="relative text-center">
+                    <div class="text-5xl font-bold text-green-600 mb-2">8</div>
+                    <div class="text-gray-600">主要学派</div>
+                </div>
+            </div>
+            <div class="card p-6 flex flex-col justify-center items-center">
+                <div class="absolute top-0 left-0 w-full h-full highlight-gradient-yellow"></div>
+                <div class="relative text-center">
+                    <div class="text-5xl font-bold text-yellow-600 mb-2">∞</div>
+                    <div class="text-gray-600">法术组合</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 学派卡片网格 -->
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 md:gap-6 mb-6">
+            <!-- 防护系 -->
+            <div class="card p-6 bg-blue-50">
+                <div class="absolute top-0 left-0 w-full h-full highlight-gradient-blue"></div>
+                <div class="relative">
+                    <div class="school-icon bg-blue-500">
+                        <i class="fa-solid fa-shield-halved"></i>
+                    </div>
+                    <h3 class="text-lg font-bold text-gray-800 mb-2">防护系</h3>
+                    <p class="text-sm text-gray-600 mb-3">Abjuration</p>
+                    <p class="text-xs text-gray-500">预防胜于治疗，构建各种屏障和结界来抵御伤害。</p>
+                </div>
+            </div>
+            
+            <!-- 召唤系 -->
+            <div class="card p-6 bg-purple-50">
+                <div class="absolute top-0 left-0 w-full h-full highlight-gradient-purple"></div>
+                <div class="relative">
+                    <div class="school-icon bg-purple-500">
+                        <i class="fa-solid fa-circle-plus"></i>
+                    </div>
+                    <h3 class="text-lg font-bold text-gray-800 mb-2">召唤系</h3>
+                    <p class="text-sm text-gray-600 mb-3">Conjuration</p>
+                    <p class="text-xs text-gray-500">在不同位面间建立能量通道，转移生物或物体。</p>
+                </div>
+            </div>
+            
+            <!-- 占卜系 -->
+            <div class="card p-6 bg-green-50">
+                <div class="absolute top-0 left-0 w-full h-full highlight-gradient-green"></div>
+                <div class="relative">
+                    <div class="school-icon bg-green-500">
+                        <i class="fa-solid fa-eye"></i>
+                    </div>
+                    <h3 class="text-lg font-bold text-gray-800 mb-2">占卜系</h3>
+                    <p class="text-sm text-gray-600 mb-3">Divination</p>
+                    <p class="text-xs text-gray-500">获取信息、洞察真相，观测肉眼不可见的目标。</p>
+                </div>
+            </div>
+            
+            <!-- 增强系 -->
+            <div class="card p-6 bg-red-50">
+                <div class="absolute top-0 left-0 w-full h-full highlight-gradient-red"></div>
+                <div class="relative">
+                    <div class="school-icon bg-red-500">
+                        <i class="fa-solid fa-star"></i>
+                    </div>
+                    <h3 class="text-lg font-bold text-gray-800 mb-2">增强系</h3>
+                    <p class="text-sm text-gray-600 mb-3">Enchantment</p>
+                    <p class="text-xs text-gray-500">将魔法能量附着在物品或生物上，强化其属性。</p>
+                </div>
+            </div>
+            
+            <!-- 幻象系 -->
+            <div class="card p-6 bg-yellow-50">
+                <div class="absolute top-0 left-0 w-full h-full highlight-gradient-yellow"></div>
+                <div class="relative">
+                    <div class="school-icon bg-yellow-500">
+                        <i class="fa-solid fa-mask"></i>
+                    </div>
+                    <h3 class="text-lg font-bold text-gray-800 mb-2">幻象系</h3>
+                    <p class="text-sm text-gray-600 mb-3">Illusion</p>
+                    <p class="text-xs text-gray-500">创造虚假感知和幻觉，操控他人的感官和认知。</p>
+                </div>
+            </div>
+            
+            <!-- 通灵系 -->
+            <div class="card p-6 bg-indigo-50">
+                <div class="absolute top-0 left-0 w-full h-full highlight-gradient-indigo"></div>
+                <div class="relative">
+                    <div class="school-icon bg-indigo-500">
+                        <i class="fa-solid fa-skull"></i>
+                    </div>
+                    <h3 class="text-lg font-bold text-gray-800 mb-2">通灵系</h3>
+                    <p class="text-sm text-gray-600 mb-3">Necromancy</p>
+                    <p class="text-xs text-gray-500">与死者沟通，复活死者或将死者作为武器。</p>
+                </div>
+            </div>
+            
+            <!-- 转化学派 -->
+            <div class="card p-6 bg-cyan-50">
+                <div class="absolute top-0 left-0 w-full h-full highlight-gradient-cyan"></div>
+                <div class="relative">
+                    <div class="school-icon bg-cyan-500">
+                        <i class="fa-solid fa-wand-magic-sparkles"></i>
+                    </div>
+                    <h3 class="text-lg font-bold text-gray-800 mb-2">转化学派</h3>
+                    <p class="text-sm text-gray-600 mb-3">Transmutation</p>
+                    <p class="text-xs text-gray-500">改变物质的形态、属性甚至本质，操控时空。</p>
+                </div>
+            </div>
+            
+            <!-- 塑能系 -->
+            <div class="card p-6 bg-orange-50">
+                <div class="absolute top-0 left-0 w-full h-full highlight-gradient-orange"></div>
+                <div class="relative">
+                    <div class="school-icon bg-orange-500">
+                        <i class="fa-solid fa-bolt"></i>
+                    </div>
+                    <h3 class="text-lg font-bold text-gray-800 mb-2">塑能系</h3>
+                    <p class="text-sm text-gray-600 mb-3">Evocation</p>
+                    <p class="text-xs text-gray-500">直接操控魔法能量，创造各种破坏性或功能性效果。</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- 魔法能量图表卡片 -->
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6 mb-6">
+            <div class="card p-6">
+                <div class="absolute top-0 left-0 w-full h-full highlight-gradient-blue"></div>
+                <div class="relative">
+                    <h2 class="text-xl font-bold text-gray-800 mb-4">魔法能量类型分布</h2>
+                    <div class="h-64">
+                        <canvas id="energyChart"></canvas>
+                    </div>
+                </div>
+            </div>
+            <div class="card p-6">
+                <div class="absolute top-0 left-0 w-full h-full highlight-gradient-purple"></div>
+                <div class="relative">
+                    <h2 class="text-xl font-bold text-gray-800 mb-4">学派应用领域</h2>
+                    <div class="h-64">
+                        <canvas id="applicationChart"></canvas>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 学派关系卡片 -->
+        <div class="card md:col-span-4 p-6 mb-6">
+            <div class="absolute top-0 left-0 w-full h-full highlight-gradient-green"></div>
+            <div class="relative">
+                <h2 class="text-xl font-bold text-gray-800 mb-4">学派间的关系与互动</h2>
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+                    <div class="bg-white p-4 rounded-lg border border-gray-200">
+                        <div class="flex items-center gap-3 mb-3">
+                            <i class="fa-solid fa-circle-xmark text-red-500 text-xl"></i>
+                            <h3 class="font-bold text-gray-800">对立关系</h3>
+                        </div>
+                        <p class="text-sm text-gray-600">幻象系与占卜系之间存在天然的对立关系。幻象系试图制造假象，而占卜系则努力看穿这些假象。</p>
+                    </div>
+                    <div class="bg-white p-4 rounded-lg border border-gray-200">
+                        <div class="flex items-center gap-3 mb-3">
+                            <i class="fa-solid fa-circle-check text-green-500 text-xl"></i>
+                            <h3 class="font-bold text-gray-800">互补关系</h3>
+                        </div>
+                        <p class="text-sm text-gray-600">防护系为所有其他学派提供安全保障。例如，防护系与塑能系结合能够确保施法者在释放强大法术时的安全。</p>
+                    </div>
+                    <div class="bg-white p-4 rounded-lg border border-gray-200">
+                        <div class="flex items-center gap-3 mb-3">
+                            <i class="fa-solid fa-circle-arrows-spin text-blue-500 text-xl"></i>
+                            <h3 class="font-bold text-gray-800">融合创新</h3>
+                        </div>
+                        <p class="text-sm text-gray-600">跨学派的法术创新创造出许多独特而强大的效果。例如，缓落术结合了增强系和转化系的理念。</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 施法者类型卡片 -->
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-4 md:gap-6 mb-6">
+            <div class="card p-6">
+                <div class="absolute top-0 left-0 w-full h-full highlight-gradient-pink"></div>
+                <div class="relative">
+                    <div class="flex items-center gap-3 mb-4">
+                        <i class="fa-solid fa-user-graduate text-2xl text-pink-600"></i>
+                        <h3 class="text-lg font-bold text-gray-800">奥术施法者</h3>
+                    </div>
+                    <p class="text-sm text-gray-600 mb-3">依靠自身天赋和训练直接操控魔法能量，通过与魔网的连接汲取力量。</p>
+                    <div class="flex flex-wrap gap-2">
+                        <span class="px-2 py-1 bg-pink-100 text-pink-800 rounded-full text-xs">法师</span>
+                        <span class="px-2 py-1 bg-pink-100 text-pink-800 rounded-full text-xs">术士</span>
+                        <span class="px-2 py-1 bg-pink-100 text-pink-800 rounded-full text-xs">死亡骑士</span>
+                    </div>
+                </div>
+            </div>
+            <div class="card p-6">
+                <div class="absolute top-0 left-0 w-full h-full highlight-gradient-yellow"></div>
+                <div class="relative">
+                    <div class="flex items-center gap-3 mb-4">
+                        <i class="fa-solid fa-hands-praying text-2xl text-yellow-600"></i>
+                        <h3 class="text-lg font-bold text-gray-800">神术施法者</h3>
+                    </div>
+                    <p class="text-sm text-gray-600 mb-3">通过信仰或契约获得魔法力量，作为某种更高力量的媒介。</p>
+                    <div class="flex flex-wrap gap-2">
+                        <span class="px-2 py-1 bg-yellow-100 text-yellow-800 rounded-full text-xs">牧师</span>
+                        <span class="px-2 py-1 bg-yellow-100 text-yellow-800 rounded-full text-xs">萨满</span>
+                        <span class="px-2 py-1 bg-yellow-100 text-yellow-800 rounded-full text-xs">德鲁伊</span>
+                        <span class="px-2 py-1 bg-yellow-100 text-yellow-800 rounded-full text-xs">圣骑士</span>
+                    </div>
+                </div>
+            </div>
+            <div class="card p-6">
+                <div class="absolute top-0 left-0 w-full h-full highlight-gradient-cyan"></div>
+                <div class="relative">
+                    <div class="flex items-center gap-3 mb-4">
+                        <i class="fa-solid fa-gem text-2xl text-cyan-600"></i>
+                        <h3 class="text-lg font-bold text-gray-800">魔法物品</h3>
+                    </div>
+                    <p class="text-sm text-gray-600 mb-3">法师施展魔法的工具，也是魔法能量的载体和储存器。</p>
+                    <div class="flex flex-wrap gap-2">
+                        <span class="px-2 py-1 bg-cyan-100 text-cyan-800 rounded-full text-xs">法杖</span>
+                        <span class="px-2 py-1 bg-cyan-100 text-cyan-800 rounded-full text-xs">魔杖</span>
+                        <span class="px-2 py-1 bg-cyan-100 text-cyan-800 rounded-full text-xs">魔法水晶</span>
+                        <span class="px-2 py-1 bg-cyan-100 text-cyan-800 rounded-full text-xs">附魔装备</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 能量来源卡片 -->
+        <div class="card md:col-span-4 p-6">
+            <div class="absolute top-0 left-0 w-full h-full highlight-gradient-indigo"></div>
+            <div class="relative">
+                <h2 class="text-xl font-bold text-gray-800 mb-4">魔法能量的来源与运行原理</h2>
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
+                    <div class="bg-white p-4 rounded-lg border border-gray-200">
+                        <div class="w-12 h-12 bg-indigo-100 rounded-full flex items-center justify-center mb-3">
+                            <i class="fa-solid fa-network-wired text-indigo-600"></i>
+                        </div>
+                        <h3 class="font-bold text-gray-800 mb-2">魔网系统</h3>
+                        <p class="text-sm text-gray-600">贯穿艾泽拉斯的巨大能量通道，是奥术能量的主要来源。</p>
+                    </div>
+                    <div class="bg-white p-4 rounded-lg border border-gray-200">
+                        <div class="w-12 h-12 bg-purple-100 rounded-full flex items-center justify-center mb-3">
+                            <i class="fa-solid fa-tree text-purple-600"></i>
+                        </div>
+                        <h3 class="font-bold text-gray-800 mb-2">世界之树</h3>
+                        <p class="text-sm text-gray-600">诺达希尔连接永恒之井，净化和分配魔法能量。</p>
+                    </div>
+                    <div class="bg-white p-4 rounded-lg border border-gray-200">
+                        <div class="w-12 h-12 bg-yellow-100 rounded-full flex items-center justify-center mb-3">
+                            <i class="fa-solid fa-sun text-yellow-600"></i>
+                        </div>
+                        <h3 class="font-bold text-gray-800 mb-2">神圣能量</h3>
+                        <p class="text-sm text-gray-600">源于对圣光的信仰，体现为神圣魔法。</p>
+                    </div>
+                    <div class="bg-white p-4 rounded-lg border border-gray-200">
+                        <div class="w-12 h-12 bg-green-100 rounded-full flex items-center justify-center mb-3">
+                            <i class="fa-solid fa-leaf text-green-600"></i>
+                        </div>
+                        <h3 class="font-bold text-gray-800 mb-2">自然能量</h3>
+                        <p class="text-sm text-gray-600">促进万物生长和更新，被德鲁伊等职业掌握。</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // 魔法能量类型图表
+        const energyCtx = document.getElementById('energyChart').getContext('2d');
+        const energyChart = new Chart(energyCtx, {
+            type: 'doughnut',
+            data: {
+                labels: ['奥术能量', '神圣能量', '自然能量', '暗影能量', '元素力量', '死亡能量'],
+                datasets: [{
+                    label: '魔法能量类型',
+                    data: [35, 20, 18, 12, 10, 5],
+                    backgroundColor: [
+                        '#8B5CF6', // 紫色
+                        '#F59E0B', // 黄色
+                        '#22C55E', // 绿色
+                        '#EF4444', // 红色
+                        '#06B6D4', // 青色
+                        '#6366F1'  // 靛蓝色
+                    ],
+                    borderWidth: 0,
+                    hoverOffset: 4
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                plugins: {
+                    legend: {
+                        position: 'bottom',
+                        labels: {
+                            padding: 20,
+                            usePointStyle: true,
+                            pointStyle: 'circle'
+                        }
+                    }
+                },
+                cutout: '70%'
+            }
+        });
+
+        // 学派应用领域图表
+        const applicationCtx = document.getElementById('applicationChart').getContext('2d');
+        const applicationChart = new Chart(applicationCtx, {
+            type: 'bar',
+            data: {
+                labels: ['防护', '攻击', '治疗', '控制', '信息', '创造', '强化'],
+                datasets: [{
+                    label: '应用领域分布',
+                    data: [85, 95, 60, 75, 70, 80, 90],
+                    backgroundColor: [
+                        '#3B82F6', // 蓝色
+                        '#F97316', // 橙色
+                        '#22C55E', // 绿色
+                        '#F59E0B', // 黄色
+                        '#10B981', // 翠绿色
+                        '#8B5CF6', // 紫色
+                        '#EF4444'  // 红色
+                    ],
+                    borderRadius: 4,
+                    barPercentage: 0.6
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                indexAxis: 'y',
+                plugins: {
+                    legend: {
+                        display: false
+                    }
+                },
+                scales: {
+                    x: {
+                        beginAtZero: true,
+                        max: 100,
+                        grid: {
+                            display: false
+                        }
+                    },
+                    y: {
+                        grid: {
+                            color: '#F3F4F6'
+                        }
+                    }
+                }
+            }
+        });
+    </script>
+</body>
+</html>
