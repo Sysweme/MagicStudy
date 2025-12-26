@@ -17,17 +17,17 @@ jobs:
         with:
           python-version: '3.11'
 
-      # 2. 安装 notion2md 并导出 Notion 页面（修正 Secrets 名称）
+      # 2. 安装 notion2md 并导出 Notion 页面（适配 2.9.0 最新参数）
       - name: Fetch Notion Page as Markdown
         run: |
           pip install notion2md
           # 创建输出目录
           mkdir -p ./notion-exports
-          # 关键修正：改用实际的 Secrets 名称 NOTION_DATABASE_ID
+          # 新版正确参数：--token 令牌，--id 页面ID，-o/--out 输出目录，--download 下载资源
           notion2md --token ${{ secrets.NOTION_TOKEN }} \
                     --id ${{ secrets.NOTION_DATABASE_ID }} \
-                    --output ./notion-exports \
-                    --download True  # 自动下载图片资源
+                    --out ./notion-exports \
+                    --download True
         continue-on-error: false
 
       # 3. 提交并推送变更
