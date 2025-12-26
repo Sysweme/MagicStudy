@@ -2,8 +2,8 @@ name: 🔄 Sync Notion Page to GitHub
 
 on:
   schedule:
-    - cron: '0 2 * * *'
-  workflow_dispatch:
+    - cron: '0 2 * * *'  # 每天 UTC 2 点运行
+  workflow_dispatch:      # 允许手动触发
 
 jobs:
   sync:
@@ -11,31 +11,37 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
+      # 1. 配置 Python 环境
       - name: Set up Python
         uses: actions/setup-python@v5
         with:
           python-version: '3.11'
 
+      # 2. 安装 2.8.0 并导出（完全匹配官方参数）
       - name: Fetch Notion Page as Markdown
         run: |
-          # 锁定稳定版本 2.8.0，避免参数变更问题
-          pip install notion2md==2.8.0
+          # 强制安装 2.8.0 稳定版
+          pip install --force-reinstall notion2md==2.8.0
+          # 创建输出目录
           mkdir -p ./notion-exports
-          # 2.8.0 稳定参数：-t 令牌，-n 页面ID，-o 输出目录，--download 下载资源
-          notion2md -t ${{ secrets.NOTION_TOKEN }} \
+          # 2.8.0 官方正确参数：
+          # --token 令牌（仅长写），-n 页面ID，-o 输出目录，--download 下载图片
+          notion2md --token ${{ secrets.NOTION_TOKEN }} \
                     -n ${{ secrets.NOTION_DATABASE_ID }} \
                     -o ./notion-exports \
                     --download True
         continue-on-error: false
 
+      # 3. 提交并推送变更
       - name: Commit and Push
         run: |
           git config --global user.name "GitHub Actions"
           git config --global user.email "actions@github.com"
           git add ./notion-exports/*
+          # 仅当有文件变更时才提交
           if ! git diff --staged --quiet; then
             git commit -m "🔄 自动同步 Notion 页面 $(date +'%Y-%m-%d %H:%M:%S')"
             git push
           else
-            echo "无 Notion 页面变更，跳过提交"
+            echo "Notion 页面无变更，跳过提交"
           fi
