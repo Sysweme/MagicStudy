@@ -15,22 +15,16 @@ jobs:
         with:
           python-version: '3.11'
 
-      - name: Install notion2md from GitHub
+      - name: Install notion2md from PyPI
         run: |
-          pip install git+https://github.com/echo77/notion2md.git@main
+          pip install notion2md==2.9.0
 
       - name: Fetch Notion Page as Markdown
         run: |
-          echo "Token: ${{ secrets.NOTION_TOKEN }}"
-          echo "Page ID: ${{ secrets.NOTION_PAGE_ID }}"
-
-          # 使用 --no-images 避免图片下载问题
           notion2md export \
             --token ${{ secrets.NOTION_TOKEN }} \
             --page_id ${{ secrets.NOTION_PAGE_ID }} \
-            --output_filename "notion-export" \
-            --no-images \
-            --debug
+            --output_filename "notion-export"
 
       - name: Commit and Push
         run: |
