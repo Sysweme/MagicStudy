@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="zh-CN">
 <head>
@@ -11,7 +10,7 @@
     <style>
         body {
             font-family: 'Inter', 'Noto Sans SC', sans-serif;
-            background-color: #FFFFFF;
+            background-color: #FAFAFA;
         }
         .card {
             background-color: white;
@@ -23,93 +22,128 @@
             position: relative;
         }
         .card:hover {
-            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
-            transform: translateY(-2px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+            transform: translateY(-5px);
         }
-        .highlight-gradient-blue {
-            background: linear-gradient(135deg, rgba(59, 130, 246, 0), rgba(59, 130, 246, 0.05));
-        }
-        .highlight-gradient-purple {
-            background: linear-gradient(135deg, rgba(139, 92, 246, 0), rgba(139, 92, 246, 0.05));
-        }
-        .highlight-gradient-green {
-            background: linear-gradient(135deg, rgba(34, 197, 94, 0), rgba(34, 197, 94, 0.05));
-        }
-        .highlight-gradient-red {
-            background: linear-gradient(135deg, rgba(239, 68, 68, 0), rgba(239, 68, 68, 0.05));
-        }
-        .highlight-gradient-yellow {
-            background: linear-gradient(135deg, rgba(245, 158, 11, 0), rgba(245, 158, 11, 0.05));
-        }
-        .highlight-gradient-cyan {
-            background: linear-gradient(135deg, rgba(6, 182, 212, 0), rgba(6, 182, 212, 0.05));
-        }
-        .highlight-gradient-pink {
-            background: linear-gradient(135deg, rgba(236, 72, 153, 0), rgba(236, 72, 153, 0.05));
-        }
-        .highlight-gradient-indigo {
-            background: linear-gradient(135deg, rgba(99, 102, 241, 0), rgba(99, 102, 241, 0.05));
-        }
-        .highlight-gradient-orange {
-            background: linear-gradient(135deg, rgba(249, 115, 22, 0), rgba(249, 115, 22, 0.05));
+        .highlight-gradient {
+            background: linear-gradient(135deg, var(--tw-gradient-from), var(--tw-gradient-to));
+            opacity: 0.08;
         }
         .school-icon {
-            width: 48px;
-            height: 48px;
+            width: 56px;
+            height: 56px;
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
             color: white;
-            font-size: 24px;
+            font-size: 28px;
             margin-bottom: 1rem;
+            transition: transform 0.3s ease;
+        }
+        .card:hover .school-icon {
+            transform: scale(1.1) rotate(5deg);
         }
         .gradient-text {
             background-clip: text;
             -webkit-background-clip: text;
             color: transparent;
         }
+        .animate-float {
+            animation: float 6s ease-in-out infinite;
+        }
+        @keyframes float {
+            0% { transform: translateY(0px); }
+            50% { transform: translateY(-10px); }
+            100% { transform: translateY(0px); }
+        }
+        .bg-magic-pattern {
+            background-image: 
+                radial-gradient(circle at 10% 20%, rgba(139, 92, 246, 0.03) 0%, transparent 20%),
+                radial-gradient(circle at 90% 60%, rgba(59, 130, 246, 0.03) 0%, transparent 20%),
+                radial-gradient(circle at 30% 80%, rgba(34, 197, 94, 0.03) 0%, transparent 20%);
+        }
+        .hover-glow:hover {
+            box-shadow: 0 0 15px rgba(139, 92, 246, 0.2);
+        }
+        .nav-link {
+            position: relative;
+            transition: all 0.3s ease;
+        }
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: -2px;
+            left: 0;
+            background-color: currentColor;
+            transition: width 0.3s ease;
+        }
+        .nav-link:hover::after {
+            width: 100%;
+        }
     </style>
 </head>
-<body class="bg-white">
-      <div class="max-w-7xl mx-auto p-4 md:p-8">
+<body class="bg-white bg-magic-pattern">
+    <!-- 导航栏 -->
+    <nav class="sticky top-0 z-50 bg-white/80 backdrop-blur-md border-b border-gray-100 shadow-sm">
+        <div class="max-w-7xl mx-auto px-4 md:px-6 py-3 flex justify-between items-center">
+            <div class="flex items-center gap-2">
+                <i class="fa-solid fa-wand-sparkles text-purple-600"></i>
+                <span class="font-bold text-gray-800">肯瑞托魔法档案</span>
+            </div>
+            <div class="hidden md:flex items-center gap-6">
+                <a href="#" class="nav-link text-gray-600 hover:text-purple-600">学派总览</a>
+                <a href="#relations" class="nav-link text-gray-600 hover:text-purple-600">学派关系</a>
+                <a href="#casters" class="nav-link text-gray-600 hover:text-purple-600">施法者</a>
+                <a href="#energy" class="nav-link text-gray-600 hover:text-purple-600">能量来源</a>
+            </div>
+            <button class="md:hidden text-gray-600">
+                <i class="fa-solid fa-bars"></i>
+            </button>
+        </div>
+    </nav>
+
+    <div class="max-w-7xl mx-auto p-4 md:p-8">
         <!-- 标题卡片 -->
-        <div class="card md:col-span-4 p-8 mb-6 bg-gradient-to-br from-indigo-50 to-purple-50">
-            <div class="absolute top-0 left-0 w-full h-full highlight-gradient-purple"></div>
+        <div class="card md:col-span-4 p-8 md:p-10 mb-8 bg-gradient-to-br from-indigo-50 to-purple-50 relative overflow-hidden">
+            <div class="absolute top-0 right-0 w-64 h-64 bg-purple-200 rounded-full filter blur-3xl opacity-30 -mr-32 -mt-32"></div>
+            <div class="absolute bottom-0 left-0 w-64 h-64 bg-blue-200 rounded-full filter blur-3xl opacity-30 -ml-32 -mb-32"></div>
             <div class="relative">
-                <div class="flex items-center gap-4 mb-4">
-                    <i class="fa-solid fa-wand-magic-sparkles text-4xl text-purple-600"></i>
+                <div class="flex flex-col md:flex-row items-start md:items-center gap-4 mb-6">
+                    <i class="fa-solid fa-wand-magic-sparkles text-5xl text-purple-600 animate-float"></i>
                     <div>
-                        <h1 class="text-3xl md:text-4xl font-bold text-gray-800">艾泽拉斯魔法学派体系</h1>
-                        <p class="text-lg text-gray-600">Arcane School System & Theoretical Foundation</p>
+                        <h1 class="text-3xl md:text-5xl font-bold text-gray-800 mb-2">艾泽拉斯魔法学派体系</h1>
+                        <p class="text-lg text-gray-600 font-medium">Arcane School System & Theoretical Foundation</p>
                     </div>
                 </div>
-                <p class="text-gray-700">基于肯瑞托议会官方分类的奥术魔法八大学派详解与理论基础</p>
+                <p class="text-gray-700 max-w-3xl">基于肯瑞托议会官方分类的奥术魔法八大学派详解与理论基础，探索魔法能量的奥秘与应用。</p>
             </div>
         </div>
 
         <!-- 概览卡片 -->
-        <div class="grid grid-cols-1 md:grid-cols-4 gap-4 md:gap-6 mb-6">
-            <div class="card md:col-span-2 p-6">
-                <div class="absolute top-0 left-0 w-full h-full highlight-gradient-blue"></div>
+        <div class="grid grid-cols-1 md:grid-cols-4 gap-4 md:gap-6 mb-8">
+            <div class="card md:col-span-2 p-6 hover-glow">
+                <div class="absolute top-0 left-0 w-full h-full highlight-gradient" style="--tw-gradient-from: rgba(59, 130, 246, 0); --tw-gradient-to: rgba(59, 130, 246, 0.1);"></div>
                 <div class="relative">
                     <h2 class="text-xl font-bold text-gray-800 mb-4">肯瑞托八大学派体系</h2>
                     <p class="text-gray-600 mb-4">由大法师安斯雷姆·鲁因维沃尔编撰的《奥术魔法的派系》确立，成为现代法师学习的重要文献基础。</p>
                     <div class="flex items-center gap-2 text-blue-600">
                         <i class="fa-solid fa-book-open"></i>
-                        <span class="text-sm">系统化的学术体系</span>
+                        <span class="text-sm font-medium">系统化的学术体系</span>
                     </div>
                 </div>
             </div>
-            <div class="card p-6 flex flex-col justify-center items-center">
-                <div class="absolute top-0 left-0 w-full h-full highlight-gradient-green"></div>
+            <div class="card p-6 flex flex-col justify-center items-center hover-glow">
+                <div class="absolute top-0 left-0 w-full h-full highlight-gradient" style="--tw-gradient-from: rgba(34, 197, 94, 0); --tw-gradient-to: rgba(34, 197, 94, 0.1);"></div>
                 <div class="relative text-center">
                     <div class="text-5xl font-bold text-green-600 mb-2">8</div>
                     <div class="text-gray-600">主要学派</div>
                 </div>
             </div>
-            <div class="card p-6 flex flex-col justify-center items-center">
-                <div class="absolute top-0 left-0 w-full h-full highlight-gradient-yellow"></div>
+            <div class="card p-6 flex flex-col justify-center items-center hover-glow">
+                <div class="absolute top-0 left-0 w-full h-full highlight-gradient" style="--tw-gradient-from: rgba(245, 158, 11, 0); --tw-gradient-to: rgba(245, 158, 11, 0.1);"></div>
                 <div class="relative text-center">
                     <div class="text-5xl font-bold text-yellow-600 mb-2">∞</div>
                     <div class="text-gray-600">法术组合</div>
@@ -118,39 +152,40 @@
         </div>
 
         <!-- 学派卡片网格 -->
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 md:gap-6 mb-6">
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 md:gap-6 mb-8">
             <!-- 防护系 -->
-            <a href="防护学派全面研究报告.html" class="block no-underline">
-  <div class="card p-6 bg-blue-50 relative">
-    <div class="absolute top-0 left-0 w-full h-full highlight-gradient-blue"></div>
-    <div class="relative z-10">
-      <div class="school-icon bg-blue-500">
-        <i class="fa-solid fa-shield-halved"></i>
-      </div>
-      <h3 class="text-lg font-bold text-gray-800 mb-2">防护系</h3>
-      <p class="text-sm text-gray-600 mb-3">Abjuration</p>
-      <p class="text-xs text-gray-500">预防胜于治疗，构建各种屏障和结界来抵御伤害。</p>
-    </div>
-  </div>
-</a>
+            <a href="防护学派全面研究报告.html" class="block no-underline group">
+                <div class="card p-6 bg-blue-50 relative h-full hover-glow">
+                    <div class="absolute top-0 left-0 w-full h-full highlight-gradient" style="--tw-gradient-from: rgba(59, 130, 246, 0); --tw-gradient-to: rgba(59, 130, 246, 0.1);"></div>
+                    <div class="relative z-10">
+                        <div class="school-icon bg-blue-500">
+                            <i class="fa-solid fa-shield-halved"></i>
+                        </div>
+                        <h3 class="text-lg font-bold text-gray-800 mb-2 group-hover:text-blue-600 transition-colors">防护系</h3>
+                        <p class="text-sm text-gray-600 mb-3">Abjuration</p>
+                        <p class="text-xs text-gray-500">预防胜于治疗，构建各种屏障和结界来抵御伤害。</p>
+                    </div>
+                </div>
+            </a>
             
             <!-- 召唤系 -->
-             <a href="召唤学派全面研究报告.html" class="block no-underline">
-            <div class="card p-6 bg-purple-50">
-                <div class="absolute top-0 left-0 w-full h-full highlight-gradient-purple"></div>
-                <div class="relative">
-                    <div class="school-icon bg-purple-500">
-                        <i class="fa-solid fa-circle-plus"></i>
+            <a href="召唤学派全面研究报告.html" class="block no-underline group">
+                <div class="card p-6 bg-purple-50 relative h-full hover-glow">
+                    <div class="absolute top-0 left-0 w-full h-full highlight-gradient" style="--tw-gradient-from: rgba(139, 92, 246, 0); --tw-gradient-to: rgba(139, 92, 246, 0.1);"></div>
+                    <div class="relative">
+                        <div class="school-icon bg-purple-500">
+                            <i class="fa-solid fa-circle-plus"></i>
+                        </div>
+                        <h3 class="text-lg font-bold text-gray-800 mb-2 group-hover:text-purple-600 transition-colors">召唤系</h3>
+                        <p class="text-sm text-gray-600 mb-3">Conjuration</p>
+                        <p class="text-xs text-gray-500">在不同位面间建立能量通道，转移生物或物体。</p>
                     </div>
-                    <h3 class="text-lg font-bold text-gray-800 mb-2">召唤系</h3>
-                    <p class="text-sm text-gray-600 mb-3">Conjuration</p>
-                    <p class="text-xs text-gray-500">在不同位面间建立能量通道，转移生物或物体。</p>
                 </div>
-            </div>
+            </a>
             
             <!-- 占卜系 -->
-            <div class="card p-6 bg-green-50">
-                <div class="absolute top-0 left-0 w-full h-full highlight-gradient-green"></div>
+            <div class="card p-6 bg-green-50 relative h-full hover-glow">
+                <div class="absolute top-0 left-0 w-full h-full highlight-gradient" style="--tw-gradient-from: rgba(34, 197, 94, 0); --tw-gradient-to: rgba(34, 197, 94, 0.1);"></div>
                 <div class="relative">
                     <div class="school-icon bg-green-500">
                         <i class="fa-solid fa-eye"></i>
@@ -162,22 +197,23 @@
             </div>
             
             <!-- 增强系 -->
-             <a href="增强学派全面研究报告.html" class="block no-underline">
-            <div class="card p-6 bg-red-50">
-                <div class="absolute top-0 left-0 w-full h-full highlight-gradient-red"></div>
-                <div class="relative">
-                    <div class="school-icon bg-red-500">
-                        <i class="fa-solid fa-star"></i>
+            <a href="增强学派全面研究报告.html" class="block no-underline group">
+                <div class="card p-6 bg-red-50 relative h-full hover-glow">
+                    <div class="absolute top-0 left-0 w-full h-full highlight-gradient" style="--tw-gradient-from: rgba(239, 68, 68, 0); --tw-gradient-to: rgba(239, 68, 68, 0.1);"></div>
+                    <div class="relative">
+                        <div class="school-icon bg-red-500">
+                            <i class="fa-solid fa-star"></i>
+                        </div>
+                        <h3 class="text-lg font-bold text-gray-800 mb-2 group-hover:text-red-600 transition-colors">增强系</h3>
+                        <p class="text-sm text-gray-600 mb-3">Enchantment</p>
+                        <p class="text-xs text-gray-500">将魔法能量附着在物品或生物上，强化其属性。</p>
                     </div>
-                    <h3 class="text-lg font-bold text-gray-800 mb-2">增强系</h3>
-                    <p class="text-sm text-gray-600 mb-3">Enchantment</p>
-                    <p class="text-xs text-gray-500">将魔法能量附着在物品或生物上，强化其属性。</p>
                 </div>
-            </div>
+            </a>
             
             <!-- 幻象系 -->
-            <div class="card p-6 bg-yellow-50">
-                <div class="absolute top-0 left-0 w-full h-full highlight-gradient-yellow"></div>
+            <div class="card p-6 bg-yellow-50 relative h-full hover-glow">
+                <div class="absolute top-0 left-0 w-full h-full highlight-gradient" style="--tw-gradient-from: rgba(245, 158, 11, 0); --tw-gradient-to: rgba(245, 158, 11, 0.1);"></div>
                 <div class="relative">
                     <div class="school-icon bg-yellow-500">
                         <i class="fa-solid fa-mask"></i>
@@ -189,8 +225,8 @@
             </div>
             
             <!-- 通灵系 -->
-            <div class="card p-6 bg-indigo-50">
-                <div class="absolute top-0 left-0 w-full h-full highlight-gradient-indigo"></div>
+            <div class="card p-6 bg-indigo-50 relative h-full hover-glow">
+                <div class="absolute top-0 left-0 w-full h-full highlight-gradient" style="--tw-gradient-from: rgba(99, 102, 241, 0); --tw-gradient-to: rgba(99, 102, 241, 0.1);"></div>
                 <div class="relative">
                     <div class="school-icon bg-indigo-500">
                         <i class="fa-solid fa-skull"></i>
@@ -202,38 +238,40 @@
             </div>
             
             <!-- 转化系 -->
-            <a href="转化学派全面研究报告.html" class="block no-underline">
-            <div class="card p-6 bg-cyan-50">
-                <div class="absolute top-0 left-0 w-full h-full highlight-gradient-cyan"></div>
-                <div class="relative">
-                    <div class="school-icon bg-cyan-500">
-                        <i class="fa-solid fa-wand-magic-sparkles"></i>
+            <a href="转化学派全面研究报告.html" class="block no-underline group">
+                <div class="card p-6 bg-cyan-50 relative h-full hover-glow">
+                    <div class="absolute top-0 left-0 w-full h-full highlight-gradient" style="--tw-gradient-from: rgba(6, 182, 212, 0); --tw-gradient-to: rgba(6, 182, 212, 0.1);"></div>
+                    <div class="relative">
+                        <div class="school-icon bg-cyan-500">
+                            <i class="fa-solid fa-wand-magic-sparkles"></i>
+                        </div>
+                        <h3 class="text-lg font-bold text-gray-800 mb-2 group-hover:text-cyan-600 transition-colors">转化系</h3>
+                        <p class="text-sm text-gray-600 mb-3">Transmutation</p>
+                        <p class="text-xs text-gray-500">改变物质的形态、属性甚至本质，操控时空。</p>
                     </div>
-                    <h3 class="text-lg font-bold text-gray-800 mb-2">转化系</h3>
-                    <p class="text-sm text-gray-600 mb-3">Transmutation</p>
-                    <p class="text-xs text-gray-500">改变物质的形态、属性甚至本质，操控时空。</p>
                 </div>
-            </div>
+            </a>
             
             <!-- 塑能系 -->
-            <a href="塑能学派全面研究报告.html" class="block no-underline">
-            <div class="card p-6 bg-orange-50">
-                <div class="absolute top-0 left-0 w-full h-full highlight-gradient-orange"></div>
-                <div class="relative">
-                    <div class="school-icon bg-orange-500">
-                        <i class="fa-solid fa-bolt"></i>
+            <a href="塑能学派全面研究报告.html" class="block no-underline group">
+                <div class="card p-6 bg-orange-50 relative h-full hover-glow">
+                    <div class="absolute top-0 left-0 w-full h-full highlight-gradient" style="--tw-gradient-from: rgba(249, 115, 22, 0); --tw-gradient-to: rgba(249, 115, 22, 0.1);"></div>
+                    <div class="relative">
+                        <div class="school-icon bg-orange-500">
+                            <i class="fa-solid fa-bolt"></i>
+                        </div>
+                        <h3 class="text-lg font-bold text-gray-800 mb-2 group-hover:text-orange-600 transition-colors">塑能系</h3>
+                        <p class="text-sm text-gray-600 mb-3">Evocation</p>
+                        <p class="text-xs text-gray-500">直接操控魔法能量，创造各种破坏性或功能性效果。</p>
                     </div>
-                    <h3 class="text-lg font-bold text-gray-800 mb-2">塑能系</h3>
-                    <p class="text-sm text-gray-600 mb-3">Evocation</p>
-                    <p class="text-xs text-gray-500">直接操控魔法能量，创造各种破坏性或功能性效果。</p>
                 </div>
-            </div>
+            </a>
         </div>
 
         <!-- 魔法能量图表卡片 -->
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6 mb-6">
-            <div class="card p-6">
-                <div class="absolute top-0 left-0 w-full h-full highlight-gradient-blue"></div>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6 mb-8">
+            <div class="card p-6 hover-glow">
+                <div class="absolute top-0 left-0 w-full h-full highlight-gradient" style="--tw-gradient-from: rgba(59, 130, 246, 0); --tw-gradient-to: rgba(59, 130, 246, 0.1);"></div>
                 <div class="relative">
                     <h2 class="text-xl font-bold text-gray-800 mb-4">魔法能量类型分布</h2>
                     <div class="h-64">
@@ -241,8 +279,8 @@
                     </div>
                 </div>
             </div>
-            <div class="card p-6">
-                <div class="absolute top-0 left-0 w-full h-full highlight-gradient-purple"></div>
+            <div class="card p-6 hover-glow">
+                <div class="absolute top-0 left-0 w-full h-full highlight-gradient" style="--tw-gradient-from: rgba(139, 92, 246, 0); --tw-gradient-to: rgba(139, 92, 246, 0.1);"></div>
                 <div class="relative">
                     <h2 class="text-xl font-bold text-gray-800 mb-4">学派应用领域</h2>
                     <div class="h-64">
@@ -253,26 +291,26 @@
         </div>
 
         <!-- 学派关系卡片 -->
-        <div class="card md:col-span-4 p-6 mb-6">
-            <div class="absolute top-0 left-0 w-full h-full highlight-gradient-green"></div>
+        <div id="relations" class="card md:col-span-4 p-6 mb-8">
+            <div class="absolute top-0 left-0 w-full h-full highlight-gradient" style="--tw-gradient-from: rgba(34, 197, 94, 0); --tw-gradient-to: rgba(34, 197, 94, 0.1);"></div>
             <div class="relative">
-                <h2 class="text-xl font-bold text-gray-800 mb-4">学派间的关系与互动</h2>
+                <h2 class="text-xl font-bold text-gray-800 mb-6">学派间的关系与互动</h2>
                 <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
-                    <div class="bg-white p-4 rounded-lg border border-gray-200">
+                    <div class="bg-white p-5 rounded-lg border border-gray-200 hover:border-red-100 transition-all hover:shadow-md">
                         <div class="flex items-center gap-3 mb-3">
                             <i class="fa-solid fa-circle-xmark text-red-500 text-xl"></i>
                             <h3 class="font-bold text-gray-800">对立关系</h3>
                         </div>
                         <p class="text-sm text-gray-600">幻象系与占卜系之间存在天然的对立关系。幻象系试图制造假象，而占卜系则努力看穿这些假象。</p>
                     </div>
-                    <div class="bg-white p-4 rounded-lg border border-gray-200">
+                    <div class="bg-white p-5 rounded-lg border border-gray-200 hover:border-green-100 transition-all hover:shadow-md">
                         <div class="flex items-center gap-3 mb-3">
                             <i class="fa-solid fa-circle-check text-green-500 text-xl"></i>
                             <h3 class="font-bold text-gray-800">互补关系</h3>
                         </div>
                         <p class="text-sm text-gray-600">防护系为所有其他学派提供安全保障。例如，防护系与塑能系结合能够确保施法者在释放强大法术时的安全。</p>
                     </div>
-                    <div class="bg-white p-4 rounded-lg border border-gray-200">
+                    <div class="bg-white p-5 rounded-lg border border-gray-200 hover:border-blue-100 transition-all hover:shadow-md">
                         <div class="flex items-center gap-3 mb-3">
                             <i class="fa-solid fa-circle-arrows-spin text-blue-500 text-xl"></i>
                             <h3 class="font-bold text-gray-800">融合创新</h3>
@@ -284,85 +322,85 @@
         </div>
 
         <!-- 施法者类型卡片 -->
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-4 md:gap-6 mb-6">
-            <div class="card p-6">
-                <div class="absolute top-0 left-0 w-full h-full highlight-gradient-pink"></div>
+        <div id="casters" class="grid grid-cols-1 md:grid-cols-3 gap-4 md:gap-6 mb-8">
+            <div class="card p-6 hover-glow">
+                <div class="absolute top-0 left-0 w-full h-full highlight-gradient" style="--tw-gradient-from: rgba(236, 72, 153, 0); --tw-gradient-to: rgba(236, 72, 153, 0.1);"></div>
                 <div class="relative">
                     <div class="flex items-center gap-3 mb-4">
                         <i class="fa-solid fa-user-graduate text-2xl text-pink-600"></i>
                         <h3 class="text-lg font-bold text-gray-800">奥术施法者</h3>
                     </div>
-                    <p class="text-sm text-gray-600 mb-3">依靠自身天赋和训练直接操控魔法能量，通过与魔网的连接汲取力量。</p>
+                    <p class="text-sm text-gray-600 mb-4">依靠自身天赋和训练直接操控魔法能量，通过与魔网的连接汲取力量。</p>
                     <div class="flex flex-wrap gap-2">
-                        <span class="px-2 py-1 bg-pink-100 text-pink-800 rounded-full text-xs">法师</span>
-                        <span class="px-2 py-1 bg-pink-100 text-pink-800 rounded-full text-xs">术士</span>
-                        <span class="px-2 py-1 bg-pink-100 text-pink-800 rounded-full text-xs">死亡骑士</span>
+                        <span class="px-3 py-1.5 bg-pink-100 text-pink-800 rounded-full text-xs font-medium">法师</span>
+                        <span class="px-3 py-1.5 bg-pink-100 text-pink-800 rounded-full text-xs font-medium">术士</span>
+                        <span class="px-3 py-1.5 bg-pink-100 text-pink-800 rounded-full text-xs font-medium">死亡骑士</span>
                     </div>
                 </div>
             </div>
-            <div class="card p-6">
-                <div class="absolute top-0 left-0 w-full h-full highlight-gradient-yellow"></div>
+            <div class="card p-6 hover-glow">
+                <div class="absolute top-0 left-0 w-full h-full highlight-gradient" style="--tw-gradient-from: rgba(245, 158, 11, 0); --tw-gradient-to: rgba(245, 158, 11, 0.1);"></div>
                 <div class="relative">
                     <div class="flex items-center gap-3 mb-4">
                         <i class="fa-solid fa-hands-praying text-2xl text-yellow-600"></i>
                         <h3 class="text-lg font-bold text-gray-800">神术施法者</h3>
                     </div>
-                    <p class="text-sm text-gray-600 mb-3">通过信仰或契约获得魔法力量，作为某种更高力量的媒介。</p>
+                    <p class="text-sm text-gray-600 mb-4">通过信仰或契约获得魔法力量，作为某种更高力量的媒介。</p>
                     <div class="flex flex-wrap gap-2">
-                        <span class="px-2 py-1 bg-yellow-100 text-yellow-800 rounded-full text-xs">牧师</span>
-                        <span class="px-2 py-1 bg-yellow-100 text-yellow-800 rounded-full text-xs">萨满</span>
-                        <span class="px-2 py-1 bg-yellow-100 text-yellow-800 rounded-full text-xs">德鲁伊</span>
-                        <span class="px-2 py-1 bg-yellow-100 text-yellow-800 rounded-full text-xs">圣骑士</span>
+                        <span class="px-3 py-1.5 bg-yellow-100 text-yellow-800 rounded-full text-xs font-medium">牧师</span>
+                        <span class="px-3 py-1.5 bg-yellow-100 text-yellow-800 rounded-full text-xs font-medium">萨满</span>
+                        <span class="px-3 py-1.5 bg-yellow-100 text-yellow-800 rounded-full text-xs font-medium">德鲁伊</span>
+                        <span class="px-3 py-1.5 bg-yellow-100 text-yellow-800 rounded-full text-xs font-medium">圣骑士</span>
                     </div>
                 </div>
             </div>
-            <div class="card p-6">
-                <div class="absolute top-0 left-0 w-full h-full highlight-gradient-cyan"></div>
+            <div class="card p-6 hover-glow">
+                <div class="absolute top-0 left-0 w-full h-full highlight-gradient" style="--tw-gradient-from: rgba(6, 182, 212, 0); --tw-gradient-to: rgba(6, 182, 212, 0.1);"></div>
                 <div class="relative">
                     <div class="flex items-center gap-3 mb-4">
                         <i class="fa-solid fa-gem text-2xl text-cyan-600"></i>
                         <h3 class="text-lg font-bold text-gray-800">魔法物品</h3>
                     </div>
-                    <p class="text-sm text-gray-600 mb-3">法师施展魔法的工具，也是魔法能量的载体和储存器。</p>
+                    <p class="text-sm text-gray-600 mb-4">法师施展魔法的工具，也是魔法能量的载体和储存器。</p>
                     <div class="flex flex-wrap gap-2">
-                        <span class="px-2 py-1 bg-cyan-100 text-cyan-800 rounded-full text-xs">法杖</span>
-                        <span class="px-2 py-1 bg-cyan-100 text-cyan-800 rounded-full text-xs">魔杖</span>
-                        <span class="px-2 py-1 bg-cyan-100 text-cyan-800 rounded-full text-xs">魔法水晶</span>
-                        <span class="px-2 py-1 bg-cyan-100 text-cyan-800 rounded-full text-xs">附魔装备</span>
+                        <span class="px-3 py-1.5 bg-cyan-100 text-cyan-800 rounded-full text-xs font-medium">法杖</span>
+                        <span class="px-3 py-1.5 bg-cyan-100 text-cyan-800 rounded-full text-xs font-medium">魔杖</span>
+                        <span class="px-3 py-1.5 bg-cyan-100 text-cyan-800 rounded-full text-xs font-medium">魔法水晶</span>
+                        <span class="px-3 py-1.5 bg-cyan-100 text-cyan-800 rounded-full text-xs font-medium">附魔装备</span>
                     </div>
                 </div>
             </div>
         </div>
 
         <!-- 能量来源卡片 -->
-        <div class="card md:col-span-4 p-6">
-            <div class="absolute top-0 left-0 w-full h-full highlight-gradient-indigo"></div>
+        <div id="energy" class="card md:col-span-4 p-6 mb-8">
+            <div class="absolute top-0 left-0 w-full h-full highlight-gradient" style="--tw-gradient-from: rgba(99, 102, 241, 0); --tw-gradient-to: rgba(99, 102, 241, 0.1);"></div>
             <div class="relative">
-                <h2 class="text-xl font-bold text-gray-800 mb-4">魔法能量的来源与运行原理</h2>
+                <h2 class="text-xl font-bold text-gray-800 mb-6">魔法能量的来源与运行原理</h2>
                 <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
-                    <div class="bg-white p-4 rounded-lg border border-gray-200">
-                        <div class="w-12 h-12 bg-indigo-100 rounded-full flex items-center justify-center mb-3">
+                    <div class="bg-white p-5 rounded-lg border border-gray-200 hover:shadow-md transition-all group">
+                        <div class="w-12 h-12 bg-indigo-100 rounded-full flex items-center justify-center mb-3 group-hover:bg-indigo-200 transition-colors">
                             <i class="fa-solid fa-network-wired text-indigo-600"></i>
                         </div>
                         <h3 class="font-bold text-gray-800 mb-2">魔网系统</h3>
                         <p class="text-sm text-gray-600">贯穿艾泽拉斯的巨大能量通道，是奥术能量的主要来源。</p>
                     </div>
-                    <div class="bg-white p-4 rounded-lg border border-gray-200">
-                        <div class="w-12 h-12 bg-purple-100 rounded-full flex items-center justify-center mb-3">
+                    <div class="bg-white p-5 rounded-lg border border-gray-200 hover:shadow-md transition-all group">
+                        <div class="w-12 h-12 bg-purple-100 rounded-full flex items-center justify-center mb-3 group-hover:bg-purple-200 transition-colors">
                             <i class="fa-solid fa-tree text-purple-600"></i>
                         </div>
                         <h3 class="font-bold text-gray-800 mb-2">世界之树</h3>
                         <p class="text-sm text-gray-600">诺达希尔连接永恒之井，净化和分配魔法能量。</p>
                     </div>
-                    <div class="bg-white p-4 rounded-lg border border-gray-200">
-                        <div class="w-12 h-12 bg-yellow-100 rounded-full flex items-center justify-center mb-3">
+                    <div class="bg-white p-5 rounded-lg border border-gray-200 hover:shadow-md transition-all group">
+                        <div class="w-12 h-12 bg-yellow-100 rounded-full flex items-center justify-center mb-3 group-hover:bg-yellow-200 transition-colors">
                             <i class="fa-solid fa-sun text-yellow-600"></i>
                         </div>
                         <h3 class="font-bold text-gray-800 mb-2">神圣能量</h3>
                         <p class="text-sm text-gray-600">源于对圣光的信仰，体现为神圣魔法。</p>
                     </div>
-                    <div class="bg-white p-4 rounded-lg border border-gray-200">
-                        <div class="w-12 h-12 bg-green-100 rounded-full flex items-center justify-center mb-3">
+                    <div class="bg-white p-5 rounded-lg border border-gray-200 hover:shadow-md transition-all group">
+                        <div class="w-12 h-12 bg-green-100 rounded-full flex items-center justify-center mb-3 group-hover:bg-green-200 transition-colors">
                             <i class="fa-solid fa-leaf text-green-600"></i>
                         </div>
                         <h3 class="font-bold text-gray-800 mb-2">自然能量</h3>
@@ -373,7 +411,54 @@
         </div>
     </div>
 
+    <!-- 其他栏目 -->
+    <section class="mt-16 mb-16 px-4 max-w-7xl mx-auto">
+        <h2 class="text-2xl font-bold text-gray-800 mb-6">相关研究</h2>
+
+        <!-- 卡片式链接 -->
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+            <a href="转化系法术学徒入门技术详解.html" class="block no-underline group">
+                <div class="card p-6 bg-white border border-gray-200 rounded-xl shadow-sm hover:shadow-md transition-all duration-300">
+                    <div class="flex items-start gap-4">
+                        <div class="w-12 h-12 bg-blue-100 rounded-full flex items-center justify-center group-hover:bg-blue-200 transition-colors">
+                            <i class="fa-solid fa-wand-magic-sparkles text-blue-600"></i>
+                        </div>
+                        <div>
+                            <h3 class="font-bold text-gray-800 mb-2 group-hover:text-blue-600 transition-colors">转化系法术学徒入门技术详解</h3>
+                            <p class="text-sm text-gray-600">学习如何掌握基础转化魔法，从元素变化到形态转换的实用技巧。</p>
+                        </div>
+                    </div>
+                </div>
+            </a>
+        </div>
+    </section>
+
+    <!-- 页脚 -->
+    <footer class="bg-gray-50 border-t border-gray-200 py-8">
+        <div class="max-w-7xl mx-auto px-4 md:px-6">
+            <div class="flex flex-col md:flex-row justify-between items-center">
+                <div class="flex items-center gap-2 mb-4 md:mb-0">
+                    <i class="fa-solid fa-wand-sparkles text-purple-600"></i>
+                    <span class="font-bold text-gray-800">肯瑞托魔法档案库</span>
+                </div>
+                <div class="text-sm text-gray-500">
+                    基于艾泽拉斯魔法研究委员会的官方资料整理 © 2023
+                </div>
+            </div>
+        </div>
+    </footer>
+
     <script>
+        // 平滑滚动
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+
         // 魔法能量类型图表
         const energyCtx = document.getElementById('energyChart').getContext('2d');
         const energyChart = new Chart(energyCtx, {
@@ -392,7 +477,15 @@
                         '#6366F1'  // 靛蓝色
                     ],
                     borderWidth: 0,
-                    hoverOffset: 4
+                    hoverOffset: 8,
+                    hoverBackgroundColor: [
+                        '#7C3AED', // 深紫色
+                        '#D97706', // 深黄色
+                        '#16A34A', // 深绿色
+                        '#DC2626', // 深红色
+                        '#0891B2', // 深青色
+                        '#4F46E5'  // 深靛蓝色
+                    ]
                 }]
             },
             options: {
@@ -404,11 +497,35 @@
                         labels: {
                             padding: 20,
                             usePointStyle: true,
-                            pointStyle: 'circle'
+                            pointStyle: 'circle',
+                            font: {
+                                size: 11
+                            }
+                        }
+                    },
+                    tooltip: {
+                        backgroundColor: 'rgba(255, 255, 255, 0.9)',
+                        titleColor: '#1F2937',
+                        bodyColor: '#4B5563',
+                        borderColor: '#E5E7EB',
+                        borderWidth: 1,
+                        padding: 12,
+                        boxPadding: 6,
+                        usePointStyle: true,
+                        callbacks: {
+                            label: function(context) {
+                                return `${context.label}: ${context.raw}%`;
+                            }
                         }
                     }
                 },
-                cutout: '70%'
+                cutout: '70%',
+                animation: {
+                    animateScale: true,
+                    animateRotate: true,
+                    duration: 2000,
+                    easing: 'easeOutQuart'
+                }
             }
         });
 
@@ -430,8 +547,17 @@
                         '#8B5CF6', // 紫色
                         '#EF4444'  // 红色
                     ],
-                    borderRadius: 4,
-                    barPercentage: 0.6
+                    borderRadius: 6,
+                    barPercentage: 0.6,
+                    hoverBackgroundColor: [
+                        '#2563EB', // 深蓝色
+                        '#EA580C', // 深橙色
+                        '#16A34A', // 深绿色
+                        '#D97706', // 深黄色
+                        '#059669', // 深翠绿色
+                        '#7C3AED', // 深紫色
+                        '#DC2626'  // 深红色
+                    ]
                 }]
             },
             options: {
@@ -441,6 +567,15 @@
                 plugins: {
                     legend: {
                         display: false
+                    },
+                    tooltip: {
+                        backgroundColor: 'rgba(255, 255, 255, 0.9)',
+                        titleColor: '#1F2937',
+                        bodyColor: '#4B5563',
+                        borderColor: '#E5E7EB',
+                        borderWidth: 1,
+                        padding: 12,
+                        boxPadding: 6
                     }
                 },
                 scales: {
@@ -449,37 +584,50 @@
                         max: 100,
                         grid: {
                             display: false
+                        },
+                        ticks: {
+                            font: {
+                                size: 10
+                            }
                         }
                     },
                     y: {
                         grid: {
                             color: '#F3F4F6'
+                        },
+                        ticks: {
+                            font: {
+                                size: 11
+                            }
                         }
                     }
+                },
+                animation: {
+                    duration: 1500,
+                    easing: 'easeOutQuart'
                 }
             }
         });
-    </script>
-   <!-- 其他栏目 -->
-<section class="mt-16 mb-12 px-4 max-w-7xl mx-auto">
-  <h2 class="text-2xl font-bold text-gray-800 mb-6">其他</h2>
 
-  <!-- 卡片式链接 -->
-  <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-    <a href="转化系法术学徒入门技术详解.html" class="block no-underline">
-      <div class="card p-6 bg-white border border-gray-200 rounded-xl shadow-sm hover:shadow-md transition-all duration-200">
-        <div class="flex items-start gap-4">
-          <div class="w-12 h-12 bg-blue-100 rounded-full flex items-center justify-center">
-            <i class="fa-solid fa-wand-magic-sparkles text-blue-600"></i>
-          </div>
-          <div>
-            <h3 class="font-bold text-gray-800 mb-2">转化系法术学徒入门技术详解</h3>
-            <p class="text-sm text-gray-600">学习如何掌握基础转化魔法，从元素变化到形态转换的实用技巧。</p>
-          </div>
-        </div>
-      </div>
-    </a>
-  </div>
-</section>
+        // 元素进入视口时添加动画
+        const observerOptions = {
+            threshold: 0.1
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('opacity-100', 'translate-y-0');
+                    entry.target.classList.remove('opacity-0', 'translate-y-4');
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.card').forEach(card => {
+            card.classList.add('transition-all', 'duration-700', 'opacity-0', 'translate-y-4');
+            observer.observe(card);
+        });
+    </script>
 </body>
 </html>
