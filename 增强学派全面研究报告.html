@@ -1,0 +1,985 @@
+
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>艾泽拉斯幻象学派全面研究报告</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <style>
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            background-color: #FFFFFF;
+        }
+        .card {
+            background-color: white;
+            border: 1px solid #E5E7EB;
+            border-radius: 1.25rem; /* 20px */
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+            transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+            overflow: hidden;
+            position: relative;
+        }
+        .card:hover {
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+        }
+        .highlight-gradient-blue {
+            background: linear-gradient(135deg, rgba(59, 130, 246, 0), rgba(59, 130, 246, 0.05));
+        }
+        .highlight-gradient-purple {
+            background: linear-gradient(135deg, rgba(139, 92, 246, 0), rgba(139, 92, 246, 0.05));
+        }
+        .highlight-gradient-pink {
+            background: linear-gradient(135deg, rgba(236, 72, 153, 0), rgba(236, 72, 153, 0.05));
+        }
+        .highlight-gradient-green {
+            background: linear-gradient(135deg, rgba(34, 197, 94, 0), rgba(34, 197, 94, 0.05));
+        }
+        .highlight-gradient-yellow {
+            background: linear-gradient(135deg, rgba(234, 179, 8, 0), rgba(234, 179, 8, 0.05));
+        }
+        .highlight-gradient-red {
+            background: linear-gradient(135deg, rgba(239, 68, 68, 0), rgba(239, 68, 68, 0.05));
+        }
+        .text-shadow {
+            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+        .icon-border {
+            border: 2px solid;
+            border-radius: 50%;
+            padding: 0.75rem;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+        }
+    </style>
+</head>
+<body class="bg-white">
+    <div class="max-w-7xl mx-auto p-4 md:p-8">
+        <!-- 标题卡片 -->
+        <div class="card mb-6 p-8 md:p-12 flex flex-col justify-center items-center text-center relative">
+            <div class="absolute top-0 left-0 w-full h-full highlight-gradient-purple"></div>
+            <div class="relative w-full">
+                <div class="text-5xl md:text-7xl font-bold text-gray-800 mb-4 text-shadow">
+                    艾泽拉斯幻象学派
+                </div>
+                <div class="text-2xl md:text-4xl font-bold text-purple-600 mb-6">
+                    全面研究报告
+                </div>
+                <div class="flex justify-center space-x-6 text-gray-500">
+                    <div class="flex items-center">
+                        <i class="fa-solid fa-wand-magic-sparkles mr-2"></i>
+                        <span>School of Illusion</span>
+                    </div>
+                    <div class="flex items-center">
+                        <i class="fa-solid fa-scroll mr-2"></i>
+                        <span>Comprehensive Study</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 第一部分：概述与理论基础 -->
+        <div class="mb-8">
+            <div class="flex items-center mb-6">
+                <div class="icon-border text-blue-500 mr-4">
+                    <i class="fa-solid fa-brain text-xl"></i>
+                </div>
+                <h2 class="text-3xl font-bold text-gray-800">概述与理论基础</h2>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                <!-- 本质定义卡片 -->
+                <div class="card md:col-span-2 p-6 flex flex-col justify-between relative">
+                    <div class="absolute top-0 left-0 w-full h-full highlight-gradient-blue"></div>
+                    <div class="relative">
+                        <h3 class="text-2xl font-bold text-blue-600 mb-4">幻象学派的本质定义</h3>
+                        <p class="text-gray-700 mb-4 leading-relaxed">
+                            幻象学派（School of Illusion）是艾泽拉斯魔法体系中"蒙蔽事实真相的艺术"。与其他学派相比，其本质特征在于不直接改变物理世界，而是通过操控感知来创造虚假的现实。
+                        </p>
+                        <div class="bg-blue-50 p-4 rounded-lg border-l-4 border-blue-500">
+                            <p class="text-blue-800 font-medium">
+                                核心概念：<span class="font-bold">感知欺骗</span> - 利用生物处理感官输入的方式来扭曲其对现实的理解。
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 特征卡片 -->
+                <div class="card p-6 relative">
+                    <div class="absolute top-0 left-0 w-full h-full highlight-gradient-green"></div>
+                    <div class="relative">
+                        <h3 class="text-xl font-bold text-green-600 mb-4">三大显著特征</h3>
+                        <ul class="space-y-3">
+                            <li class="flex items-start">
+                                <i class="fa-solid fa-check-circle text-green-500 mt-1 mr-3"></i>
+                                <div>
+                                    <div class="font-bold text-gray-800">欺骗性本质</div>
+                                    <div class="text-gray-600 text-sm">不物理性改变世界，仅影响感知</div>
+                                </div>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fa-solid fa-check-circle text-green-500 mt-1 mr-3"></i>
+                                <div>
+                                    <div class="font-bold text-gray-800">多样性应用</div>
+                                    <div class="text-gray-600 text-sm">可用于进攻、防御、间谍和欺骗</div>
+                                </div>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fa-solid fa-check-circle text-green-500 mt-1 mr-3"></i>
+                                <div>
+                                    <div class="font-bold text-gray-800">依赖相信程度</div>
+                                    <div class="text-gray-600 text-sm">效果取决于目标识破欺骗的能力</div>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 魔法体系地位卡片 -->
+            <div class="card mt-6 p-6 relative">
+                <div class="absolute top-0 left-0 w-full h-full highlight-gradient-purple"></div>
+                <div class="relative">
+                    <h3 class="text-2xl font-bold text-purple-600 mb-4">幻象学派在艾泽拉斯魔法体系中的地位</h3>
+                    <p class="text-gray-700 mb-4 leading-relaxed">
+                        在艾泽拉斯的魔法体系中，幻象学派被正式确立为<span class="font-bold text-purple-700">奥术魔法八大学派之一</span>，与防护、召唤（又称咒法）、占卜（又称预言）、塑能、增强（又称附魔）、转化（又称变化）、通灵（又称死灵）并列。
+                    </p>
+                    <div class="grid grid-cols-2 md:grid-cols-4 gap-4 text-center">
+                        <div class="bg-purple-50 p-3 rounded-lg">
+                            <i class="fa-solid fa-shield-halved text-purple-600 text-2xl mb-2"></i>
+                            <div class="text-sm font-medium text-gray-700">防护系</div>
+                        </div>
+                        <div class="bg-purple-50 p-3 rounded-lg">
+                            <i class="fa-solid fa-wand-magic-sparkles text-purple-600 text-2xl mb-2"></i>
+                            <div class="text-sm font-medium text-gray-700">幻象系</div>
+                        </div>
+                        <div class="bg-purple-50 p-3 rounded-lg">
+                            <i class="fa-solid fa-fire text-purple-600 text-2xl mb-2"></i>
+                            <div class="text-sm font-medium text-gray-700">塑能系</div>
+                        </div>
+                        <div class="bg-purple-50 p-3 rounded-lg">
+                            <i class="fa-solid fa-eye text-purple-600 text-2xl mb-2"></i>
+                            <div class="text-sm font-medium text-gray-700">占卜系</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 第二部分：法术体系 -->
+        <div class="mb-8">
+            <div class="flex items-center mb-6">
+                <div class="icon-border text-pink-500 mr-4">
+                    <i class="fa-solid fa-magic text-xl"></i>
+                </div>
+                <h2 class="text-3xl font-bold text-gray-800">法术体系</h2>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-6">
+                <!-- 法术等级分类 -->
+                <div class="card md:col-span-2 p-6 relative">
+                    <div class="absolute top-0 left-0 w-full h-full highlight-gradient-pink"></div>
+                    <div class="relative">
+                        <h3 class="text-2xl font-bold text-pink-600 mb-4">法术等级分类体系</h3>
+                        <p class="text-gray-700 mb-4">
+                            艾泽拉斯的幻象学派法术按照威力和复杂度分为<span class="font-bold text-pink-700">九个等级</span>，从0级到9级。
+                        </p>
+                        <div class="grid grid-cols-3 gap-3">
+                            <div class="bg-pink-50 p-3 rounded-lg text-center">
+                                <div class="text-2xl font-bold text-pink-600">0级</div>
+                                <div class="text-sm text-gray-600">戏法</div>
+                                <div class="text-xs text-gray-500 mt-1">次级幻象</div>
+                            </div>
+                            <div class="bg-pink-50 p-3 rounded-lg text-center">
+                                <div class="text-2xl font-bold text-pink-600">1-3级</div>
+                                <div class="text-sm text-gray-600">基础</div>
+                                <div class="text-xs text-gray-500 mt-1">隐形术、镜像术</div>
+                            </div>
+                            <div class="bg-pink-50 p-3 rounded-lg text-center">
+                                <div class="text-2xl font-bold text-pink-600">4-9级</div>
+                                <div class="text-sm text-gray-600">高级</div>
+                                <div class="text-xs text-gray-500 mt-1">梦境术、海市蜃楼</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 法术类型饼图 -->
+                <div class="card md:col-span-2 p-6 relative">
+                    <div class="absolute top-0 left-0 w-full h-full highlight-gradient-yellow"></div>
+                    <div class="relative flex flex-col h-full">
+                        <h3 class="text-xl font-bold text-yellow-600 mb-4">幻象法术类型分布</h3>
+                        <div class="flex-grow h-64">
+                            <canvas id="spellTypeChart"></canvas>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 主要法术分类 -->
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mt-6">
+                <!-- 视觉幻象 -->
+                <div class="card p-6 relative">
+                    <div class="absolute top-0 left-0 w-full h-full highlight-gradient-blue"></div>
+                    <div class="relative">
+                        <div class="flex items-center mb-4">
+                            <i class="fa-solid fa-eye text-blue-500 text-2xl mr-3"></i>
+                            <h3 class="text-xl font-bold text-blue-600">视觉幻象类</h3>
+                        </div>
+                        <ul class="space-y-2 text-gray-700">
+                            <li class="flex items-center">
+                                <i class="fa-solid fa-circle-dot text-blue-400 text-xs mr-2"></i>
+                                <span>镜像术 (Mirror Image)</span>
+                            </li>
+                            <li class="flex items-center">
+                                <i class="fa-solid fa-circle-dot text-blue-400 text-xs mr-2"></i>
+                                <span>隐形术 (Invisibility)</span>
+                            </li>
+                            <li class="flex items-center">
+                                <i class="fa-solid fa-circle-dot text-blue-400 text-xs mr-2"></i>
+                                <span>伪装术 (Disguise Self)</span>
+                            </li>
+                            <li class="flex items-center">
+                                <i class="fa-solid fa-circle-dot text-blue-400 text-xs mr-2"></i>
+                                <span>高等幻象 (Major Image)</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- 精神干扰 -->
+                <div class="card p-6 relative">
+                    <div class="absolute top-0 left-0 w-full h-full highlight-gradient-green"></div>
+                    <div class="relative">
+                        <div class="flex items-center mb-4">
+                            <i class="fa-solid fa-brain text-green-500 text-2xl mr-3"></i>
+                            <h3 class="text-xl font-bold text-green-600">精神干扰类</h3>
+                        </div>
+                        <ul class="space-y-2 text-gray-700">
+                            <li class="flex items-center">
+                                <i class="fa-solid fa-circle-dot text-green-400 text-xs mr-2"></i>
+                                <span>恐惧术 (Fear)</span>
+                            </li>
+                            <li class="flex items-center">
+                                <i class="fa-solid fa-circle-dot text-green-400 text-xs mr-2"></i>
+                                <span>催眠图案 (Hypnotic Pattern)</span>
+                            </li>
+                            <li class="flex items-center">
+                                <i class="fa-solid fa-circle-dot text-green-400 text-xs mr-2"></i>
+                                <span>幻影之力 (Phantasmal Force)</span>
+                            </li>
+                            <li class="flex items-center">
+                                <i class="fa-solid fa-circle-dot text-green-400 text-xs mr-2"></i>
+                                <span>疯狂术 (Confusion)</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- 环境扭曲 -->
+                <div class="card p-6 relative">
+                    <div class="absolute top-0 left-0 w-full h-full highlight-gradient-purple"></div>
+                    <div class="relative">
+                        <div class="flex items-center mb-4">
+                            <i class="fa-solid fa-earth-americas text-purple-500 text-2xl mr-3"></i>
+                            <h3 class="text-xl font-bold text-purple-600">环境扭曲类</h3>
+                        </div>
+                        <ul class="space-y-2 text-gray-700">
+                            <li class="flex items-center">
+                                <i class="fa-solid fa-circle-dot text-purple-400 text-xs mr-2"></i>
+                                <span>幻觉地形 (Hallucinatory Terrain)</span>
+                            </li>
+                            <li class="flex items-center">
+                                <i class="fa-solid fa-circle-dot text-purple-400 text-xs mr-2"></i>
+                                <span>海市蜃楼 (Mirage Arcane)</span>
+                            </li>
+                            <li class="flex items-center">
+                                <i class="fa-solid fa-circle-dot text-purple-400 text-xs mr-2"></i>
+                                <span>幽影术 (Shadow Illusion)</span>
+                            </li>
+                            <li class="flex items-center">
+                                <i class="fa-solid fa-circle-dot text-purple-400 text-xs mr-2"></i>
+                                <span>镜像空间 (Mirror Image Space)</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 第三部分：实战应用与战术价值 -->
+        <div class="mb-8">
+            <div class="flex items-center mb-6">
+                <div class="icon-border text-green-500 mr-4">
+                    <i class="fa-solid fa-chess-rook text-xl"></i>
+                </div>
+                <h2 class="text-3xl font-bold text-gray-800">实战应用与战术价值</h2>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <!-- PVP战术卡片 -->
+                <div class="card p-6 relative">
+                    <div class="absolute top-0 left-0 w-full h-full highlight-gradient-green"></div>
+                    <div class="relative">
+                        <h3 class="text-2xl font-bold text-green-600 mb-4">PVP环境中的幻象战术</h3>
+                        <p class="text-gray-700 mb-4">
+                            在玩家对战环境中，幻象法术的核心价值在于其<span class="font-bold text-green-700">欺骗性和控制性</span>，能够在不直接造成伤害的情况下改变战斗的走向。
+                        </p>
+                        <div class="bg-green-50 p-4 rounded-lg mb-4">
+                            <div class="font-bold text-green-800 mb-2">基本战术围绕"迷惑与控制"展开</div>
+                            <ul class="list-disc list-inside text-green-700 space-y-1 text-sm">
+                                <li>使用镜像术创造多个复制品，让对手难以确定真正目标</li>
+                                <li>创造大规模环境幻象，迷惑敌方团队的战术判断</li>
+                                <li>使用精神干扰类法术控制敌方关键目标</li>
+                                <li>通过信息战和心理战误导对手决策</li>
+                            </ul>
+                        </div>
+                        <div class="flex justify-between items-center text-sm text-gray-500">
+                            <span><i class="fa-solid fa-users mr-1"></i> 1v1 或 团队对战</span>
+                            <span><i class="fa-solid fa-clock mr-1"></i> 战斗全阶段有效</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- PVE策略卡片 -->
+                <div class="card p-6 relative">
+                    <div class="absolute top-0 left-0 w-full h-full highlight-gradient-blue"></div>
+                    <div class="relative">
+                        <h3 class="text-2xl font-bold text-blue-600 mb-4">PVE环境中的团队配合策略</h3>
+                        <p class="text-gray-700 mb-4">
+                            在玩家对环境内容中，幻象学派既是<span class="font-bold text-blue-700">控制核心</span>，又是<span class="font-bold text-blue-700">辅助支援</span>，还能充当信息收集者和战术策划者。
+                        </p>
+                        <div class="bg-blue-50 p-4 rounded-lg mb-4">
+                            <div class="font-bold text-blue-800 mb-2">主要职责</div>
+                            <ul class="list-disc list-inside text-blue-700 space-y-1 text-sm">
+                                <li>提供群体控制和战术干扰，减轻坦克和治疗压力</li>
+                                <li>改变副本内地形结构，创造有利战斗环境</li>
+                                <li>与其他控制职业形成控制链，最大化团队控制效果</li>
+                                <li>通过精神干扰影响BOSS行为模式</li>
+                            </ul>
+                        </div>
+                        <div class="flex justify-between items-center text-sm text-gray-500">
+                            <span><i class="fa-solid fa-dungeon mr-1"></i> 团队副本</span>
+                            <span><i class="fa-solid fa-shield-heart mr-1"></i> 保护与控制并重</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 不同职业应用差异 -->
+            <div class="card mt-6 p-6 relative">
+                <div class="absolute top-0 left-0 w-full h-full highlight-gradient-purple"></div>
+                <div class="relative">
+                    <h3 class="text-2xl font-bold text-purple-600 mb-4">不同职业中的幻象魔法应用差异</h3>
+                    <div class="grid grid-cols-1 md:grid-cols-5 gap-4">
+                        <div class="bg-purple-50 p-4 rounded-lg">
+                            <div class="flex items-center mb-3">
+                                <i class="fa-solid fa-user-mage text-purple-600 text-2xl mr-3"></i>
+                                <h4 class="font-bold text-gray-800">法师</h4>
+                            </div>
+                            <p class="text-sm text-gray-600">
+                                主要集中在<span class="font-bold">直接战斗应用</span>上，如镜像术用于闪避攻击、隐形术用于逃脱或偷袭。
+                            </p>
+                        </div>
+                        <div class="bg-purple-50 p-4 rounded-lg">
+                            <div class="flex items-center mb-3">
+                                <i class="fa-solid fa-user-secret text-purple-600 text-2xl mr-3"></i>
+                                <h4 class="font-bold text-gray-800">术士</h4>
+                            </div>
+                            <p class="text-sm text-gray-600">
+                                将幻象与恶魔召唤相结合，创造复杂危险的幻象效果，带有<span class="font-bold">暗影和恶魔色彩</span>。
+                            </p>
+                        </div>
+                        <div class="bg-purple-50 p-4 rounded-lg">
+                            <div class="flex items-center mb-3">
+                                <i class="fa-solid fa-user-ninja text-purple-600 text-2xl mr-3"></i>
+                                <h4 class="font-bold text-gray-800">潜行者</h4>
+                            </div>
+                            <p class="text-sm text-gray-600">
+                                通过奥术技巧使用简单幻象，主要用于<span class="font-bold">潜行和侦察</span>，转移守卫注意力。
+                            </p>
+                        </div>
+                        <div class="bg-purple-50 p-4 rounded-lg">
+                            <div class="flex items-center mb-3">
+                                <i class="fa-solid fa-leaf text-purple-600 text-2xl mr-3"></i>
+                                <h4 class="font-bold text-gray-800">德鲁伊</h4>
+                            </div>
+                            <p class="text-sm text-gray-600">
+                                从自然角度使用幻象，与环境融为一体，创造<span class="font-bold">森林或野兽幻象</span>。
+                            </p>
+                        </div>
+                        <div class="bg-purple-50 p-4 rounded-lg">
+                            <div class="flex items-center mb-3">
+                                <i class="fa-solid fa-bolt text-purple-600 text-2xl mr-3"></i>
+                                <h4 class="font-bold text-gray-800">萨满祭司</h4>
+                            </div>
+                            <p class="text-sm text-gray-600">
+                                使用与元素相关的幻象，结合元素力量，创造<span class="font-bold">火焰或风暴幻象</span>。
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 第四部分：历史发展与传承 -->
+        <div class="mb-8">
+            <div class="flex items-center mb-6">
+                <div class="icon-border text-yellow-500 mr-4">
+                    <i class="fa-solid fa-scroll text-xl"></i>
+                </div>
+                <h2 class="text-3xl font-bold text-gray-800">历史发展与传承</h2>
+            </div>
+
+            <!-- 历史时间线 -->
+            <div class="card p-6 relative">
+                <div class="absolute top-0 left-0 w-full h-full highlight-gradient-yellow"></div>
+                <div class="relative">
+                    <h3 class="text-2xl font-bold text-yellow-600 mb-6">幻象学派历史发展时间线</h3>
+                    <div class="relative">
+                        <!-- 时间线轴 -->
+                        <div class="absolute left-4 md:left-1/2 transform md:-translate-x-1/2 h-full w-0.5 bg-yellow-200"></div>
+                        
+                        <!-- 上古时期 -->
+                        <div class="relative flex flex-col md:flex-row items-start mb-8">
+                            <div class="md:w-1/2 md:pr-8 md:text-right order-2 md:order-1">
+                                <h4 class="text-xl font-bold text-gray-800 mb-2">上古时期</h4>
+                                <p class="text-gray-600 mb-2">约公元前10000年</p>
+                                <p class="text-gray-700">
+                                    幻象魔法起源与泰坦的创世活动和早期魔法文明的发展密切相关。泰坦使用幻象魔法来隐藏和保护艾泽拉斯的秘密。
+                                </p>
+                            </div>
+                            <div class="flex items-center justify-center w-8 h-8 bg-yellow-500 rounded-full text-white font-bold mb-4 md:mb-0 order-1 md:order-2 z-10">1</div>
+                            <div class="md:w-1/2 md:pl-8 order-3"></div>
+                        </div>
+                        
+                        <!-- 高等精灵文明 -->
+                        <div class="relative flex flex-col md:flex-row items-start mb-8">
+                            <div class="md:w-1/2 md:pr-8 order-1"></div>
+                            <div class="flex items-center justify-center w-8 h-8 bg-yellow-500 rounded-full text-white font-bold mb-4 md:mb-0 order-2 z-10">2</div>
+                            <div class="md:w-1/2 md:pl-8 order-3">
+                                <h4 class="text-xl font-bold text-gray-800 mb-2">高等精灵文明</h4>
+                                <p class="text-gray-600 mb-2">上古之战时期</p>
+                                <p class="text-gray-700">
+                                    高等精灵的上层贵族"奎尔多雷"是最早系统研究幻象魔法的群体。他们将幻象用于娱乐、装饰、军事防御和政治控制。
+                                </p>
+                            </div>
+                        </div>
+                        
+                        <!-- 人类法师文明 -->
+                        <div class="relative flex flex-col md:flex-row items-start mb-8">
+                            <div class="md:w-1/2 md:pr-8 md:text-right order-2 md:order-1">
+                                <h4 class="text-xl font-bold text-gray-800 mb-2">人类法师文明</h4>
+                                <p class="text-gray-600 mb-2">约公元前2800年-现代</p>
+                                <p class="text-gray-700">
+                                    人类从巨魔战争时期开始学习幻象魔法，并在阿拉索帝国和达拉然时期得到系统发展。达拉然的建立标志着人类魔法文明的成熟。
+                                </p>
+                            </div>
+                            <div class="flex items-center justify-center w-8 h-8 bg-yellow-500 rounded-full text-white font-bold mb-4 md:mb-0 order-1 md:order-2 z-10">3</div>
+                            <div class="md:w-1/2 md:pl-8 order-3"></div>
+                        </div>
+                        
+                        <!-- 现代发展 -->
+                        <div class="relative flex flex-col md:flex-row items-start">
+                            <div class="md:w-1/2 md:pr-8 order-1"></div>
+                            <div class="flex items-center justify-center w-8 h-8 bg-yellow-500 rounded-full text-white font-bold mb-4 md:mb-0 order-2 z-10">4</div>
+                            <div class="md:w-1/2 md:pl-8 order-3">
+                                <h4 class="text-xl font-bold text-gray-800 mb-2">现代发展</h4>
+                                <p class="text-gray-600 mb-2">第三次战争后至今</p>
+                                <p class="text-gray-700">
+                                    现代幻象学派与科技深度融合，发展出数字化幻象、量子幻象等新技术。吉安娜、罗宁等人物推动了幻象学派的现代化发展。
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 第五部分：分支研究 -->
+        <div class="mb-8">
+            <div class="flex items-center mb-6">
+                <div class="icon-border text-red-500 mr-4">
+                    <i class="fa-solid fa-sitemap text-xl"></i>
+                </div>
+                <h2 class="text-3xl font-bold text-gray-800">分支研究</h2>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <!-- 视觉幻象分支 -->
+                <div class="card p-6 relative">
+                    <div class="absolute top-0 left-0 w-full h-full highlight-gradient-blue"></div>
+                    <div class="relative">
+                        <h3 class="text-2xl font-bold text-blue-600 mb-4">视觉幻象分支</h3>
+                        <p class="text-gray-700 mb-4">
+                            最基础也是最广泛应用的分支，通过<span class="font-bold text-blue-700">操控光线的传播路径</span>来创造虚假的视觉信息。
+                        </p>
+                        <div class="bg-blue-50 p-4 rounded-lg mb-4">
+                            <div class="font-bold text-blue-800 mb-2">技术原理</div>
+                            <ul class="list-disc list-inside text-blue-700 space-y-1 text-sm">
+                                <li>光线弯曲技术：扭曲光线传播路径</li>
+                                <li>色彩和亮度操控：改变光波长和强度分布</li>
+                                <li>运动感知干扰：干扰目标的运动感知系统</li>
+                            </ul>
+                        </div>
+                        <div class="flex flex-wrap gap-2">
+                            <span class="px-3 py-1 bg-blue-100 text-blue-800 rounded-full text-xs font-medium">全息投影</span>
+                            <span class="px-3 py-1 bg-blue-100 text-blue-800 rounded-full text-xs font-medium">立体幻象</span>
+                            <span class="px-3 py-1 bg-blue-100 text-blue-800 rounded-full text-xs font-medium">动态幻象</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 精神干扰分支 -->
+                <div class="card p-6 relative">
+                    <div class="absolute top-0 left-0 w-full h-full highlight-gradient-green"></div>
+                    <div class="relative">
+                        <h3 class="text-2xl font-bold text-green-600 mb-4">精神干扰分支</h3>
+                        <p class="text-gray-700 mb-4">
+                            最具心理学深度的分支，通过<span class="font-bold text-green-700">魔法能量直接作用于目标的大脑和神经系统</span>来创造幻象效果。
+                        </p>
+                        <div class="bg-green-50 p-4 rounded-lg mb-4">
+                            <div class="font-bold text-green-800 mb-2">心理操控机制</div>
+                            <ul class="list-disc list-inside text-green-700 space-y-1 text-sm">
+                                <li>暗示技术：通过重复刺激影响潜意识</li>
+                                <li>恐惧植入技术：唤起目标内心恐惧</li>
+                                <li>人格重塑技术：重塑性格特征和行为模式</li>
+                            </ul>
+                        </div>
+                        <div class="flex flex-wrap gap-2">
+                            <span class="px-3 py-1 bg-green-100 text-green-800 rounded-full text-xs font-medium">心理战</span>
+                            <span class="px-3 py-1 bg-green-100 text-green-800 rounded-full text-xs font-medium">政治宣传</span>
+                            <span class="px-3 py-1 bg-green-100 text-green-800 rounded-full text-xs font-medium">商业谈判</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 环境扭曲分支 -->
+                <div class="card p-6 relative">
+                    <div class="absolute top-0 left-0 w-full h-full highlight-gradient-purple"></div>
+                    <div class="relative">
+                        <h3 class="text-2xl font-bold text-purple-600 mb-4">环境扭曲分支</h3>
+                        <p class="text-gray-700 mb-4">
+                            最具空间操控能力的分支，通过<span class="font-bold text-purple-700">魔法场扭曲空间的几何结构</span>来创造违背常规物理法则的环境效果。
+                        </p>
+                        <div class="bg-purple-50 p-4 rounded-lg mb-4">
+                            <div class="font-bold text-purple-800 mb-2">空间魔法技术</div>
+                            <ul class="list-disc list-inside text-purple-700 space-y-1 text-sm">
+                                <li>空间弯曲技术：创造非欧几里得几何空间</li>
+                                <li>重力场操控技术：改变空间中的重力分布</li>
+                                <li>物理法则改写技术：暂时改变物理常数</li>
+                            </ul>
+                        </div>
+                        <div class="flex flex-wrap gap-2">
+                            <span class="px-3 py-1 bg-purple-100 text-purple-800 rounded-full text-xs font-medium">时间扭曲</span>
+                            <span class="px-3 py-1 bg-purple-100 text-purple-800 rounded-full text-xs font-medium">维度门</span>
+                            <span class="px-3 py-1 bg-purple-100 text-purple-800 rounded-full text-xs font-medium">空间折叠</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 分支融合创新 -->
+                <div class="card p-6 relative">
+                    <div class="absolute top-0 left-0 w-full h-full highlight-gradient-pink"></div>
+                    <div class="relative">
+                        <h3 class="text-2xl font-bold text-pink-600 mb-4">分支融合与创新发展</h3>
+                        <p class="text-gray-700 mb-4">
+                            不同分支之间的融合与创新成为重要发展趋势，创造出前所未有的效果。
+                        </p>
+                        <div class="space-y-3">
+                            <div class="bg-pink-50 p-3 rounded-lg">
+                                <div class="font-bold text-pink-800 text-sm">视觉+精神干扰</div>
+                                <div class="text-pink-700 text-xs">"感知扭曲"技术，创造多感官真实幻象</div>
+                            </div>
+                            <div class="bg-pink-50 p-3 rounded-lg">
+                                <div class="font-bold text-pink-800 text-sm">环境扭曲+精神干扰</div>
+                                <div class="text-pink-700 text-xs">"现实重构"技术，修改目标对现实的认知</div>
+                            </div>
+                            <div class="bg-pink-50 p-3 rounded-lg">
+                                <div class="font-bold text-pink-800 text-sm">三分支完全融合</div>
+                                <div class="text-pink-700 text-xs">"全感官幻象"技术，创造完全虚拟但真实的世界</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 第六部分：与其他学派的对比 -->
+        <div class="mb-8">
+            <div class="flex items-center mb-6">
+                <div class="icon-border text-indigo-500 mr-4">
+                    <i class="fa-solid fa-balance-scale text-xl"></i>
+                </div>
+                <h2 class="text-3xl font-bold text-gray-800">与其他学派的对比分析</h2>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <!-- 与塑能系对比 -->
+                <div class="card p-6 relative">
+                    <div class="absolute top-0 left-0 w-full h-full highlight-gradient-red"></div>
+                    <div class="relative">
+                        <h3 class="text-xl font-bold text-red-600 mb-4">与塑能系对比：能量创造 vs 感知欺骗</h3>
+                        <div class="grid grid-cols-2 gap-4">
+                            <div class="bg-red-50 p-3 rounded-lg">
+                                <div class="font-bold text-red-800 mb-2">塑能系</div>
+                                <ul class="text-sm text-red-700 space-y-1">
+                                    <li>• 能量的直接释放</li>
+                                    <li>• 真实的物理变化</li>
+                                    <li>• 明确的伤害输出</li>
+                                    <li>• 学习相对直观</li>
+                                </ul>
+                            </div>
+                            <div class="bg-red-50 p-3 rounded-lg">
+                                <div class="font-bold text-red-800 mb-2">幻象系</div>
+                                <ul class="text-sm text-red-700 space-y-1">
+                                    <li>• 感知的操控</li>
+                                    <li>• 虚假的感知体验</li>
+                                    <li>• 多样化战术应用</li>
+                                    <li>• 学习更加复杂</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 与转化系对比 -->
+                <div class="card p-6 relative">
+                    <div class="absolute top-0 left-0 w-full h-full highlight-gradient-green"></div>
+                    <div class="relative">
+                        <h3 class="text-xl font-bold text-green-600 mb-4">与转化系对比：形态改变 vs 形态欺骗</h3>
+                        <div class="grid grid-cols-2 gap-4">
+                            <div class="bg-green-50 p-3 rounded-lg">
+                                <div class="font-bold text-green-800 mb-2">转化系</div>
+                                <ul class="text-sm text-green-700 space-y-1">
+                                    <li>• 真实的形态改变</li>
+                                    <li>• 永久性或半永久性</li>
+                                    <li>• 深度的物理结构变化</li>
+                                    <li>• 需要精确的物质操控</li>
+                                </ul>
+                            </div>
+                            <div class="bg-green-50 p-3 rounded-lg">
+                                <div class="font-bold text-green-800 mb-2">幻象系</div>
+                                <ul class="text-sm text-green-700 space-y-1">
+                                    <li>• 虚假的形态展示</li>
+                                    <li>• 临时性，需持续维持</li>
+                                    <li>• 表面的形态改变</li>
+                                    <li>• 需要强大的感知操控</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 与召唤系对比 -->
+                <div class="card p-6 relative">
+                    <div class="absolute top-0 left-0 w-full h-full highlight-gradient-blue"></div>
+                    <div class="relative">
+                        <h3 class="text-xl font-bold text-blue-600 mb-4">与召唤系对比：物质转移 vs 信息创造</h3>
+                        <div class="grid grid-cols-2 gap-4">
+                            <div class="bg-blue-50 p-3 rounded-lg">
+                                <div class="font-bold text-blue-800 mb-2">召唤系</div>
+                                <ul class="text-sm text-blue-700 space-y-1">
+                                    <li>• 物质的跨位面转移</li>
+                                    <li>• 真实的物质存在</li>
+                                    <li>• 消耗大量魔力</li>
+                                    <li>• 可能出现反抗或失控</li>
+                                </ul>
+                            </div>
+                            <div class="bg-blue-50 p-3 rounded-lg">
+                                <div class="font-bold text-blue-800 mb-2">幻象系</div>
+                                <ul class="text-sm text-blue-700 space-y-1">
+                                    <li>• 信息的创造和操控</li>
+                                    <li>• 虚假的信息存在</li>
+                                    <li>• 能量消耗相对经济</li>
+                                    <li>• 完全受施法者控制</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 与防护系对比 -->
+                <div class="card p-6 relative">
+                    <div class="absolute top-0 left-0 w-full h-full highlight-gradient-purple"></div>
+                    <div class="relative">
+                        <h3 class="text-xl font-bold text-purple-600 mb-4">与防护系对比：物理防御 vs 心理防御</h3>
+                        <div class="grid grid-cols-2 gap-4">
+                            <div class="bg-purple-50 p-3 rounded-lg">
+                                <div class="font-bold text-purple-800 mb-2">防护系</div>
+                                <ul class="text-sm text-purple-700 space-y-1">
+                                    <li>• 物理层面的保护</li>
+                                    <li>• 直接阻挡攻击</li>
+                                    <li>• 确定性的保护</li>
+                                    <li>• 消耗与攻击强度成正比</li>
+                                </ul>
+                            </div>
+                            <div class="bg-purple-50 p-3 rounded-lg">
+                                <div class="font-bold text-purple-800 mb-2">幻象系</div>
+                                <ul class="text-sm text-purple-700 space-y-1">
+                                    <li>• 心理层面的保护</li>
+                                    <li>• 间接规避攻击</li>
+                                    <li>• 概率性的保护</li>
+                                    <li>• 能量消耗相对稳定</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 第七部分：现代发展趋势与未来展望 -->
+        <div class="mb-8">
+            <div class="flex items-center mb-6">
+                <div class="icon-border text-teal-500 mr-4">
+                    <i class="fa-solid fa-rocket text-xl"></i>
+                </div>
+                <h2 class="text-3xl font-bold text-gray-800">现代发展趋势与未来展望</h2>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                <!-- 现代技术革新 -->
+                <div class="card p-6 relative">
+                    <div class="absolute top-0 left-0 w-full h-full highlight-gradient-teal"></div>
+                    <div class="relative">
+                        <h3 class="text-xl font-bold text-teal-600 mb-4">现代幻象技术革新</h3>
+                        <ul class="space-y-3">
+                            <li class="flex items-start">
+                                <i class="fa-solid fa-microchip text-teal-500 mt-1 mr-3"></i>
+                                <div>
+                                    <div class="font-bold text-gray-800">数字化幻象技术</div>
+                                    <div class="text-gray-600 text-sm">创造交互性和可编程性的复杂幻象系统</div>
+                                </div>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fa-solid fa-vr-cardboard text-teal-500 mt-1 mr-3"></i>
+                                <div>
+                                    <div class="font-bold text-gray-800">VR/AR融合</div>
+                                    <div class="text-gray-600 text-sm">创造虚实结合的混合现实环境</div>
+                                </div>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fa-solid fa-robot text-teal-500 mt-1 mr-3"></i>
+                                <div>
+                                    <div class="font-bold text-gray-800">AI应用</div>
+                                    <div class="text-gray-600 text-sm">自动分析目标特征，创造个性化幻象体验</div>
+                                </div>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fa-solid fa-atom text-teal-500 mt-1 mr-3"></i>
+                                <div>
+                                    <div class="font-bold text-gray-800">量子幻象技术</div>
+                                    <div class="text-gray-600 text-sm">利用量子特性创造传统方法无法识破的幻象</div>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- 与现代科技融合 -->
+                <div class="card p-6 relative">
+                    <div class="absolute top-0 left-0 w-full h-full highlight-gradient-indigo"></div>
+                    <div class="relative">
+                        <h3 class="text-xl font-bold text-indigo-600 mb-4">与现代科技的融合</h3>
+                        <div class="space-y-3">
+                            <div class="bg-indigo-50 p-3 rounded-lg">
+                                <div class="flex items-center mb-1">
+                                    <i class="fa-solid fa-wifi text-indigo-500 mr-2"></i>
+                                    <span class="font-bold text-indigo-800 text-sm">通信技术</span>
+                                </div>
+                                <p class="text-indigo-700 text-xs">幻象通信网络，实现跨维度通信</p>
+                            </div>
+                            <div class="bg-indigo-50 p-3 rounded-lg">
+                                <div class="flex items-center mb-1">
+                                    <i class="fa-solid fa-car text-indigo-500 mr-2"></i>
+                                    <span class="font-bold text-indigo-800 text-sm">交通运输</span>
+                                </div>
+                                <p class="text-indigo-700 text-xs">幻象交通工具，优化城市交通</p>
+                            </div>
+                            <div class="bg-indigo-50 p-3 rounded-lg">
+                                <div class="flex items-center mb-1">
+                                    <i class="fa-solid fa-heart-pulse text-indigo-500 mr-2"></i>
+                                    <span class="font-bold text-indigo-800 text-sm">医疗健康</span>
+                                </div>
+                                <p class="text-indigo-700 text-xs">幻象治疗系统，用于心理疾病治疗</p>
+                            </div>
+                            <div class="bg-indigo-50 p-3 rounded-lg">
+                                <div class="flex items-center mb-1">
+                                    <i class="fa-solid fa-bolt text-indigo-500 mr-2"></i>
+                                    <span class="font-bold text-indigo-800 text-sm">能源技术</span>
+                                </div>
+                                <p class="text-indigo-700 text-xs">幻象能源系统，优化能源利用效率</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 未来发展方向 -->
+                <div class="card p-6 relative">
+                    <div class="absolute top-0 left-0 w-full h-full highlight-gradient-pink"></div>
+                    <div class="relative">
+                        <h3 class="text-xl font-bold text-pink-600 mb-4">未来发展方向</h3>
+                        <div class="space-y-4">
+                            <div class="text-center">
+                                <div class="w-16 h-16 bg-pink-100 rounded-full flex items-center justify-center mx-auto mb-2">
+                                    <i class="fa-solid fa-brain text-pink-500 text-2xl"></i>
+                                </div>
+                                <div class="font-bold text-gray-800">智能化</div>
+                                <div class="text-gray-600 text-xs">自主学习和进化的智能幻象</div>
+                            </div>
+                            <div class="text-center">
+                                <div class="w-16 h-16 bg-pink-100 rounded-full flex items-center justify-center mx-auto mb-2">
+                                    <i class="fa-solid fa-seedling text-pink-500 text-2xl"></i>
+                                </div>
+                                <div class="font-bold text-gray-800">生态化</div>
+                                <div class="text-gray-600 text-xs">与自然环境和谐融合</div>
+                            </div>
+                            <div class="text-center">
+                                <div class="w-16 h-16 bg-pink-100 rounded-full flex items-center justify-center mx-auto mb-2">
+                                    <i class="fa-solid fa-user-astronaut text-pink-500 text-2xl"></i>
+                                </div>
+                                <div class="font-bold text-gray-800">个性化</div>
+                                <div class="text-gray-600 text-xs">千人千面的定制化体验</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 第八部分：结论与展望 -->
+        <div class="mb-8">
+            <div class="flex items-center mb-6">
+                <div class="icon-border text-gray-700 mr-4">
+                    <i class="fa-solid fa-flag-checkered text-xl"></i>
+                </div>
+                <h2 class="text-3xl font-bold text-gray-800">结论与展望</h2>
+            </div>
+
+            <div class="card p-8 relative">
+                <div class="absolute top-0 left-0 w-full h-full highlight-gradient-gray"></div>
+                <div class="relative">
+                    <h3 class="text-2xl font-bold text-gray-700 mb-6">幻象学派的核心价值总结</h3>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                        <div>
+                            <p class="text-gray-700 leading-relaxed mb-6">
+                                通过对艾泽拉斯幻象学派的全面研究，我们可以清晰地看到这一学派在整个魔法体系中所具有的独特价值和重要地位。
+                            </p>
+                            <div class="space-y-4">
+                                <div class="flex items-start">
+                                    <div class="w-8 h-8 bg-gray-200 rounded-full flex items-center justify-center mr-3 mt-1 flex-shrink-0">
+                                        <span class="text-gray-700 font-bold text-sm">1</span>
+                                    </div>
+                                    <div>
+                                        <h4 class="font-bold text-gray-800 mb-1">"信息操控"的本质特征</h4>
+                                        <p class="text-gray-600 text-sm">通过操控信息和感知来实现目标，提供全新的问题解决方式</p>
+                                    </div>
+                                </div>
+                                <div class="flex items-start">
+                                    <div class="w-8 h-8 bg-gray-200 rounded-full flex items-center justify-center mr-3 mt-1 flex-shrink-0">
+                                        <span class="text-gray-700 font-bold text-sm">2</span>
+                                    </div>
+                                    <div>
+                                        <h4 class="font-bold text-gray-800 mb-1">强大的适应性和多样性</h4>
+                                        <p class="text-gray-600 text-sm">丰富的技术手段和应用方式，在各种环境下都能发挥作用</p>
+                                    </div>
+                                </div>
+                                <div class="flex items-start">
+                                    <div class="w-8 h-8 bg-gray-200 rounded-full flex items-center justify-center mr-3 mt-1 flex-shrink-0">
+                                        <span class="text-gray-700 font-bold text-sm">3</span>
+                                    </div>
+                                    <div>
+                                        <h4 class="font-bold text-gray-800 mb-1">"以智取胜"的理念</h4>
+                                        <p class="text-gray-600 text-sm">在不使用暴力的情况下解决复杂问题，推动社会向智慧文明发展</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div>
+                            <div class="bg-gray-50 p-6 rounded-lg mb-6">
+                                <h4 class="font-bold text-gray-800 mb-3">对未来研究的建议</h4>
+                                <ul class="space-y-2 text-gray-700">
+                                    <li class="flex items-start">
+                                        <i class="fa-solid fa-check text-gray-600 mt-1 mr-2"></i>
+                                        <span class="text-sm">加强跨学科合作研究，推动技术创新</span>
+                                    </li>
+                                    <li class="flex items-start">
+                                        <i class="fa-solid fa-check text-gray-600 mt-1 mr-2"></i>
+                                        <span class="text-sm">建立完善的伦理规范体系，确保健康发展</span>
+                                    </li>
+                                    <li class="flex items-start">
+                                        <i class="fa-solid fa-check text-gray-600 mt-1 mr-2"></i>
+                                        <span class="text-sm">推动国际交流与合作，建立全球标准</span>
+                                    </li>
+                                    <li class="flex items-start">
+                                        <i class="fa-solid fa-check text-gray-600 mt-1 mr-2"></i>
+                                        <span class="text-sm">加强人才培养，保证可持续发展</span>
+                                    </li>
+                                    <li class="flex items-start">
+                                        <i class="fa-solid fa-check text-gray-600 mt-1 mr-2"></i>
+                                        <span class="text-sm">关注社会需求，开发实用技术产品</span>
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="text-center">
+                                <div class="inline-block bg-gray-100 p-4 rounded-full">
+                                    <i class="fa-solid fa-infinity text-gray-600 text-3xl"></i>
+                                </div>
+                                <p class="text-gray-600 text-sm mt-2">
+                                    幻象学派将在未来发挥更加重要的作用<br>
+                                    为艾泽拉斯社会的进步做出更大的贡献
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // 法术类型分布饼图
+        const ctx = document.getElementById('spellTypeChart').getContext('2d');
+        new Chart(ctx, {
+            type: 'doughnut',
+            data: {
+                labels: ['视觉幻象类', '精神干扰类', '环境扭曲类', '其他'],
+                datasets: [{
+                    label: '法术类型分布',
+                    data: [45, 30, 20, 5],
+                    backgroundColor: [
+                        'rgba(59, 130, 246, 0.7)',
+                        'rgba(34, 197, 94, 0.7)',
+                        'rgba(139, 92, 246, 0.7)',
+                        'rgba(209, 213, 219, 0.7)'
+                    ],
+                    borderColor: [
+                        'rgba(59, 130, 246, 1)',
+                        'rgba(34, 197, 94, 1)',
+                        'rgba(139, 92, 246, 1)',
+                        'rgba(209, 213, 219, 1)'
+                    ],
+                    borderWidth: 1
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                plugins: {
+                    legend: {
+                        position: 'bottom',
+                        labels: {
+                            padding: 20,
+                            usePointStyle: true
+                        }
+                    }
+                }
+            }
+        });
+    </script>
+</body>
+</html>
