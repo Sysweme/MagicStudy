@@ -27,7 +27,7 @@ jobs:
       - name: Generate Markdown with Structure
         env:
           NOTION_TOKEN: $
-          NOTION_DATABASE_ID: $
+          NOTION_PAGE_ID: $
         run: |
           # 创建一个临时脚本文件
           cat > sync.js << 'EOL'
