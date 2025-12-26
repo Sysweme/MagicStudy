@@ -25,7 +25,7 @@ jobs:
           pip install --force-reinstall notion2md==2.8.0
           mkdir -p ./notion-exports
           notion2md \
-            -n ${{ secrets.NOTION_PAGE_ID }} \
+            -n ${{ secrets.NOTION_DATABASE_ID }} \
             -o ./notion-exports \
             --download
         continue-on-error: false
