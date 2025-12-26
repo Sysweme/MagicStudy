@@ -2,8 +2,8 @@ name: 🔄 Sync Notion Page to GitHub
 
 on:
   schedule:
-    - cron: '0 2 * * *'  # 每天 UTC 2 点运行
-  workflow_dispatch:      # 允许手动触发
+    - cron: '0 2 * * *'
+  workflow_dispatch:
 
 jobs:
   sync:
@@ -11,26 +11,23 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
-      # 1. 配置 Python 环境
       - name: Set up Python
         uses: actions/setup-python@v5
         with:
           python-version: '3.11'
 
-      # 2. 安装 notion2md 并导出 Notion 页面（适配 2.9.0 最新参数）
       - name: Fetch Notion Page as Markdown
         run: |
-          pip install notion2md
-          # 创建输出目录
+          # 锁定稳定版本 2.8.0，避免参数变更问题
+          pip install notion2md==2.8.0
           mkdir -p ./notion-exports
-          # 新版正确参数：--token 令牌，--id 页面ID，-o/--out 输出目录，--download 下载资源
-          notion2md --token ${{ secrets.NOTION_TOKEN }} \
-                    --id ${{ secrets.NOTION_DATABASE_ID }} \
-                    --out ./notion-exports \
+          # 2.8.0 稳定参数：-t 令牌，-n 页面ID，-o 输出目录，--download 下载资源
+          notion2md -t ${{ secrets.NOTION_TOKEN }} \
+                    -n ${{ secrets.NOTION_DATABASE_ID }} \
+                    -o ./notion-exports \
                     --download True
         continue-on-error: false
 
-      # 3. 提交并推送变更
       - name: Commit and Push
         run: |
           git config --global user.name "GitHub Actions"
