@@ -19,17 +19,16 @@ jobs:
 
       # 2. 安装 2.8.0 并导出（完全匹配官方参数）
       - name: Fetch Notion Page as Markdown
-        run: |
-          # 强制安装 2.8.0 稳定版
-          pip install --force-reinstall notion2md==2.8.0
-          # 创建输出目录
-          mkdir -p ./notion-exports
-          # 2.8.0 官方正确参数：
-          # --token 令牌（仅长写），-n 页面ID，-o 输出目录，--download 下载图片
-          notion2md --token ${{ secrets.NOTION_TOKEN }} \
-                    -n ${{ secrets.NOTION_DATABASE_ID }} \
-                    -o ./notion-exports \
-                    --download True
+  env:
+    NOTION_TOKEN: ${{ secrets.NOTION_TOKEN }}   # 👈 关键：通过环境变量传入
+  run: |
+    pip install --force-reinstall notion2md==2.8.0
+    mkdir -p ./notion-exports
+    # 注意：这里不再写 --token！
+    notion2md \
+      -n ${{ secrets.NOTION_PAGE_ID }} \
+      -o ./notion-exports \
+      --download
         continue-on-error: false
 
       # 3. 提交并推送变更
