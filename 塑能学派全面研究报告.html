@@ -1,0 +1,622 @@
+
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>艾泽拉斯塑能系学派全面研究报告</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #FFFFFF;
+        }
+        .card {
+            background-color: white;
+            border: 1px solid #E5E7EB;
+            border-radius: 1.25rem; /* 20px */
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+            transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+            overflow: hidden;
+            position: relative;
+        }
+        .highlight-gradient-red {
+            background: linear-gradient(135deg, rgba(239, 68, 68, 0), rgba(239, 68, 68, 0.05));
+        }
+        .highlight-gradient-blue {
+            background: linear-gradient(135deg, rgba(59, 130, 246, 0), rgba(59, 130, 246, 0.05));
+        }
+        .highlight-gradient-purple {
+            background: linear-gradient(135deg, rgba(168, 85, 247, 0), rgba(168, 85, 247, 0.05));
+        }
+        .highlight-gradient-yellow {
+            background: linear-gradient(135deg, rgba(234, 179, 8, 0), rgba(234, 179, 8, 0.05));
+        }
+        .highlight-gradient-green {
+            background: linear-gradient(135deg, rgba(34, 197, 94, 0), rgba(34, 197, 94, 0.05));
+        }
+        .highlight-gradient-cyan {
+            background: linear-gradient(135deg, rgba(22, 163, 74, 0), rgba(22, 163, 74, 0.05));
+        }
+        .text-shadow {
+            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+    </style>
+</head>
+<body class="bg-white">
+    <div class="max-w-7xl mx-auto p-4 md:p-8">
+        <div class="grid grid-cols-1 md:grid-cols-4 gap-4 md:gap-6">
+            <!-- 标题卡片 -->
+            <div class="card md:col-span-4 p-8 flex flex-col justify-center items-center relative">
+                <div class="absolute top-0 left-0 w-full h-full highlight-gradient-red"></div>
+                <div class="relative w-full text-center">
+                    <h1 class="text-4xl md:text-6xl font-bold text-gray-800 mb-4 text-shadow">艾泽拉斯塑能系学派</h1>
+                    <h2 class="text-2xl md:text-4xl font-semibold text-red-500 mb-6">全面研究报告</h2>
+                    <p class="text-lg text-gray-600 max-w-3xl mx-auto">在艾泽拉斯的魔法世界中，塑能系学派（Evocation）占据着独特而重要的地位。作为八大学派中<span class="font-bold text-red-500">最具破坏力</span>的学派，塑能系不仅代表着魔法能量的直接释放，更体现了法师对原始力量的掌控艺术。</p>
+                </div>
+            </div>
+
+            <!-- 核心概念卡片 -->
+            <div class="card md:col-span-2 p-6 flex flex-col justify-center relative">
+                <div class="absolute top-0 left-0 w-full h-full highlight-gradient-blue"></div>
+                <div class="relative">
+                    <div class="flex items-center mb-4">
+                        <i class="fas fa-magic text-3xl text-blue-500 mr-4"></i>
+                        <h3 class="text-2xl font-bold text-gray-800">塑能系核心概念</h3>
+                    </div>
+                    <p class="text-gray-600 mb-4">塑能系的本质在于<span class="font-bold text-blue-500">"能量塑形"</span>，即通过操控魔法能量或引导看不见的力量创造出施法者所希望的结果。</p>
+                    <div class="flex items-center text-gray-600">
+                        <i class="fas fa-quote-left text-blue-400 mr-2"></i>
+                        <p class="italic">"当法师用奥术魔法创造火的时候，实际上只是将周围环境里固有的游离火元素集中到一处，并将其召唤出来。"</p>
+                        <i class="fas fa-quote-right text-blue-400 ml-2"></i>
+                    </div>
+                    <p class="text-right text-gray-500 mt-2">— 麦迪文</p>
+                </div>
+            </div>
+
+            <!-- 能质类型卡片 -->
+            <div class="card md:col-span-2 p-6 flex flex-col justify-center relative">
+                <div class="absolute top-0 left-0 w-full h-full highlight-gradient-purple"></div>
+                <div class="relative">
+                    <div class="flex items-center mb-4">
+                        <i class="fas fa-atom text-3xl text-purple-500 mr-4"></i>
+                        <h3 class="text-2xl font-bold text-gray-800">六大能质类型</h3>
+                    </div>
+                    <div class="grid grid-cols-2 gap-4">
+                        <div class="flex items-center p-3 bg-red-50 rounded-lg">
+                            <div class="w-4 h-4 bg-red-500 rounded-full mr-3"></div>
+                            <span class="font-medium text-gray-700">火能质</span>
+                        </div>
+                        <div class="flex items-center p-3 bg-blue-50 rounded-lg">
+                            <div class="w-4 h-4 bg-blue-500 rounded-full mr-3"></div>
+                            <span class="font-medium text-gray-700">水能质</span>
+                        </div>
+                        <div class="flex items-center p-3 bg-green-50 rounded-lg">
+                            <div class="w-4 h-4 bg-green-500 rounded-full mr-3"></div>
+                            <span class="font-medium text-gray-700">自然能质</span>
+                        </div>
+                        <div class="flex items-center p-3 bg-purple-50 rounded-lg">
+                            <div class="w-4 h-4 bg-purple-500 rounded-full mr-3"></div>
+                            <span class="font-medium text-gray-700">奥术能质</span>
+                        </div>
+                        <div class="flex items-center p-3 bg-gray-50 rounded-lg">
+                            <div class="w-4 h-4 bg-gray-500 rounded-full mr-3"></div>
+                            <span class="font-medium text-gray-700">暗影能质</span>
+                        </div>
+                        <div class="flex items-center p-3 bg-yellow-50 rounded-lg">
+                            <div class="w-4 h-4 bg-yellow-500 rounded-full mr-3"></div>
+                            <span class="font-medium text-gray-700">神圣能质</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 施法机制卡片 -->
+            <div class="card md:col-span-3 p-6 flex flex-col justify-center relative">
+                <div class="absolute top-0 left-0 w-full h-full highlight-gradient-yellow"></div>
+                <div class="relative">
+                    <div class="flex items-center mb-6">
+                        <i class="fas fa-cogs text-3xl text-yellow-500 mr-4"></i>
+                        <h3 class="text-2xl font-bold text-gray-800">能量塑形的运行机制</h3>
+                    </div>
+                    <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                        <div class="text-center">
+                            <div class="w-16 h-16 bg-yellow-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                                <i class="fas fa-download text-2xl text-yellow-500"></i>
+                            </div>
+                            <h4 class="text-lg font-semibold text-gray-800 mb-2">能量汲取阶段</h4>
+                            <p class="text-gray-600">法师通过冥想或特定仪式与魔网建立连接，从环境中汲取游离的元素能量。</p>
+                        </div>
+                        <div class="text-center">
+                            <div class="w-16 h-16 bg-yellow-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                                <i class="fas fa-compress-alt text-2xl text-yellow-500"></i>
+                            </div>
+                            <h4 class="text-lg font-semibold text-gray-800 mb-2">能量塑形阶段</h4>
+                            <p class="text-gray-600">法师将汲取的能量在体内或体外进行塑形，通过精神力和符文的引导，将能量压缩成特定的形态。</p>
+                        </div>
+                        <div class="text-center">
+                            <div class="w-16 h-16 bg-yellow-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                                <i class="fas fa-rocket text-2xl text-yellow-500"></i>
+                            </div>
+                            <h4 class="text-lg font-semibold text-gray-800 mb-2">能量释放阶段</h4>
+                            <p class="text-gray-600">塑形完成后，法师通过特定的咒语和手势将能量释放出去，形成具有特定效果的法术。</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 法术等级分布图表 -->
+            <div class="card md:col-span-1 p-6 flex flex-col justify-center relative">
+                <div class="absolute top-0 left-0 w-full h-full highlight-gradient-green"></div>
+                <div class="relative">
+                    <h3 class="text-xl font-bold text-gray-800 mb-4">法术等级分布</h3>
+                    <div class="h-64">
+                        <canvas id="spellLevelChart"></canvas>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 元素属性卡片 -->
+            <div class="card md:col-span-4 p-6 flex flex-col justify-center relative">
+                <div class="absolute top-0 left-0 w-full h-full highlight-gradient-cyan"></div>
+                <div class="relative">
+                    <div class="flex items-center mb-6">
+                        <i class="fas fa-fire text-3xl text-red-500 mr-4"></i>
+                        <h3 class="text-2xl font-bold text-gray-800">按元素属性的法术分类</h3>
+                    </div>
+                    <div class="grid grid-cols-1 md:grid-cols-5 gap-4">
+                        <!-- 火焰系 -->
+                        <div class="p-4 bg-red-50 rounded-lg border border-red-100">
+                            <div class="flex items-center mb-3">
+                                <i class="fas fa-fire text-red-500 mr-2"></i>
+                                <h4 class="font-bold text-gray-800">火焰系</h4>
+                            </div>
+                            <p class="text-sm text-gray-600 mb-2">高伤害和持续灼烧效果</p>
+                            <ul class="text-sm text-gray-700 space-y-1">
+                                <li>• 火焰箭</li>
+                                <li>• 火球术</li>
+                                <li>• 火焰风暴</li>
+                                <li>• 陨石术</li>
+                            </ul>
+                        </div>
+                        <!-- 冰霜系 -->
+                        <div class="p-4 bg-blue-50 rounded-lg border border-blue-100">
+                            <div class="flex items-center mb-3">
+                                <i class="fas fa-snowflake text-blue-500 mr-2"></i>
+                                <h4 class="font-bold text-gray-800">冰霜系</h4>
+                            </div>
+                            <p class="text-sm text-gray-600 mb-2">控制和持续伤害见长</p>
+                            <ul class="text-sm text-gray-700 space-y-1">
+                                <li>• 霜冻射线</li>
+                                <li>• 冰锥术</li>
+                                <li>• 暴风雪</li>
+                                <li>• 寒冰屏障</li>
+                            </ul>
+                        </div>
+                        <!-- 雷电系 -->
+                        <div class="p-4 bg-yellow-50 rounded-lg border border-yellow-100">
+                            <div class="flex items-center mb-3">
+                                <i class="fas fa-bolt text-yellow-500 mr-2"></i>
+                                <h4 class="font-bold text-gray-800">雷电系</h4>
+                            </div>
+                            <p class="text-sm text-gray-600 mb-2">高爆发和连锁效应</p>
+                            <ul class="text-sm text-gray-700 space-y-1">
+                                <li>• 电爪</li>
+                                <li>• 闪电束</li>
+                                <li>• 闪电链</li>
+                                <li>• 风暴之怒</li>
+                            </ul>
+                        </div>
+                        <!-- 奥术系 -->
+                        <div class="p-4 bg-purple-50 rounded-lg border border-purple-100">
+                            <div class="flex items-center mb-3">
+                                <i class="fas fa-magic text-purple-500 mr-2"></i>
+                                <h4 class="font-bold text-gray-800">奥术系</h4>
+                            </div>
+                            <p class="text-sm text-gray-600 mb-2">精确打击和高爆发</p>
+                            <ul class="text-sm text-gray-700 space-y-1">
+                                <li>• 奥术飞弹</li>
+                                <li>• 奥术冲击</li>
+                                <li>• 奥术弹幕</li>
+                                <li>• 奥术风暴</li>
+                            </ul>
+                        </div>
+                        <!-- 力场系 -->
+                        <div class="p-4 bg-gray-50 rounded-lg border border-gray-100">
+                            <div class="flex items-center mb-3">
+                                <i class="fas fa-shield-alt text-gray-500 mr-2"></i>
+                                <h4 class="font-bold text-gray-800">力场系</h4>
+                            </div>
+                            <p class="text-sm text-gray-600 mb-2">无视抗性的特性</p>
+                            <ul class="text-sm text-gray-700 space-y-1">
+                                <li>• 魔法飞弹</li>
+                                <li>• 力场波</li>
+                                <li>• 力场护盾</li>
+                                <li>• 重力井</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 代表性法术卡片 -->
+            <div class="card md:col-span-2 p-6 flex flex-col justify-center relative">
+                <div class="absolute top-0 left-0 w-full h-full highlight-gradient-red"></div>
+                <div class="relative">
+                    <div class="flex items-center mb-4">
+                        <i class="fas fa-star text-3xl text-red-500 mr-4"></i>
+                        <h3 class="text-2xl font-bold text-gray-800">代表性法术详解</h3>
+                    </div>
+                    <div class="space-y-4">
+                        <div class="p-4 bg-gray-50 rounded-lg">
+                            <h4 class="font-bold text-gray-800 mb-2">火球术 (Fireball)</h4>
+                            <p class="text-gray-600">每等级1d6点伤害，半径20英尺。塑能系最具代表性的法术，结合了高伤害和范围效果，是法师的核心输出手段。</p>
+                        </div>
+                        <div class="p-4 bg-gray-50 rounded-lg">
+                            <h4 class="font-bold text-gray-800 mb-2">闪电链 (Chain Lightning)</h4>
+                            <p class="text-gray-600">每等级可造成1d6点伤害，每等级可另发出一束闪电，造成半数伤害。具有强大的群体杀伤能力。</p>
+                        </div>
+                        <div class="p-4 bg-gray-50 rounded-lg">
+                            <h4 class="font-bold text-gray-800 mb-2">暴风雪 (Blizzard)</h4>
+                            <p class="text-gray-600">冰霜系的高阶群体伤害法术，不仅造成冰霜伤害，还能使敌人移动速度降低，配合冰封球构成法师最稳定的群体输出体系。</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 法术等级分布表格 -->
+            <div class="card md:col-span-2 p-6 flex flex-col justify-center relative">
+                <div class="absolute top-0 left-0 w-full h-full highlight-gradient-blue"></div>
+                <div class="relative">
+                    <div class="flex items-center mb-4">
+                        <i class="fas fa-list-ol text-3xl text-blue-500 mr-4"></i>
+                        <h3 class="text-2xl font-bold text-gray-800">法术等级分类体系</h3>
+                    </div>
+                    <div class="overflow-x-auto">
+                        <table class="min-w-full bg-white rounded-lg overflow-hidden">
+                            <thead class="bg-blue-500 text-white">
+                                <tr>
+                                    <th class="px-4 py-3 text-left">等级</th>
+                                    <th class="px-4 py-3 text-left">名称</th>
+                                    <th class="px-4 py-3 text-left">特点</th>
+                                </tr>
+                            </thead>
+                            <tbody class="divide-y divide-gray-200">
+                                <tr>
+                                    <td class="px-4 py-3 font-semibold">0</td>
+                                    <td class="px-4 py-3">戏法</td>
+                                    <td class="px-4 py-3 text-sm">基础法术，消耗极少能量</td>
+                                </tr>
+                                <tr>
+                                    <td class="px-4 py-3 font-semibold">1-3</td>
+                                    <td class="px-4 py-3">初级法术</td>
+                                    <td class="px-4 py-3 text-sm">学徒到中级法师的常用法术</td>
+                                </tr>
+                                <tr>
+                                    <td class="px-4 py-3 font-semibold">4-6</td>
+                                    <td class="px-4 py-3">高级法术</td>
+                                    <td class="px-4 py-3 text-sm">需要更高技巧和能量投入</td>
+                                </tr>
+                                <tr>
+                                    <td class="px-4 py-3 font-semibold">7-9</td>
+                                    <td class="px-4 py-3">传奇法术</td>
+                                    <td class="px-4 py-3 text-sm">威力惊人，具有改变战局的能力</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+
+            <!-- PVP战术卡片 -->
+            <div class="card md:col-span-2 p-6 flex flex-col justify-center relative">
+                <div class="absolute top-0 left-0 w-full h-full highlight-gradient-purple"></div>
+                <div class="relative">
+                    <div class="flex items-center mb-4">
+                        <i class="fas fa-fist-raised text-3xl text-purple-500 mr-4"></i>
+                        <h3 class="text-2xl font-bold text-gray-800">PVP环境中的战术运用</h3>
+                    </div>
+                    <p class="text-gray-600 mb-4">在玩家对战（PVP）环境中，塑能系法师展现出了强大的<span class="font-bold text-purple-500">远程打击能力和控制能力</span>。其核心战术围绕"风筝"（kiting）展开。</p>
+                    <div class="space-y-3">
+                        <div class="flex items-start">
+                            <div class="w-6 h-6 bg-purple-100 rounded-full flex items-center justify-center mr-3 mt-0.5">
+                                <span class="text-xs font-bold text-purple-500">1</span>
+                            </div>
+                            <p class="text-gray-600"><span class="font-semibold">距离控制</span>：保持30-35码的安全距离，这是大多数塑能法术的有效射程。</p>
+                        </div>
+                        <div class="flex items-start">
+                            <div class="w-6 h-6 bg-purple-100 rounded-full flex items-center justify-center mr-3 mt-0.5">
+                                <span class="text-xs font-bold text-purple-500">2</span>
+                            </div>
+                            <p class="text-gray-600"><span class="font-semibold">减速效果利用</span>：冰霜系法术的减速效果是风筝战术的核心。</p>
+                        </div>
+                        <div class="flex items-start">
+                            <div class="w-6 h-6 bg-purple-100 rounded-full flex items-center justify-center mr-3 mt-0.5">
+                                <span class="text-xs font-bold text-purple-500">3</span>
+                            </div>
+                            <p class="text-gray-600"><span class="font-semibold">闪现机动</span>：用于逃脱和调整位置，重新建立距离优势。</p>
+                        </div>
+                        <div class="flex items-start">
+                            <div class="w-6 h-6 bg-purple-100 rounded-full flex items-center justify-center mr-3 mt-0.5">
+                                <span class="text-xs font-bold text-purple-500">4</span>
+                            </div>
+                            <p class="text-gray-600"><span class="font-semibold">控制技能衔接</span>：适时使用变羊术、冰环等控制技能，创造爆发机会。</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- PVE输出循环卡片 -->
+            <div class="card md:col-span-2 p-6 flex flex-col justify-center relative">
+                <div class="absolute top-0 left-0 w-full h-full highlight-gradient-yellow"></div>
+                <div class="relative">
+                    <div class="flex items-center mb-4">
+                        <i class="fas fa-dungeon text-3xl text-yellow-500 mr-4"></i>
+                        <h3 class="text-2xl font-bold text-gray-800">PVE环境中的输出循环</h3>
+                    </div>
+                    <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+                        <div class="p-4 bg-red-50 rounded-lg border border-red-100">
+                            <h4 class="font-bold text-gray-800 mb-2">火法输出循环</h4>
+                            <p class="text-sm text-gray-600 mb-2">核心是保持燃烧效果，并在炽热连击触发时使用炎爆术。</p>
+                            <div class="text-xs text-gray-700 bg-white p-2 rounded">
+                                <p>起手：活体炸弹+龙息术+火球术×3</p>
+                                <p>爆发：炎爆术+火球术填充</p>
+                                <p>填充：火焰冲击>灼烧>不死鸟之焰</p>
+                            </div>
+                        </div>
+                        <div class="p-4 bg-blue-50 rounded-lg border border-blue-100">
+                            <h4 class="font-bold text-gray-800 mb-2">冰法输出循环</h4>
+                            <p class="text-sm text-gray-600 mb-2">围绕填充循环和裂片循环展开。</p>
+                            <div class="text-xs text-gray-700 bg-white p-2 rounded">
+                                <p>填充循环：寒冰箭→寒冰箭→冰风暴→大冰刺</p>
+                                <p>裂片循环：大冰刺→寒冰宝珠→裂片→冰刺→冰风暴</p>
+                            </div>
+                        </div>
+                        <div class="p-4 bg-purple-50 rounded-lg border border-purple-100">
+                            <h4 class="font-bold text-gray-800 mb-2">奥法输出循环</h4>
+                            <p class="text-sm text-gray-600 mb-2">精密编排的蓝量管理战役。</p>
+                            <div class="text-xs text-gray-700 bg-white p-2 rounded">
+                                <p>爆发期：奥术冲击×4+奥术弹幕</p>
+                                <p>平稳期：涌动→弹幕→触→飞弹</p>
+                                <p>时间操控：时间扭曲期间优先高伤害技能</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 元素克制关系卡片 -->
+            <div class="card md:col-span-4 p-6 flex flex-col justify-center relative">
+                <div class="absolute top-0 left-0 w-full h-full highlight-gradient-green"></div>
+                <div class="relative">
+                    <div class="flex items-center mb-6">
+                        <i class="fas fa-balance-scale text-3xl text-green-500 mr-4"></i>
+                        <h3 class="text-2xl font-bold text-gray-800">元素克制与目标选择策略</h3>
+                    </div>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                        <div>
+                            <h4 class="text-lg font-semibold text-gray-800 mb-3">基本元素克制关系</h4>
+                            <div class="space-y-3">
+                                <div class="flex items-center p-3 bg-red-50 rounded-lg">
+                                    <div class="w-8 h-8 bg-red-500 rounded-full flex items-center justify-center mr-3">
+                                        <i class="fas fa-fire text-white text-sm"></i>
+                                    </div>
+                                    <div>
+                                        <p class="font-medium text-gray-800">火焰克制</p>
+                                        <p class="text-sm text-gray-600">对冰系目标增伤30%，并触发灼烧持续扣血</p>
+                                    </div>
+                                </div>
+                                <div class="flex items-center p-3 bg-blue-50 rounded-lg">
+                                    <div class="w-8 h-8 bg-blue-500 rounded-full flex items-center justify-center mr-3">
+                                        <i class="fas fa-snowflake text-white text-sm"></i>
+                                    </div>
+                                    <div>
+                                        <p class="font-medium text-gray-800">冰霜克制</p>
+                                        <p class="text-sm text-gray-600">冰系技能冻结雷系目标概率提升40%</p>
+                                    </div>
+                                </div>
+                                <div class="flex items-center p-3 bg-yellow-50 rounded-lg">
+                                    <div class="w-8 h-8 bg-yellow-500 rounded-full flex items-center justify-center mr-3">
+                                        <i class="fas fa-bolt text-white text-sm"></i>
+                                    </div>
+                                    <div>
+                                        <p class="font-medium text-gray-800">雷电克制</p>
+                                        <p class="text-sm text-gray-600">对水系和飞行系生物具有优势</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div>
+                            <h4 class="text-lg font-semibold text-gray-800 mb-3">实战中的元素选择策略</h4>
+                            <div class="space-y-3">
+                                <div class="p-3 bg-gray-50 rounded-lg">
+                                    <p class="font-medium text-gray-800 mb-1">对抗亡灵和恶魔</p>
+                                    <p class="text-sm text-gray-600">火焰和神圣系法术通常效果较好</p>
+                                </div>
+                                <div class="p-3 bg-gray-50 rounded-lg">
+                                    <p class="font-medium text-gray-800 mb-1">对抗元素生物</p>
+                                    <p class="text-sm text-gray-600">根据元素生物的类型选择相克的法术</p>
+                                </div>
+                                <div class="p-3 bg-gray-50 rounded-lg">
+                                    <p class="font-medium text-gray-800 mb-1">对抗龙类</p>
+                                    <p class="text-sm text-gray-600">龙类通常具有强大的元素抗性，但也有相应的弱点</p>
+                                </div>
+                                <div class="p-3 bg-gray-50 rounded-lg">
+                                    <p class="font-medium text-gray-800 mb-1">对抗机械类敌人</p>
+                                    <p class="text-sm text-gray-600">火焰和雷电法术对机械类敌人效果较好</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 历史发展卡片 -->
+            <div class="card md:col-span-4 p-6 flex flex-col justify-center relative">
+                <div class="absolute top-0 left-0 w-full h-full highlight-gradient-cyan"></div>
+                <div class="relative">
+                    <div class="flex items-center mb-6">
+                        <i class="fas fa-history text-3xl text-cyan-500 mr-4"></i>
+                        <h3 class="text-2xl font-bold text-gray-800">塑能系学派历史发展脉络</h3>
+                    </div>
+                    <div class="relative">
+                        <!-- 时间线 -->
+                        <div class="absolute left-8 top-0 bottom-0 w-0.5 bg-cyan-200"></div>
+                        
+                        <!-- 时间点 1 -->
+                        <div class="relative pl-16 pb-8">
+                            <div class="absolute left-0 w-16 h-16 bg-cyan-100 rounded-full flex items-center justify-center">
+                                <i class="fas fa-monument text-2xl text-cyan-500"></i>
+                            </div>
+                            <h4 class="text-lg font-semibold text-gray-800 mb-2">上古时期的起源与泰坦遗产</h4>
+                            <p class="text-gray-600">塑能系魔法的起源可以追溯到泰坦创世时期。泰坦在卡利姆多中心放置的永恒之井成为了恢复性、给予生命能量的源泉，为后来的奥术魔法包括塑能系提供了强大的能量基础。</p>
+                        </div>
+                        
+                        <!-- 时间点 2 -->
+                        <div class="relative pl-16 pb-8">
+                            <div class="absolute left-0 w-16 h-16 bg-cyan-100 rounded-full flex items-center justify-center">
+                                <i class="fas fa-leaf text-2xl text-cyan-500"></i>
+                            </div>
+                            <h4 class="text-lg font-semibold text-gray-800 mb-2">高等精灵魔法传统中的塑能系</h4>
+                            <p class="text-gray-600">暗夜精灵是艾泽拉斯最早系统性使用魔法的种族。大约在公元前15000年，暗夜精灵开始熟练地使用奥术力量，塑能系魔法作为一种能够直接改变物质形态和释放强大能量的法术体系，逐渐成为了暗夜精灵魔法传统的重要组成部分。</p>
+                        </div>
+                        
+                        <!-- 时间点 3 -->
+                        <div class="relative pl-16 pb-8">
+                            <div class="absolute left-0 w-16 h-16 bg-cyan-100 rounded-full flex items-center justify-center">
+                                <i class="fas fa-university text-2xl text-cyan-500"></i>
+                            </div>
+                            <h4 class="text-lg font-semibold text-gray-800 mb-2">肯瑞托建立与人类魔法的兴起</h4>
+                            <p class="text-gray-600">人类魔法的发展始于巨魔战争时期。肯瑞托的建立标志着人类魔法体系的正式形成。在肯瑞托的魔法体系中，塑能系被正式确立为八大学派之一，更加注重实用性，往往直接追求最大的伤害效果。</p>
+                        </div>
+                        
+                        <!-- 时间点 4 -->
+                        <div class="relative pl-16">
+                            <div class="absolute left-0 w-16 h-16 bg-cyan-100 rounded-full flex items-center justify-center">
+                                <i class="fas fa-rocket text-2xl text-cyan-500"></i>
+                            </div>
+                            <h4 class="text-lg font-semibold text-gray-800 mb-2">历次大战中的演变与现代发展</h4>
+                            <p class="text-gray-600">塑能系魔法在艾泽拉斯的历次大战中经历了多次重大演变。现代塑能系魔法呈现出精确化与智能化、安全化设计、跨学派融合、科技与魔法的结合以及环境保护意识等发展趋势。</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 与其他学派对比卡片 -->
+            <div class="card md:col-span-4 p-6 flex flex-col justify-center relative">
+                <div class="absolute top-0 left-0 w-full h-full highlight-gradient-red"></div>
+                <div class="relative">
+                    <div class="flex items-center mb-6">
+                        <i class="fas fa-exchange-alt text-3xl text-red-500 mr-4"></i>
+                        <h3 class="text-2xl font-bold text-gray-800">塑能系与其他学派的对比分析</h3>
+                    </div>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                        <div class="p-4 bg-gray-50 rounded-lg">
+                            <h4 class="font-bold text-gray-800 mb-2">与防护系的攻守对立</h4>
+                            <p class="text-gray-600 mb-3">塑能系与防护系代表了魔法世界中最基本的对立关系——攻击与防御。防护系专注于创造物理或魔法屏障，而塑能系则致力于直接释放魔法能量。</p>
+                            <div class="flex items-center text-sm text-gray-500">
+                                <i class="fas fa-shield-alt text-blue-500 mr-2"></i>
+                                <span>防护系：保护重于攻击</span>
+                            </div>
+                            <div class="flex items-center text-sm text-gray-500 mt-1">
+                                <i class="fas fa-fire text-red-500 mr-2"></i>
+                                <span>塑能系：毁灭即是保护</span>
+                            </div>
+                        </div>
+                        <div class="p-4 bg-gray-50 rounded-lg">
+                            <h4 class="font-bold text-gray-800 mb-2">与召唤系的能量来源差异</h4>
+                            <p class="text-gray-600 mb-3">召唤系依赖于与其他位面的连接，从异位面汲取能量或直接召唤存在。而塑能系则直接从环境中汲取元素能量或使用自身储存的能量。</p>
+                            <div class="flex items-center text-sm text-gray-500">
+                                <i class="fas fa-door-open text-purple-500 mr-2"></i>
+                                <span>召唤系：位面通道，复杂耗时</span>
+                            </div>
+                            <div class="flex items-center text-sm text-gray-500 mt-1">
+                                <i class="fas fa-compress-alt text-yellow-500 mr-2"></i>
+                                <span>塑能系：直接转化，简单直接</span>
+                            </div>
+                        </div>
+                        <div class="p-4 bg-gray-50 rounded-lg">
+                            <h4 class="font-bold text-gray-800 mb-2">与幻象系的虚实对比</h4>
+                            <p class="text-gray-600 mb-3">塑能系创造的是真实的物理效果——火焰会真正燃烧，寒冰会真正冻结。而幻象系创造的是虚假的感知效果，本质上是对目标神经系统的干扰。</p>
+                            <div class="flex items-center text-sm text-gray-500">
+                                <i class="fas fa-eye text-green-500 mr-2"></i>
+                                <span>幻象系：虚假感知，能量消耗少</span>
+                            </div>
+                            <div class="flex items-center text-sm text-gray-500 mt-1">
+                                <i class="fas fa-bolt text-yellow-500 mr-2"></i>
+                                <span>塑能系：真实效果，能量消耗大</span>
+                            </div>
+                        </div>
+                        <div class="p-4 bg-gray-50 rounded-lg">
+                            <h4 class="font-bold text-gray-800 mb-2">学派融合的创新趋势</h4>
+                            <p class="text-gray-600 mb-3">随着魔法研究的深入，不同学派之间的融合创新成为了新的发展趋势。塑能系与其他学派的融合产生了许多独特而强大的法术效果。</p>
+                            <div class="flex items-center text-sm text-gray-500">
+                                <i class="fas fa-plus-circle text-blue-500 mr-2"></i>
+                                <span>塑能系+防护系：攻防一体</span>
+                            </div>
+                            <div class="flex items-center text-sm text-gray-500 mt-1">
+                                <i class="fas fa-plus-circle text-purple-500 mr-2"></i>
+                                <span>塑能系+召唤系：元素召唤术</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 结语卡片 -->
+            <div class="card md:col-span-4 p-8 flex flex-col justify-center items-center text-center relative">
+                <div class="absolute top-0 left-0 w-full h-full highlight-gradient-red"></div>
+                <div class="relative max-w-4xl">
+                    <h3 class="text-3xl font-bold text-gray-800 mb-6">结语</h3>
+                    <p class="text-lg text-gray-600 mb-6">通过对艾泽拉斯塑能系学派的全面研究，我们可以看到这一学派从远古泰坦的遗产发展至今，已经形成了一个完整而精密的魔法体系。塑能系学派的核心价值在于它代表了<span class="font-bold text-red-500">魔法能量的最直接释放</span>。</p>
+                    <p class="text-lg text-gray-600 mb-6">与其他学派相比，塑能系更加注重力量与效率的平衡，通过精确的能量控制来实现毁灭性的效果。这种特性使它在战争中成为了决定性的力量，同时也在和平时期为社会发展做出了重要贡献。</p>
+                    <p class="text-lg text-gray-600">展望未来，随着艾泽拉斯魔法世界的不断发展，塑能系学派也将继续演进。我们有理由相信，在新一代法师的努力下，塑能系魔法将在保持其破坏力优势的同时，发展出更多建设性的应用，为艾泽拉斯的和平与繁荣做出更大贡献。</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+<script>
+    // 法术等级分布图表
+    const spellLevelCtx = document.getElementById('spellLevelChart').getContext('2d');
+    const spellLevelChart = new Chart(spellLevelCtx, {
+        type: 'doughnut',
+        data: {
+            labels: ['0级戏法', '1-3级初级', '4-6级高级', '7-9级传奇'],
+            datasets: [{
+                data: [15, 45, 30, 10],
+                backgroundColor: [
+                    'rgba(239, 68, 68, 0.7)',
+                    'rgba(59, 130, 246, 0.7)',
+                    'rgba(168, 85, 247, 0.7)',
+                    'rgba(234, 179, 8, 0.7)'
+                ],
+                borderColor: [
+                    'rgba(239, 68, 68, 1)',
+                    'rgba(59, 130, 246, 1)',
+                    'rgba(168, 85, 247, 1)',
+                    'rgba(234, 179, 8, 1)'
+                ],
+                borderWidth: 1
+            }]
+        },
+        options: {
+            responsive: true,
+            maintainAspectRatio: false,
+            plugins: {
+                legend: {
+                    position: 'bottom',
+                    labels: {
+                        font: {
+                            size: 12
+                        },
+                        padding: 15
+                    }
+                }
+            }
+        }
+    });
+</script>
+</html>
