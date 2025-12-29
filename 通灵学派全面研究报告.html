@@ -1,0 +1,534 @@
+
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>艾泽拉斯通灵学派全面研究报告</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #FFFFFF;
+        }
+        .card {
+            background-color: white;
+            border: 1px solid #E5E7EB;
+            border-radius: 1.25rem; /* 20px */
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+            transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+            overflow: hidden;
+            position: relative;
+        }
+        .highlight-gradient-purple {
+            background: linear-gradient(135deg, rgba(168, 85, 247, 0), rgba(168, 85, 247, 0.05));
+        }
+        .highlight-gradient-blue {
+            background: linear-gradient(135deg, rgba(59, 130, 246, 0), rgba(59, 130, 246, 0.05));
+        }
+        .highlight-gradient-red {
+            background: linear-gradient(135deg, rgba(239, 68, 68, 0), rgba(239, 68, 68, 0.05));
+        }
+        .highlight-gradient-green {
+            background: linear-gradient(135deg, rgba(34, 197, 94, 0), rgba(34, 197, 94, 0.05));
+        }
+        .highlight-gradient-yellow {
+            background: linear-gradient(135deg, rgba(234, 179, 8, 0), rgba(234, 179, 8, 0.05));
+        }
+        .highlight-gradient-gray {
+            background: linear-gradient(135deg, rgba(107, 114, 128, 0), rgba(107, 114, 128, 0.05));
+        }
+        .highlight-gradient-teal {
+            background: linear-gradient(135deg, rgba(20, 184, 166, 0), rgba(20, 184, 166, 0.05));
+        }
+        .highlight-gradient-pink {
+            background: linear-gradient(135deg, rgba(236, 72, 153, 0), rgba(236, 72, 153, 0.05));
+        }
+        .highlight-gradient-indigo {
+            background: linear-gradient(135deg, rgba(99, 102, 241, 0), rgba(99, 102, 241, 0.05));
+        }
+        .highlight-gradient-orange {
+            background: linear-gradient(135deg, rgba(249, 115, 22, 0), rgba(249, 115, 22, 0.05));
+        }
+    </style>
+</head>
+<body class="bg-white">
+    <div class="max-w-7xl mx-auto p-4 md:p-8">
+        <div class="grid grid-cols-1 md:grid-cols-4 gap-4 md:gap-6">
+            <!-- 标题卡片 -->
+            <div class="card md:col-span-4 p-8 flex flex-col justify-center items-center text-center relative">
+                <div class="absolute top-0 left-0 w-full h-full highlight-gradient-purple"></div>
+                <div class="relative z-10">
+                    <div class="text-6xl md:text-8xl font-bold text-gray-800 mb-4">
+                        <i class="fa-solid fa-skull-crossbones text-purple-600 mr-4"></i>
+                        通灵学派
+                    </div>
+                    <div class="text-2xl md:text-4xl font-bold text-gray-700 mb-2">艾泽拉斯全面研究报告</div>
+                    <div class="text-lg text-gray-500 mt-4 max-w-4xl">
+                        探索艾泽拉斯最神秘而又备受争议的魔法分支，解析其理论基础、法术体系、实战应用与历史发展
+                    </div>
+                </div>
+            </div>
+
+            <!-- 核心概念卡片 -->
+            <div class="card md:col-span-2 p-8 flex flex-col relative">
+                <div class="absolute top-0 left-0 w-full h-full highlight-gradient-blue"></div>
+                <div class="relative z-10 flex-grow">
+                    <div class="flex items-center mb-6">
+                        <i class="fa-solid fa-book-open text-blue-600 text-3xl mr-4"></i>
+                        <h2 class="text-2xl font-bold text-gray-800">核心概念</h2>
+                    </div>
+                    <div class="space-y-4">
+                        <div class="flex items-start">
+                            <div class="bg-blue-100 p-2 rounded-lg mr-4 mt-1">
+                                <i class="fa-solid fa-death text-blue-600"></i>
+                            </div>
+                            <div>
+                                <h3 class="font-bold text-gray-800">死亡领域关联</h3>
+                                <p class="text-gray-600">与暗影界的深度连接，掌握死亡魔法的本质力量</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start">
+                            <div class="bg-blue-100 p-2 rounded-lg mr-4 mt-1">
+                                <i class="fa-solid fa-soul text-blue-600"></i>
+                            </div>
+                            <div>
+                                <h3 class="font-bold text-gray-800">灵魂能量操控</h3>
+                                <p class="text-gray-600">汲取、储存和转化生命与灵魂能量的独特机制</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start">
+                            <div class="bg-blue-100 p-2 rounded-lg mr-4 mt-1">
+                                <i class="fa-solid fa-zombie text-blue-600"></i>
+                            </div>
+                            <div>
+                                <h3 class="font-bold text-gray-800">亡灵控制</h3>
+                                <p class="text-gray-600">复活和控制亡者，甚至重铸亡灵生物的躯体</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 禁忌之术卡片 -->
+            <div class="card md:col-span-2 p-8 flex flex-col justify-center items-center text-center relative">
+                <div class="absolute top-0 left-0 w-full h-full highlight-gradient-red"></div>
+                <div class="relative z-10">
+                    <div class="text-7xl font-bold text-red-600 mb-4">禁忌之术</div>
+                    <div class="text-xl text-gray-700 mb-4">在艾泽拉斯主流社会中被视为邪恶与禁忌</div>
+                    <div class="flex justify-center space-x-4 text-gray-500">
+                        <div class="flex items-center">
+                            <i class="fa-solid fa-shield-halved mr-2"></i>
+                            <span>被肯瑞托禁止</span>
+                        </div>
+                        <div class="flex items-center">
+                            <i class="fa-solid fa-users-slash mr-2"></i>
+                            <span>社会排斥</span>
+                        </div>
+                        <div class="flex items-center">
+                            <i class="fa-solid fa-morning text-red-500 mr-2"></i>
+                            <span>光明魔法克制</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 法术等级体系图表 -->
+            <div class="card md:col-span-3 p-8 flex flex-col relative">
+                <div class="absolute top-0 left-0 w-full h-full highlight-gradient-green"></div>
+                <div class="relative z-10 flex-grow">
+                    <div class="flex items-center mb-6">
+                        <i class="fa-solid fa-layer-group text-green-600 text-3xl mr-4"></i>
+                        <h2 class="text-2xl font-bold text-gray-800">通灵法术等级体系</h2>
+                    </div>
+                    <div class="h-[300px]">
+                        <canvas id="spellLevelChart"></canvas>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 法术分类卡片 -->
+            <div class="card md:col-span-1 p-8 flex flex-col relative">
+                <div class="absolute top-0 left-0 w-full h-full highlight-gradient-gray"></div>
+                <div class="relative z-10 flex-grow">
+                    <div class="flex items-center mb-6">
+                        <i class="fa-solid fa-sitemap text-gray-600 text-3xl mr-4"></i>
+                        <h2 class="text-2xl font-bold text-gray-800">法术分类</h2>
+                    </div>
+                    <div class="space-y-3">
+                        <div class="bg-gray-100 p-3 rounded-lg">
+                            <div class="font-bold text-gray-800">亡灵召唤</div>
+                            <div class="text-sm text-gray-600">骷髅、僵尸、幽灵</div>
+                        </div>
+                        <div class="bg-gray-100 p-3 rounded-lg">
+                            <div class="font-bold text-gray-800">灵魂操控</div>
+                            <div class="text-sm text-gray-600">束缚、抽取、奴役</div>
+                        </div>
+                        <div class="bg-gray-100 p-3 rounded-lg">
+                            <div class="font-bold text-gray-800">生命虹吸</div>
+                            <div class="text-sm text-gray-600">汲取、转化、治疗</div>
+                        </div>
+                        <div class="bg-gray-100 p-3 rounded-lg">
+                            <div class="font-bold text-gray-800">疾病诅咒</div>
+                            <div class="text-sm text-gray-600">腐蚀、虚弱、恐惧</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 历史发展卡片 -->
+            <div class="card md:col-span-4 p-8 flex flex-col relative">
+                <div class="absolute top-0 left-0 w-full h-full highlight-gradient-yellow"></div>
+                <div class="relative z-10 flex-grow">
+                    <div class="flex items-center mb-6">
+                        <i class="fa-solid fa-scroll text-yellow-600 text-3xl mr-4"></i>
+                        <h2 class="text-2xl font-bold text-gray-800">通灵学派历史发展</h2>
+                    </div>
+                    <div class="relative">
+                        <div class="absolute left-4 top-0 bottom-0 w-0.5 bg-yellow-200"></div>
+                        <div class="space-y-8">
+                            <div class="relative flex items-start">
+                                <div class="absolute left-[-12px] top-1 w-6 h-6 bg-yellow-500 rounded-full border-4 border-white"></div>
+                                <div class="ml-12">
+                                    <h3 class="text-xl font-bold text-gray-800">上古时期</h3>
+                                    <p class="text-gray-600">起源于巨魔帝国时期，用于与先祖之灵交流的原始通灵术</p>
+                                </div>
+                            </div>
+                            <div class="relative flex items-start">
+                                <div class="absolute left-[-12px] top-1 w-6 h-6 bg-yellow-500 rounded-full border-4 border-white"></div>
+                                <div class="ml-12">
+                                    <h3 class="text-xl font-bold text-gray-800">古代文明时期</h3>
+                                    <p class="text-gray-600">高等精灵与人类开始系统研究，通灵学派正式形成</p>
+                                </div>
+                            </div>
+                            <div class="relative flex items-start">
+                                <div class="absolute left-[-12px] top-1 w-6 h-6 bg-yellow-500 rounded-full border-4 border-white"></div>
+                                <div class="ml-12">
+                                    <h3 class="text-xl font-bold text-gray-800">黑暗帝国时期</h3>
+                                    <p class="text-gray-600">巫妖王与克尔苏加德将通灵术扭曲为邪恶工具，建立通灵学院</p>
+                                </div>
+                            </div>
+                            <div class="relative flex items-start">
+                                <div class="absolute left-[-12px] top-1 w-6 h-6 bg-yellow-500 rounded-full border-4 border-white"></div>
+                                <div class="ml-12">
+                                    <h3 class="text-xl font-bold text-gray-800">现代发展</h3>
+                                    <p class="text-gray-600">通灵术被严格禁止，但秘密组织仍在研究，部分领域出现合法应用</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 核心优势卡片 -->
+            <div class="card md:col-span-2 p-8 flex flex-col relative">
+                <div class="absolute top-0 left-0 w-full h-full highlight-gradient-teal"></div>
+                <div class="relative z-10 flex-grow">
+                    <div class="flex items-center mb-6">
+                        <i class="fa-solid fa-star text-teal-600 text-3xl mr-4"></i>
+                        <h2 class="text-2xl font-bold text-gray-800">核心优势</h2>
+                    </div>
+                    <div class="grid grid-cols-2 gap-4">
+                        <div class="bg-teal-50 p-4 rounded-lg">
+                            <div class="flex items-center mb-2">
+                                <i class="fa-solid fa-heart-pulse text-teal-600 mr-2"></i>
+                                <h3 class="font-bold text-gray-800">强大生存力</h3>
+                            </div>
+                            <p class="text-sm text-gray-600">生命虹吸与亡灵仆从提供极高的战场生存能力</p>
+                        </div>
+                        <div class="bg-teal-50 p-4 rounded-lg">
+                            <div class="flex items-center mb-2">
+                                <i class="fa-solid fa-crosshairs text-teal-600 mr-2"></i>
+                                <h3 class="font-bold text-gray-800">多样化攻击</h3>
+                            </div>
+                            <p class="text-sm text-gray-600">诅咒、疾病、直接伤害、召唤等多种攻击方式</p>
+                        </div>
+                        <div class="bg-teal-50 p-4 rounded-lg">
+                            <div class="flex items-center mb-2">
+                                <i class="fa-solid fa-users text-teal-600 mr-2"></i>
+                                <h3 class="font-bold text-gray-800">亡灵军团</h3>
+                            </div>
+                            <p class="text-sm text-gray-600">召唤亡灵生物提供额外输出、肉盾和干扰</p>
+                        </div>
+                        <div class="bg-teal-50 p-4 rounded-lg">
+                            <div class="flex items-center mb-2">
+                                <i class="fa-solid fa-bolt text-teal-600 mr-2"></i>
+                                <h3 class="font-bold text-gray-800">能量多元化</h3>
+                            </div>
+                            <p class="text-sm text-gray-600">可从自身、敌人、环境等多源获取能量</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 主要劣势卡片 -->
+            <div class="card md:col-span-2 p-8 flex flex-col relative">
+                <div class="absolute top-0 left-0 w-full h-full highlight-gradient-pink"></div>
+                <div class="relative z-10 flex-grow">
+                    <div class="flex items-center mb-6">
+                        <i class="fa-solid fa-triangle-exclamation text-pink-600 text-3xl mr-4"></i>
+                        <h2 class="text-2xl font-bold text-gray-800">主要劣势</h2>
+                    </div>
+                    <div class="grid grid-cols-2 gap-4">
+                        <div class="bg-pink-50 p-4 rounded-lg">
+                            <div class="flex items-center mb-2">
+                                <i class="fa-solid fa-gavel text-pink-600 mr-2"></i>
+                                <h3 class="font-bold text-gray-800">道德争议</h3>
+                            </div>
+                            <p class="text-sm text-gray-600">在艾泽拉斯社会中被视为邪恶和禁忌</p>
+                        </div>
+                        <div class="bg-pink-50 p-4 rounded-lg">
+                            <div class="flex items-center mb-2">
+                                <i class="fa-solid fa-battery-quarter text-pink-600 mr-2"></i>
+                                <h3 class="font-bold text-gray-800">能量消耗大</h3>
+                            </div>
+                            <p class="text-sm text-gray-600">维持亡灵军团需要大量能量</p>
+                        </div>
+                        <div class="bg-pink-50 p-4 rounded-lg">
+                            <div class="flex items-center mb-2">
+                                <i class="fa-solid fa-gears text-pink-600 mr-2"></i>
+                                <h3 class="font-bold text-gray-800">控制不稳定</h3>
+                            </div>
+                            <p class="text-sm text-gray-600">亡灵生物有时会表现出不可预测的行为</p>
+                        </div>
+                        <div class="bg-pink-50 p-4 rounded-lg">
+                            <div class="flex items-center mb-2">
+                                <i class="fa-solid fa-sun text-pink-600 mr-2"></i>
+                                <h3 class="font-bold text-gray-800">光明脆弱</h3>
+                            </div>
+                            <p class="text-sm text-gray-600">对光明魔法和神圣能量特别脆弱</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 与其他学派对比表 -->
+            <div class="card md:col-span-4 p-8 flex flex-col relative">
+                <div class="absolute top-0 left-0 w-full h-full highlight-gradient-indigo"></div>
+                <div class="relative z-10 flex-grow">
+                    <div class="flex items-center mb-6">
+                        <i class="fa-solid fa-table-cells text-indigo-600 text-3xl mr-4"></i>
+                        <h2 class="text-2xl font-bold text-gray-800">通灵学派与其他学派对比</h2>
+                    </div>
+                    <div class="overflow-x-auto">
+                        <table class="w-full text-sm">
+                            <thead>
+                                <tr class="bg-indigo-50 text-gray-800">
+                                    <th class="p-3 text-left rounded-tl-lg">学派</th>
+                                    <th class="p-3 text-left">核心功能</th>
+                                    <th class="p-3 text-left">主要能量来源</th>
+                                    <th class="p-3 text-left">道德评价</th>
+                                    <th class="p-3 text-left rounded-tr-lg">与通灵系关系</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr class="border-b border-gray-100">
+                                    <td class="p-3 font-medium">防护系</td>
+                                    <td class="p-3">保护与防御</td>
+                                    <td class="p-3">奥术能量</td>
+                                    <td class="p-3 text-green-600">完全合法</td>
+                                    <td class="p-3">对立（可抵御通灵魔法）</td>
+                                </tr>
+                                <tr class="border-b border-gray-100 bg-gray-50">
+                                    <td class="p-3 font-medium">召唤系</td>
+                                    <td class="p-3">召唤生物与物品</td>
+                                    <td class="p-3">奥术能量</td>
+                                    <td class="p-3 text-green-600">完全合法</td>
+                                    <td class="p-3">相似但本质不同</td>
+                                </tr>
+                                <tr class="border-b border-gray-100">
+                                    <td class="p-3 font-medium">占卜系</td>
+                                    <td class="p-3">预知未来与获取信息</td>
+                                    <td class="p-3">精神能量</td>
+                                    <td class="p-3 text-green-600">完全合法</td>
+                                    <td class="p-3">部分重叠（死亡预言）</td>
+                                </tr>
+                                <tr class="border-b border-gray-100 bg-gray-50">
+                                    <td class="p-3 font-medium">塑能系</td>
+                                    <td class="p-3">能量的直接释放</td>
+                                    <td class="p-3">奥术/元素能量</td>
+                                    <td class="p-3 text-green-600">完全合法</td>
+                                    <td class="p-3">可结合（暗影能量攻击）</td>
+                                </tr>
+                                <tr class="border-b border-gray-100">
+                                    <td class="p-3 font-medium">增强系</td>
+                                    <td class="p-3">强化物品或生物</td>
+                                    <td class="p-3">奥术能量</td>
+                                    <td class="p-3 text-green-600">完全合法</td>
+                                    <td class="p-3">可结合（强化亡灵生物）</td>
+                                </tr>
+                                <tr class="border-b border-gray-100 bg-gray-50">
+                                    <td class="p-3 font-medium">幻象系</td>
+                                    <td class="p-3">创造幻觉</td>
+                                    <td class="p-3">奥术能量</td>
+                                    <td class="p-3 text-yellow-600">基本合法</td>
+                                    <td class="p-3">可结合（制造亡灵幻象）</td>
+                                </tr>
+                                <tr class="border-b border-gray-100">
+                                    <td class="p-3 font-medium">转化系</td>
+                                    <td class="p-3">改变形态或属性</td>
+                                    <td class="p-3">奥术能量</td>
+                                    <td class="p-3 text-green-600">完全合法</td>
+                                    <td class="p-3">可结合（将生物转化为亡灵）</td>
+                                </tr>
+                                <tr class="bg-indigo-50">
+                                    <td class="p-3 font-bold rounded-bl-lg">通灵系</td>
+                                    <td class="p-3">复活与控制亡灵</td>
+                                    <td class="p-3">死亡/灵魂能量</td>
+                                    <td class="p-3 text-red-600">被视为禁忌</td>
+                                    <td class="p-3 rounded-br-lg">-</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 未来发展趋势卡片 -->
+            <div class="card md:col-span-4 p-8 flex flex-col relative">
+                <div class="absolute top-0 left-0 w-full h-full highlight-gradient-orange"></div>
+                <div class="relative z-10 flex-grow">
+                    <div class="flex items-center mb-6">
+                        <i class="fa-solid fa-rocket text-orange-600 text-3xl mr-4"></i>
+                        <h2 class="text-2xl font-bold text-gray-800">未来发展趋势</h2>
+                    </div>
+                    <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                        <div class="bg-orange-50 p-6 rounded-lg">
+                            <div class="flex items-center mb-4">
+                                <i class="fa-solid fa-microchip text-orange-600 text-2xl mr-3"></i>
+                                <h3 class="text-xl font-bold text-gray-800">技术革新</h3>
+                            </div>
+                            <ul class="space-y-2 text-gray-600">
+                                <li class="flex items-start">
+                                    <i class="fa-solid fa-check text-orange-500 mr-2 mt-1"></i>
+                                    <span>数字化灵魂存储技术</span>
+                                </li>
+                                <li class="flex items-start">
+                                    <i class="fa-solid fa-check text-orange-500 mr-2 mt-1"></i>
+                                    <span>人工智能亡灵控制</span>
+                                </li>
+                                <li class="flex items-start">
+                                    <i class="fa-solid fa-check text-orange-500 mr-2 mt-1"></i>
+                                    <span>量子灵魂传输技术</span>
+                                </li>
+                                <li class="flex items-start">
+                                    <i class="fa-solid fa-check text-orange-500 mr-2 mt-1"></i>
+                                    <span>纳米级亡灵构造</span>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="bg-orange-50 p-6 rounded-lg">
+                            <div class="flex items-center mb-4">
+                                <i class="fa-solid fa-shapes text-orange-600 text-2xl mr-3"></i>
+                                <h3 class="text-xl font-bold text-gray-800">应用拓展</h3>
+                            </div>
+                            <ul class="space-y-2 text-gray-600">
+                                <li class="flex items-start">
+                                    <i class="fa-solid fa-check text-orange-500 mr-2 mt-1"></i>
+                                    <span>医疗健康领域（灵魂治疗）</span>
+                                </li>
+                                <li class="flex items-start">
+                                    <i class="fa-solid fa-check text-orange-500 mr-2 mt-1"></i>
+                                    <span>能源产业（灵魂能量发电）</span>
+                                </li>
+                                <li class="flex items-start">
+                                    <i class="fa-solid fa-check text-orange-500 mr-2 mt-1"></i>
+                                    <span>娱乐产业（灵魂重现技术）</span>
+                                </li>
+                                <li class="flex items-start">
+                                    <i class="fa-solid fa-check text-orange-500 mr-2 mt-1"></i>
+                                    <span>科研领域（历史研究）</span>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="bg-orange-50 p-6 rounded-lg">
+                            <div class="flex items-center mb-4">
+                                <i class="fa-solid fa-scale-balanced text-orange-600 text-2xl mr-3"></i>
+                                <h3 class="text-xl font-bold text-gray-800">社会接受度</h3>
+                            </div>
+                            <ul class="space-y-2 text-gray-600">
+                                <li class="flex items-start">
+                                    <i class="fa-solid fa-check text-orange-500 mr-2 mt-1"></i>
+                                    <span>道德观念的转变</span>
+                                </li>
+                                <li class="flex items-start">
+                                    <i class="fa-solid fa-check text-orange-500 mr-2 mt-1"></i>
+                                    <span>法律框架的建立</span>
+                                </li>
+                                <li class="flex items-start">
+                                    <i class="fa-solid fa-check text-orange-500 mr-2 mt-1"></i>
+                                    <span>技术监管体系</span>
+                                </li>
+                                <li class="flex items-start">
+                                    <i class="fa-solid fa-check text-orange-500 mr-2 mt-1"></i>
+                                    <span>潜在风险与应对策略</span>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 结语卡片 -->
+            <div class="card md:col-span-4 p-8 flex flex-col justify-center items-center text-center relative">
+                <div class="absolute top-0 left-0 w-full h-full highlight-gradient-purple"></div>
+                <div class="relative z-10 max-w-4xl">
+                    <div class="text-4xl font-bold text-gray-800 mb-6">结语：通灵学派的价值重估</div>
+                    <p class="text-lg text-gray-600 mb-6">
+                        通灵学派作为艾泽拉斯魔法体系中最具争议的分支，其理论价值与技术潜力不容小觑。尽管在道德层面存在争议，但随着技术的进步和社会观念的变化，通灵技术正在从"禁忌之术"向"规范技术"转变。
+                    </p>
+                    <p class="text-lg text-gray-600">
+                        未来，通灵学派的发展将更加注重技术创新与伦理规范的平衡，在医疗、能源、科研等领域发挥更大作用，同时也需要建立严格的监管体系，防范潜在风险，确保技术发展真正造福于艾泽拉斯的居民。
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+<script>
+    // 法术等级体系图表
+    const spellLevelCtx = document.getElementById('spellLevelChart').getContext('2d');
+    const spellLevelChart = new Chart(spellLevelCtx, {
+        type: 'bar',
+        data: {
+            labels: ['0-3级 (基础)', '4-6级 (进阶)', '7-9级 (高阶)'],
+            datasets: [
+                {
+                    label: '法术数量',
+                    data: [25, 18, 12],
+                    backgroundColor: 'rgba(34, 197, 94, 0.6)',
+                    borderColor: 'rgba(34, 197, 94, 1)',
+                    borderWidth: 1
+                },
+                {
+                    label: '平均能量消耗',
+                    data: [20, 45, 80],
+                    backgroundColor: 'rgba(168, 85, 247, 0.6)',
+                    borderColor: 'rgba(168, 85, 247, 1)',
+                    borderWidth: 1
+                }
+            ]
+        },
+        options: {
+            maintainAspectRatio: false,
+            responsive: true,
+            plugins: {
+                legend: {
+                    position: 'top',
+                },
+                title: {
+                    display: true,
+                    text: '通灵法术等级分布与能量消耗'
+                }
+            },
+            scales: {
+                y: {
+                    beginAtZero: true
+                }
+            }
+        }
+    });
+</script>
+</html>
