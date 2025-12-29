@@ -1,0 +1,686 @@
+
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>艾泽拉斯占卜学派全面研究报告</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #FFFFFF;
+        }
+        .card {
+            background-color: white;
+            border: 1px solid #E5E7EB;
+            border-radius: 1.25rem;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+            transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+            overflow: hidden;
+            position: relative;
+        }
+        .card:hover {
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+            transform: translateY(-2px);
+        }
+        .highlight-gradient-blue {
+            background: linear-gradient(135deg, rgba(59, 130, 246, 0), rgba(59, 130, 246, 0.05));
+        }
+        .highlight-gradient-purple {
+            background: linear-gradient(135deg, rgba(139, 92, 246, 0), rgba(139, 92, 246, 0.05));
+        }
+        .highlight-gradient-amber {
+            background: linear-gradient(135deg, rgba(245, 158, 11, 0), rgba(245, 158, 11, 0.05));
+        }
+        .highlight-gradient-green {
+            background: linear-gradient(135deg, rgba(34, 197, 94, 0), rgba(34, 197, 94, 0.05));
+        }
+        .highlight-gradient-red {
+            background: linear-gradient(135deg, rgba(239, 68, 68, 0), rgba(239, 68, 68, 0.05));
+        }
+        .highlight-gradient-cyan {
+            background: linear-gradient(135deg, rgba(6, 182, 212, 0), rgba(6, 182, 212, 0.05));
+        }
+        .highlight-gradient-rose {
+            background: linear-gradient(135deg, rgba(244, 63, 94, 0), rgba(244, 63, 94, 0.05));
+        }
+        .highlight-gradient-indigo {
+            background: linear-gradient(135deg, rgba(99, 102, 241, 0), rgba(99, 102, 241, 0.05));
+        }
+        .highlight-gradient-orange {
+            background: linear-gradient(135deg, rgba(249, 115, 22, 0), rgba(249, 115, 22, 0.05));
+        }
+        .highlight-gradient-teal {
+            background: linear-gradient(135deg, rgba(20, 184, 166, 0), rgba(20, 184, 166, 0.05));
+        }
+    </style>
+</head>
+<body class="bg-white">
+    <div class="max-w-7xl mx-auto p-4 md:p-8">
+        <div class="grid grid-cols-1 md:grid-cols-4 gap-4 md:gap-6">
+            <!-- 标题卡片 -->
+            <div class="card md:col-span-4 p-8 flex flex-col justify-center items-center text-center relative">
+                <div class="absolute top-0 left-0 w-full h-full highlight-gradient-purple"></div>
+                <div class="relative w-full">
+                    <h1 class="text-4xl md:text-6xl font-bold text-gray-800 mb-4">艾泽拉斯占卜学派</h1>
+                    <p class="text-xl md:text-2xl text-gray-600 font-light">全面研究报告</p>
+                    <div class="mt-8 flex justify-center space-x-8">
+                        <div class="text-center">
+                            <i class="fa-solid fa-star text-3xl text-amber-500 mb-2"></i>
+                            <p class="text-sm text-gray-500">观星术</p>
+                        </div>
+                        <div class="text-center">
+                            <i class="fa-solid fa-eye text-3xl text-blue-500 mb-2"></i>
+                            <p class="text-sm text-gray-500">探知术</p>
+                        </div>
+                        <div class="text-center">
+                            <i class="fa-solid fa-wand-magic-sparkles text-3xl text-purple-500 mb-2"></i>
+                            <p class="text-sm text-gray-500">预言术</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 引言卡片 -->
+            <div class="card md:col-span-4 p-8 flex flex-col relative">
+                <div class="absolute top-0 left-0 w-full h-full highlight-gradient-blue"></div>
+                <div class="relative">
+                    <h2 class="text-2xl font-bold text-gray-800 mb-4">引言：占卜学派概述与研究背景</h2>
+                    <p class="text-gray-600 mb-4">在艾泽拉斯的魔法体系中，占卜学派占据着独特而神秘的地位。与其他学派不同，占卜学派的核心价值不在于直接创造或毁灭，而在于通过魔法手段<span class="font-semibold text-blue-600">突破时间与空间的桎梏</span>，获取未知信息、预见潜在风险、洞察事物本质。</p>
+                    <p class="text-gray-600">本报告旨在全面解析艾泽拉斯占卜学派的理论基础、法术体系、实战应用和历史发展。研究将重点关注占卜系的三大核心分支——<span class="font-semibold text-blue-600">观星术、探知术和预言术</span>，并深入分析其与其他学派的协同与对抗关系。</p>
+                </div>
+            </div>
+
+            <!-- 占卜学派本质特征卡片 -->
+            <div class="card md:col-span-2 p-8 flex flex-col relative">
+                <div class="absolute top-0 left-0 w-full h-full highlight-gradient-amber"></div>
+                <div class="relative">
+                    <h3 class="text-xl font-bold text-gray-800 mb-4">占卜学派的本质特征</h3>
+                    <ul class="space-y-4">
+                        <li class="flex items-start">
+                            <i class="fa-solid fa-circle-check text-amber-500 mt-1 mr-3"></i>
+                            <div>
+                                <span class="font-semibold">信息收集的本质</span>
+                                <p class="text-sm text-gray-600">核心价值在于获取信息，而非直接产生物理或魔法效果</p>
+                            </div>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fa-solid fa-circle-check text-amber-500 mt-1 mr-3"></i>
+                            <div>
+                                <span class="font-semibold">能量感知的机制</span>
+                                <p class="text-sm text-gray-600">通过与目标的能量场建立联系，感知其存在、位置和状态</p>
+                            </div>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fa-solid fa-circle-check text-amber-500 mt-1 mr-3"></i>
+                            <div>
+                                <span class="font-semibold">预言的不确定性</span>
+                                <p class="text-sm text-gray-600">基于当前能量状态的概率推演，而非绝对准确的预言</p>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- 理论基础卡片 -->
+            <div class="card md:col-span-2 p-8 flex flex-col relative">
+                <div class="absolute top-0 left-0 w-full h-full highlight-gradient-green"></div>
+                <div class="relative">
+                    <h3 class="text-xl font-bold text-gray-800 mb-4">占卜学派的理论基础</h3>
+                    <div class="space-y-4">
+                        <div class="bg-green-50 p-4 rounded-lg border-l-4 border-green-400">
+                            <h4 class="font-semibold text-green-800">能量网络理论</h4>
+                            <p class="text-sm text-green-700">艾泽拉斯的所有存在都被一张无形的"能量网络"连接着，占卜师通过接入这个网络感知信息。</p>
+                        </div>
+                        <div class="bg-green-50 p-4 rounded-lg border-l-4 border-green-400">
+                            <h4 class="font-semibold text-green-800">时间流理论</h4>
+                            <p class="text-sm text-green-700">时间由无数"可能性支流"组成，高阶占卜师可以感知这些时间流，预见最可能发生的未来。</p>
+                        </div>
+                        <div class="bg-green-50 p-4 rounded-lg border-l-4 border-green-400">
+                            <h4 class="font-semibold text-green-800">精神共振理论</h4>
+                            <p class="text-sm text-green-700">占卜依赖于施法者的精神力与目标能量场的"共振"，共振强度决定了占卜的范围和精度。</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 法术等级体系卡片 -->
+            <div class="card md:col-span-4 p-8 flex flex-col relative">
+                <div class="absolute top-0 left-0 w-full h-full highlight-gradient-red"></div>
+                <div class="relative">
+                    <h3 class="text-xl font-bold text-gray-800 mb-6">占卜法术的等级体系</h3>
+                    <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                        <div class="bg-white border border-gray-200 rounded-lg p-4 shadow-sm">
+                            <h4 class="font-bold text-red-600 mb-3 flex items-center">
+                                <i class="fa-solid fa-circle text-xs mr-2"></i>
+                                0级戏法 (Cantrips)
+                            </h4>
+                            <ul class="text-sm space-y-2 text-gray-700">
+                                <li>• 侦测魔法 (Detect Magic)</li>
+                                <li>• 侦测隐形 (Detect Invisibility)</li>
+                                <li>• 黑暗视觉 (Dark Vision)</li>
+                            </ul>
+                        </div>
+                        <div class="bg-white border border-gray-200 rounded-lg p-4 shadow-sm">
+                            <h4 class="font-bold text-red-600 mb-3 flex items-center">
+                                <i class="fa-solid fa-circle text-xs mr-2"></i>
+                                1-3级法术
+                            </h4>
+                            <ul class="text-sm space-y-2 text-gray-700">
+                                <li>• 预言术 (Augury)</li>
+                                <li>• 识读术 (Read Magic)</li>
+                                <li>• 探知术 (Scrying)</li>
+                                <li>• 通晓传奇 (Legend Lore)</li>
+                            </ul>
+                        </div>
+                        <div class="bg-white border border-gray-200 rounded-lg p-4 shadow-sm">
+                            <h4 class="font-bold text-red-600 mb-3 flex items-center">
+                                <i class="fa-solid fa-circle text-xs mr-2"></i>
+                                4-9级法术
+                            </h4>
+                            <ul class="text-sm space-y-2 text-gray-700">
+                                <li>• 接触其他位面</li>
+                                <li>• 梦境探视</li>
+                                <li>• 传奇预言</li>
+                                <li>• 宇宙感知</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 三大核心分支卡片 -->
+            <div class="card md:col-span-4 p-8 flex flex-col relative">
+                <div class="absolute top-0 left-0 w-full h-full highlight-gradient-purple"></div>
+                <div class="relative">
+                    <h3 class="text-xl font-bold text-gray-800 mb-6">占卜学派的三大核心分支</h3>
+                    <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                        <div class="bg-gradient-to-br from-purple-50 to-purple-100 rounded-xl p-6 border border-purple-200">
+                            <div class="flex items-center mb-4">
+                                <i class="fa-solid fa-star text-3xl text-purple-500 mr-3"></i>
+                                <h4 class="text-xl font-bold text-purple-800">观星术</h4>
+                            </div>
+                            <p class="text-sm text-purple-700 mb-4">通过观察星辰运行和星象变化来解读命运和预见未来，是最古老的占卜分支之一。</p>
+                            <div class="text-xs text-purple-600 space-y-1">
+                                <p><strong>核心特征：</strong></p>
+                                <p>• 宇宙能量的连接</p>
+                                <p>• 时间跨度长</p>
+                                <p>• 群体性影响</p>
+                                <p>• 仪式性强</p>
+                            </div>
+                        </div>
+                        <div class="bg-gradient-to-br from-blue-50 to-blue-100 rounded-xl p-6 border border-blue-200">
+                            <div class="flex items-center mb-4">
+                                <i class="fa-solid fa-eye text-3xl text-blue-500 mr-3"></i>
+                                <h4 class="text-xl font-bold text-blue-800">探知术</h4>
+                            </div>
+                            <p class="text-sm text-blue-700 mb-4">应用最广泛的分支，专注于远程观察和目标侦查，能够看到远方的事物甚至其他位面的存在。</p>
+                            <div class="text-xs text-blue-600 space-y-1">
+                                <p><strong>核心特征：</strong></p>
+                                <p>• 精准定位</p>
+                                <p>• 实时监控</p>
+                                <p>• 跨空间感知</p>
+                                <p>• 视觉为主</p>
+                            </div>
+                        </div>
+                        <div class="bg-gradient-to-br from-amber-50 to-amber-100 rounded-xl p-6 border border-amber-200">
+                            <div class="flex items-center mb-4">
+                                <i class="fa-solid fa-wand-magic-sparkles text-3xl text-amber-500 mr-3"></i>
+                                <h4 class="text-xl font-bold text-amber-800">预言术</h4>
+                            </div>
+                            <p class="text-sm text-amber-700 mb-4">最神秘、风险最高的分支，能预见未来，解读命运轨迹，通过与宇宙能量深度连接感知时间流。</p>
+                            <div class="text-xs text-amber-600 space-y-1">
+                                <p><strong>核心特征：</strong></p>
+                                <p>• 时间维度</p>
+                                <p>• 概率推演</p>
+                                <p>• 因果影响</p>
+                                <p>• 精神负担重</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 其他分支卡片 -->
+            <div class="card md:col-span-2 p-8 flex flex-col relative">
+                <div class="absolute top-0 left-0 w-full h-full highlight-gradient-cyan"></div>
+                <div class="relative">
+                    <h3 class="text-xl font-bold text-gray-800 mb-4">其他重要分支</h3>
+                    <div class="space-y-3">
+                        <div class="flex items-center p-3 bg-cyan-50 rounded-lg">
+                            <i class="fa-solid fa-mountain-sun text-cyan-600 mr-3"></i>
+                            <div>
+                                <span class="font-semibold text-cyan-800">地卜术 (Geomancy)</span>
+                                <p class="text-xs text-cyan-700">通过感知大地能量和spirits获取信息或战斗</p>
+                            </div>
+                        </div>
+                        <div class="flex items-center p-3 bg-cyan-50 rounded-lg">
+                            <i class="fa-solid fa-bone text-cyan-600 mr-3"></i>
+                            <div>
+                                <span class="font-semibold text-cyan-800">骨卜术 (Bone Scrying)</span>
+                                <p class="text-xs text-cyan-700">通过解读骨骼来预见未来的占卜方法</p>
+                            </div>
+                        </div>
+                        <div class="flex items-center p-3 bg-cyan-50 rounded-lg">
+                            <i class="fa-solid fa-water text-cyan-600 mr-3"></i>
+                            <div>
+                                <span class="font-semibold text-cyan-800">水占术 (Hydromancy)</span>
+                                <p class="text-xs text-cyan-700">通过观察水面变化、倒影进行占卜</p>
+                            </div>
+                        </div>
+                        <div class="flex items-center p-3 bg-cyan-50 rounded-lg">
+                            <i class="fa-solid fa-moon text-cyan-600 mr-3"></i>
+                            <div>
+                                <span class="font-semibold text-cyan-800">梦境占卜 (Oneiromancy)</span>
+                                <p class="text-xs text-cyan-700">通过解析梦境来获取信息或预见未来</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- PVP应用卡片 -->
+            <div class="card md:col-span-2 p-8 flex flex-col relative">
+                <div class="absolute top-0 left-0 w-full h-full highlight-gradient-rose"></div>
+                <div class="relative">
+                    <h3 class="text-xl font-bold text-gray-800 mb-4">PVP环境中的占卜战术</h3>
+                    <div class="space-y-4">
+                        <div class="border border-rose-200 rounded-lg p-4">
+                            <h4 class="font-semibold text-rose-700 mb-2 flex items-center">
+                                <i class="fa-solid fa-radar text-rose-500 mr-2"></i>
+                                侦查与反侦查
+                            </h4>
+                            <p class="text-sm text-gray-700">通过探知术实时监控敌方位置、人数、装备和战术布置，同时使用侦测探知发现敌方的侦查企图。</p>
+                        </div>
+                        <div class="border border-rose-200 rounded-lg p-4">
+                            <h4 class="font-semibold text-rose-700 mb-2 flex items-center">
+                                <i class="fa-solid fa-eye-slash text-rose-500 mr-2"></i>
+                                破除幻象
+                            </h4>
+                            <p class="text-sm text-gray-700">占卜系包含能够破除幻象魔法的法术，在对抗擅长伪装的职业时尤为重要。</p>
+                        </div>
+                        <div class="border border-rose-200 rounded-lg p-4">
+                            <h4 class="font-semibold text-rose-700 mb-2 flex items-center">
+                                <i class="fa-solid fa-chess text-rose-500 mr-2"></i>
+                                预判与反制
+                            </h4>
+                            <p class="text-sm text-gray-700">通过感知敌方的能量流动和精神状态，预判其下一步行动，提前准备反制法术或调整战术。</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- PVE应用卡片 -->
+            <div class="card md:col-span-2 p-8 flex flex-col relative">
+                <div class="absolute top-0 left-0 w-full h-full highlight-gradient-indigo"></div>
+                <div class="relative">
+                    <h3 class="text-xl font-bold text-gray-800 mb-4">PVE环境中的团队定位</h3>
+                    <div class="space-y-3">
+                        <div class="flex items-start">
+                            <i class="fa-solid fa-dungeon text-indigo-500 mt-1 mr-3"></i>
+                            <div>
+                                <span class="font-semibold text-indigo-800">副本侦查</span>
+                                <p class="text-sm text-gray-600">提前侦查副本内的怪物分布、陷阱位置、BOSS的弱点等信息</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start">
+                            <i class="fa-solid fa-bullseye text-indigo-500 mt-1 mr-3"></i>
+                            <div>
+                                <span class="font-semibold text-indigo-800">BOSS战策略制定</span>
+                                <p class="text-sm text-gray-600">预见BOSS的技能释放顺序、阶段转换时机等关键信息</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start">
+                            <i class="fa-solid fa-magnifying-glass text-indigo-500 mt-1 mr-3"></i>
+                            <div>
+                                <span class="font-semibold text-indigo-800">陷阱与隐藏通路探测</span>
+                                <p class="text-sm text-gray-600">发现隐藏的通路、秘密房间或致命陷阱</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start">
+                            <i class="fa-solid fa-heart-pulse text-indigo-500 mt-1 mr-3"></i>
+                            <div>
+                                <span class="font-semibold text-indigo-800">团队buff监控</span>
+                                <p class="text-sm text-gray-600">实时监控各种buff和debuff的持续时间</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 优劣势分析卡片 -->
+            <div class="card md:col-span-2 p-8 flex flex-col relative">
+                <div class="absolute top-0 left-0 w-full h-full highlight-gradient-orange"></div>
+                <div class="relative">
+                    <h3 class="text-xl font-bold text-gray-800 mb-4">占卜学派的优劣势分析</h3>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                        <div>
+                            <h4 class="font-semibold text-orange-700 mb-3 flex items-center">
+                                <i class="fa-solid fa-thumbs-up text-orange-500 mr-2"></i>
+                                核心优势
+                            </h4>
+                            <ul class="text-sm space-y-2 text-gray-700">
+                                <li>• 信息掌控能力强</li>
+                                <li>• 战略价值高</li>
+                                <li>• 辅助能力全面</li>
+                                <li>• 生存能力强</li>
+                            </ul>
+                        </div>
+                        <div>
+                            <h4 class="font-semibold text-orange-700 mb-3 flex items-center">
+                                <i class="fa-solid fa-thumbs-down text-orange-500 mr-2"></i>
+                                主要劣势
+                            </h4>
+                            <ul class="text-sm space-y-2 text-gray-700">
+                                <li>• 无直接攻击能力</li>
+                                <li>• 施法时间长</li>
+                                <li>• 精神负担重</li>
+                                <li>• 易被干扰</li>
+                                <li>• 材料需求高</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 历史发展卡片 -->
+            <div class="card md:col-span-4 p-8 flex flex-col relative">
+                <div class="absolute top-0 left-0 w-full h-full highlight-gradient-teal"></div>
+                <div class="relative">
+                    <h3 class="text-xl font-bold text-gray-800 mb-6">占卜学派的历史发展与传承脉络</h3>
+                    <div class="space-y-6">
+                        <div class="flex">
+                            <div class="flex flex-col items-center mr-4">
+                                <div class="w-10 h-10 rounded-full bg-teal-100 flex items-center justify-center text-teal-600 font-bold">1</div>
+                                <div class="w-0.5 h-16 bg-teal-200"></div>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-teal-700 mb-2">上古时期：占卜魔法的起源</h4>
+                                <p class="text-sm text-gray-700">追溯到艾泽拉斯的上古时期，几乎与魔法文明的诞生同步。早在一万两千年前，苏拉玛的上层精灵就开始研究星辰，发展出了最早的观星术。</p>
+                            </div>
+                        </div>
+                        <div class="flex">
+                            <div class="flex flex-col items-center mr-4">
+                                <div class="w-10 h-10 rounded-full bg-teal-100 flex items-center justify-center text-teal-600 font-bold">2</div>
+                                <div class="w-0.5 h-16 bg-teal-200"></div>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-teal-700 mb-2">古代文明时期：学派的形成</h4>
+                                <p class="text-sm text-gray-700">随着艾泽拉斯各个文明的兴起，占卜学派逐渐形成了系统的理论体系和传承机制。高等精灵时期，奎尔萨拉斯建立了专门的占卜学院。</p>
+                            </div>
+                        </div>
+                        <div class="flex">
+                            <div class="flex flex-col items-center mr-4">
+                                <div class="w-10 h-10 rounded-full bg-teal-100 flex items-center justify-center text-teal-600 font-bold">3</div>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-teal-700 mb-2">现代发展：占卜学派的现状</h4>
+                                <p class="text-sm text-gray-700">进入现代，联盟方面，达拉然依然是占卜研究的中心；部落方面，血精灵继承了高等精灵的占卜传统；中立势力也发展出了独特的占卜方式。</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 关键人物卡片 -->
+            <div class="card md:col-span-4 p-8 flex flex-col relative">
+                <div class="absolute top-0 left-0 w-full h-full highlight-gradient-blue"></div>
+                <div class="relative">
+                    <h3 class="text-xl font-bold text-gray-800 mb-6">关键人物与里程碑事件</h3>
+                    <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                        <div class="bg-white border border-gray-200 rounded-xl p-6 shadow-sm">
+                            <div class="flex items-center mb-4">
+                                <i class="fa-solid fa-user-astronaut text-3xl text-blue-500 mr-3"></i>
+                                <div>
+                                    <h4 class="font-bold text-blue-800">麦迪文</h4>
+                                    <p class="text-xs text-blue-600">最伟大的占卜师</p>
+                                </div>
+                            </div>
+                            <p class="text-sm text-gray-700">作为最后一位提瑞斯法守护者，麦迪文展现出了超越时代的占卜能力，能够洞察德拉诺世界发生的一切变故，甚至超越了位面的限制。</p>
+                        </div>
+                        <div class="bg-white border border-gray-200 rounded-xl p-6 shadow-sm">
+                            <div class="flex items-center mb-4">
+                                <i class="fa-solid fa-user-shield text-3xl text-blue-500 mr-3"></i>
+                                <div>
+                                    <h4 class="font-bold text-blue-800">艾格文</h4>
+                                    <p class="text-xs text-blue-600">传奇守护者</p>
+                                </div>
+                            </div>
+                            <p class="text-sm text-gray-700">麦迪文的母亲，建立了守护者传承的占卜体系，确保每一代守护者都具备强大的预言能力，发明了许多新的占卜技术。</p>
+                        </div>
+                        <div class="bg-white border border-gray-200 rounded-xl p-6 shadow-sm">
+                            <div class="flex items-center mb-4">
+                                <i class="fa-solid fa-user-tie text-3xl text-blue-500 mr-3"></i>
+                                <div>
+                                    <h4 class="font-bold text-blue-800">卡德加</h4>
+                                    <p class="text-xs text-blue-600">麦迪文的弟子</p>
+                                </div>
+                            </div>
+                            <p class="text-sm text-gray-700">继承了老师的占卜天赋，在德拉诺的冒险中多次使用占卜魔法，帮助联盟了解了古尔丹和燃烧军团的阴谋。</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 分支对比图表卡片 -->
+            <div class="card md:col-span-4 p-8 flex flex-col relative">
+                <div class="absolute top-0 left-0 w-full h-full highlight-gradient-purple"></div>
+                <div class="relative">
+                    <h3 class="text-xl font-bold text-gray-800 mb-6">三大核心分支对比分析</h3>
+                    <div class="h-80">
+                        <canvas id="branchesChart"></canvas>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 与其他学派对比表格卡片 -->
+            <div class="card md:col-span-4 p-8 flex flex-col relative">
+                <div class="absolute top-0 left-0 w-full h-full highlight-gradient-amber"></div>
+                <div class="relative">
+                    <h3 class="text-xl font-bold text-gray-800 mb-6">占卜系与其他学派的对比</h3>
+                    <div class="overflow-x-auto">
+                        <table class="min-w-full bg-white border border-gray-200 rounded-lg">
+                            <thead>
+                                <tr class="bg-amber-50">
+                                    <th class="py-3 px-4 border-b text-left text-amber-800 font-semibold">学派</th>
+                                    <th class="py-3 px-4 border-b text-left text-amber-800 font-semibold">核心功能</th>
+                                    <th class="py-3 px-4 border-b text-left text-amber-800 font-semibold">主要用途</th>
+                                    <th class="py-3 px-4 border-b text-left text-amber-800 font-semibold">与占卜系的关系</th>
+                                    <th class="py-3 px-4 border-b text-left text-amber-800 font-semibold">协同效果</th>
+                                </tr>
+                            </thead>
+                            <tbody class="divide-y divide-gray-100">
+                                <tr>
+                                    <td class="py-3 px-4 font-medium">防护系</td>
+                                    <td class="py-3 px-4">防御与保护</td>
+                                    <td class="py-3 px-4">团队减伤、个人防护</td>
+                                    <td class="py-3 px-4">互补关系</td>
+                                    <td class="py-3 px-4">占卜预警+防护阻挡</td>
+                                </tr>
+                                <tr>
+                                    <td class="py-3 px-4 font-medium">塑能系</td>
+                                    <td class="py-3 px-4">能量攻击</td>
+                                    <td class="py-3 px-4">主要输出、范围伤害</td>
+                                    <td class="py-3 px-4">辅助关系</td>
+                                    <td class="py-3 px-4">占卜定位+精准打击</td>
+                                </tr>
+                                <tr>
+                                    <td class="py-3 px-4 font-medium">幻象系</td>
+                                    <td class="py-3 px-4">制造幻象</td>
+                                    <td class="py-3 px-4">伪装、欺骗、控制</td>
+                                    <td class="py-3 px-4">对抗关系</td>
+                                    <td class="py-3 px-4">占卜破幻+幻象辅助</td>
+                                </tr>
+                                <tr>
+                                    <td class="py-3 px-4 font-medium">召唤系</td>
+                                    <td class="py-3 px-4">召唤生物</td>
+                                    <td class="py-3 px-4">战斗宠物、元素盟友</td>
+                                    <td class="py-3 px-4">监控关系</td>
+                                    <td class="py-3 px-4">占卜评估+召唤控制</td>
+                                </tr>
+                                <tr>
+                                    <td class="py-3 px-4 font-medium">增强系</td>
+                                    <td class="py-3 px-4">能力强化</td>
+                                    <td class="py-3 px-4">武器附魔、属性提升</td>
+                                    <td class="py-3 px-4">增益关系</td>
+                                    <td class="py-3 px-4">占卜预判+精准增强</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 未来展望卡片 -->
+            <div class="card md:col-span-4 p-8 flex flex-col relative">
+                <div class="absolute top-0 left-0 w-full h-full highlight-gradient-green"></div>
+                <div class="relative">
+                    <h3 class="text-xl font-bold text-gray-800 mb-6">占卜学派的未来展望与发展趋势</h3>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                        <div class="space-y-4">
+                            <div class="bg-green-50 p-4 rounded-lg border-l-4 border-green-400">
+                                <h4 class="font-semibold text-green-800 mb-2">技术创新与融合</h4>
+                                <p class="text-sm text-green-700">机械占卜的兴起、魔法科技融合、网络占卜的出现，将大大提高占卜的效率和准确性。</p>
+                            </div>
+                            <div class="bg-green-50 p-4 rounded-lg border-l-4 border-green-400">
+                                <h4 class="font-semibold text-green-800 mb-2">应用领域的拓展</h4>
+                                <p class="text-sm text-green-700">商业应用、教育普及、医疗诊断、犯罪侦查等领域将成为占卜术的新战场。</p>
+                            </div>
+                        </div>
+                        <div class="space-y-4">
+                            <div class="bg-green-50 p-4 rounded-lg border-l-4 border-green-400">
+                                <h4 class="font-semibold text-green-800 mb-2">面临的挑战与危机</h4>
+                                <p class="text-sm text-green-700">信息过载、技术依赖、伦理争议、对抗技术的发展等问题将影响占卜学派的发展。</p>
+                            </div>
+                            <div class="bg-green-50 p-4 rounded-lg border-l-4 border-green-400">
+                                <h4 class="font-semibold text-green-800 mb-2">未来发展方向</h4>
+                                <p class="text-sm text-green-700">智能化发展、多维度感知、生态化应用、跨位面拓展将成为占卜学派的主要发展方向。</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 结语卡片 -->
+            <div class="card md:col-span-4 p-8 flex flex-col justify-center items-center text-center relative">
+                <div class="absolute top-0 left-0 w-full h-full highlight-gradient-purple"></div>
+                <div class="relative max-w-3xl">
+                    <h3 class="text-2xl font-bold text-gray-800 mb-4">结语：占卜学派的价值与意义</h3>
+                    <p class="text-gray-600 mb-6">通过对艾泽拉斯占卜学派的全面研究，我们可以得出结论：占卜学派建立在深刻的宇宙观和能量理论基础上，不仅是一种魔法技艺，更是对世界本质的探索。其"信息即力量"的理念对整个艾泽拉斯文明都有深远影响。</p>
+                    <p class="text-gray-600 mb-6">最后，我们要记住《奥术魔法的学派》中的警告："<span class="font-semibold text-purple-600">占卜不是你可以随意打个响指就期待准确答案的东西</span>"。真正的占卜师需要智慧、勇气和责任感。</p>
+                    <div class="flex justify-center space-x-6 mt-8">
+                        <div class="text-center">
+                            <i class="fa-solid fa-book-open text-3xl text-purple-500 mb-2"></i>
+                            <p class="text-sm text-gray-500">理论价值</p>
+                        </div>
+                        <div class="text-center">
+                            <i class="fa-solid fa-flask-vial text-3xl text-purple-500 mb-2"></i>
+                            <p class="text-sm text-gray-500">实践价值</p>
+                        </div>
+                        <div class="text-center">
+                            <i class="fa-solid fa-landmark text-3xl text-purple-500 mb-2"></i>
+                            <p class="text-sm text-gray-500">文化意义</p>
+                        </div>
+                        <div class="text-center">
+                            <i class="fa-solid fa-lightbulb text-3xl text-purple-500 mb-2"></i>
+                            <p class="text-sm text-gray-500">未来展望</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+<script>
+    // 分支对比图表
+    const ctx = document.getElementById('branchesChart').getContext('2d');
+    const branchesChart = new Chart(ctx, {
+        type: 'radar',
+        data: {
+            labels: ['精确度', '时间跨度', '空间范围', '精神负担', '施法复杂度', '实用性'],
+            datasets: [
+                {
+                    label: '观星术',
+                    data: [60, 95, 90, 65, 80, 70],
+                    backgroundColor: 'rgba(139, 92, 246, 0.2)',
+                    borderColor: 'rgba(139, 92, 246, 1)',
+                    borderWidth: 2,
+                    pointBackgroundColor: 'rgba(139, 92, 246, 1)',
+                    pointRadius: 4
+                },
+                {
+                    label: '探知术',
+                    data: [90, 30, 85, 45, 50, 95],
+                    backgroundColor: 'rgba(59, 130, 246, 0.2)',
+                    borderColor: 'rgba(59, 130, 246, 1)',
+                    borderWidth: 2,
+                    pointBackgroundColor: 'rgba(59, 130, 246, 1)',
+                    pointRadius: 4
+                },
+                {
+                    label: '预言术',
+                    data: [40, 80, 50, 95, 90, 60],
+                    backgroundColor: 'rgba(245, 158, 11, 0.2)',
+                    borderColor: 'rgba(245, 158, 11, 1)',
+                    borderWidth: 2,
+                    pointBackgroundColor: 'rgba(245, 158, 11, 1)',
+                    pointRadius: 4
+                }
+            ]
+        },
+        options: {
+            maintainAspectRatio: false,
+            scales: {
+                r: {
+                    angleLines: {
+                        display: true,
+                        color: 'rgba(0, 0, 0, 0.1)'
+                    },
+                    grid: {
+                        color: 'rgba(0, 0, 0, 0.1)'
+                    },
+                    pointLabels: {
+                        font: {
+                            size: 12,
+                            family: 'Arial'
+                        },
+                        color: '#374151'
+                    },
+                    ticks: {
+                        backdropColor: 'rgba(255, 255, 255, 0.75)',
+                        color: '#6b7280'
+                    }
+                }
+            },
+            plugins: {
+                legend: {
+                    position: 'top',
+                    labels: {
+                        font: {
+                            size: 14,
+                            family: 'Arial'
+                        },
+                        padding: 20
+                    }
+                },
+                tooltip: {
+                    backgroundColor: 'rgba(0, 0, 0, 0.7)',
+                    titleFont: {
+                        size: 14,
+                        family: 'Arial'
+                    },
+                    bodyFont: {
+                        size: 12,
+                        family: 'Arial'
+                    },
+                    padding: 12,
+                    cornerRadius: 8
+                }
+            }
+        }
+    });
+</script>
+</html>
